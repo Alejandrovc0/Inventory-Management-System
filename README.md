@@ -63,12 +63,6 @@ For an enhanced user experience, consider creating a basic GUI using a library l
    git clone https://github.com/your-username/inventory-management.git
    ```
 
-2. Navigate to the project directory:
-
-   ```bash
-   cd inventory-management
-   ```
-
 3. **Compile the program:**
 
    ```bash
