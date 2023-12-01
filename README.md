@@ -66,7 +66,7 @@ For an enhanced user experience, consider creating a basic GUI using a library l
 3. **Compile the program:**
 
    ```bash
-   g++ travel_agency.cpp -o travel_agency
+   g++ inventory-system.cpp -o inventory
    ```
    
 4. Run the executable:
