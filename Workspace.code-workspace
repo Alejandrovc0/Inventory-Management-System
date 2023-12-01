@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"ostream": "cpp",
+			"iomanip": "cpp",
+			"utility": "cpp",
+			"exception": "cpp",
+			"memory": "cpp",
+			"tuple": "cpp",
+			"xstring": "cpp",
+			"array": "cpp",
+			"string": "cpp",
+			"string_view": "cpp"
+		},
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter"
+		},
+		"python.formatting.provider": "none"
+	}
+}
