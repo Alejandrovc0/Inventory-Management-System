@@ -69,10 +69,15 @@ For an enhanced user experience, consider creating a basic GUI using a library l
    cd inventory-management
    ```
 
-3. Run the program:
+3. **Compile the program:**
 
    ```bash
-   g++ main.cpp -o inventory
+   g++ travel_agency.cpp -o travel_agency
+   ```
+   
+4. Run the executable:
+
+   ```bash
    ./inventory
    ```
 
