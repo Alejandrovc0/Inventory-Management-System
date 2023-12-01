@@ -2,8 +2,10 @@
 
 using namespace std;
 
+
+class 
 int main()
 {
-    cout << "Hello World" << endl;
+    
     return 0;
 }
