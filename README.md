@@ -46,7 +46,7 @@ Implement validation for user inputs to ensure data integrity.
 
 ### 4. Graphical User Interface (GUI)
 
-For an enhanced user experience, create a basic GUI using a SDL library.
+For an enhanced user experience, a basic GUI using an SDL library.
 
 ## Skills Practiced
 
@@ -60,13 +60,13 @@ For an enhanced user experience, create a basic GUI using a SDL library.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/inventory-management.git
+   git clone https://github.com/your-username/Inventory-Management-System.git
    ```
 
 3. **Compile the program:**
 
    ```bash
-   g++ inventory-system.cpp -o inventory
+   g++ main.cpp -o inventory
    ```
    
 4. Run the executable:
