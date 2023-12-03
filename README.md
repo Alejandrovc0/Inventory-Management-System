@@ -46,7 +46,7 @@ Implement validation for user inputs to ensure data integrity.
 
 ### 4. Graphical User Interface (GUI)
 
-For an enhanced user experience, create a basic GUI using a SDL library.
+For an enhanced user experience, a basic GUI using an SDL library.
 
 ## Skills Practiced
 
