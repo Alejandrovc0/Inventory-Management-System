@@ -3,14 +3,14 @@
 
 using namespace std;
 
-Item::Item() : quantity(0), price(0.0) {}
+Item::Item()
+{
+    quantity = 0;
+    price = 0.0;
+}
 
 Item::Item(const string &name, int quantity, double price)
-{
-    this->setName(name);
-    this->setQuantity(quantity);
-    this->setPrice(price);
-};
+    : name(name), quantity(quantity), price(price) {}
 
 string Item::getName() const
 {
