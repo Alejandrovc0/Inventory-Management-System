@@ -5,25 +5,26 @@
 
 using namespace std;
 
-class Item {
-private: 
-    string name;
-    int quantity;
-    double price;
+class Item
+{
+    private:
+        string name;
+        int quantity;
+        double price;
 
-public:
-    Item();
-    Item(string name, int quantity, double price);
+    public:
+        Item();
+        Item(const string &name, int quantity, double price);
 
-    string getName();
-    int getQuantity();
-    double getPrice();
+        string getName() const;
+        int getQuantity() const;
+        double getPrice() const;
 
-    void setName(string name);
-    void setQuantity(int quantity);
-    void setPrice(double price);
+        void setName(const string &name);
+        void setQuantity(int quantity);
+        void setPrice(double price);
 
-    void displayItem();
+        void displayItem() const;
 };
 
 #endif

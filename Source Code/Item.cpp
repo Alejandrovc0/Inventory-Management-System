@@ -5,44 +5,44 @@ using namespace std;
 
 Item::Item() : quantity(0), price(0.0) {}
 
-Item::Item(string name, int quantity, double price)
+Item::Item(const string &name, int quantity, double price)
 {
     this->setName(name);
     this->setQuantity(quantity);
     this->setPrice(price);
 };
 
-string Item::getName()
+string Item::getName() const
 {
     return name;
 }
 
-int Item::getQuantity()
+int Item::getQuantity() const
 {
     return quantity;
 }
 
-double Item::getPrice()
+double Item::getPrice() const
 {
     return price;
 }
 
-void Item::setName(string& Newname)
+void Item::setName(const string &newName)
 {
-    name = Newname;
+    name = newName;
 }
 
 void Item::setQuantity(int newQuantity)
 {
-    quantity = Newquantity;
+    quantity = newQuantity;
 }
 
 void Item::setPrice(double newPrice)
 {
-    price = Newprice;
+    price = newPrice;
 }
 
-void Item::displayItem()
+void Item::displayItem() const
 {
     cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << endl;
 }
