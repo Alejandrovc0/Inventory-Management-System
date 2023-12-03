@@ -66,7 +66,7 @@ For an enhanced user experience, create a basic GUI using a SDL library.
 3. **Compile the program:**
 
    ```bash
-   g++ inventory-system.cpp -o inventory
+   g++ main.cpp -o inventory
    ```
    
 4. Run the executable:
