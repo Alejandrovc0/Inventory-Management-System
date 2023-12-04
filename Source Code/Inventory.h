@@ -16,6 +16,8 @@ class Inventory
         void displayInventory() const;
         const Item *searchItem(const string &itemName) const;
         void saveInventoryInfo() const;
+        void overwriteInventory(const std::vector<Item>& newItems);
+        bool isEmpty() const;
 };
 
 #endif

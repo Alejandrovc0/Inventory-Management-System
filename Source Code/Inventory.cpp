@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <fstream>
+#include <array>
 
 using namespace std;
 
@@ -68,4 +69,14 @@ void Inventory::saveInventoryInfo() const
     {
         cout << "Unable to open file." << endl;
     }
+}
+
+void Inventory::overwriteInventory(const std::vector<Item>& newItems) 
+{
+    items = newItems;
+}
+
+bool Inventory::isEmpty() const 
+{
+    return items.empty();
 }
