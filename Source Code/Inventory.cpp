@@ -1,6 +1,7 @@
 #include "Inventory.h"
 #include <algorithm>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -48,4 +49,22 @@ const Item *Inventory::searchItem(const string &itemName) const
     }
 
     return nullptr;
+}
+
+void Inventory::saveInventoryInfo() const
+{
+    ofstream inventoryFile("Data/inventory_data.txt");
+
+    if (inventoryFile.is_open())
+    {
+        for (const auto &item : items)
+        {
+            inventoryFile << item.getName() << " " << item.getQuantity() << " " << item.getPrice() << endl;
+        }
+        inventoryFile.close();
+    }
+    else
+    {
+        cout << "Unable to open file." << endl;
+    }
 }

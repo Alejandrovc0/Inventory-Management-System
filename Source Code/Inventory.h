@@ -15,6 +15,7 @@ class Inventory
         void updateItem(const string &itemName, const Item &updatedItem);
         void displayInventory() const;
         const Item *searchItem(const string &itemName) const;
+        void saveInventoryInfo() const;
 };
 
 #endif
