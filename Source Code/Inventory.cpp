@@ -53,7 +53,8 @@ const Item *Inventory::searchItem(const string &itemName) const
 
 void Inventory::saveInventoryInfo() const
 {
-    ofstream inventoryFile("Data/inventory_data.txt");
+    ofstream inventoryFile;
+    inventoryFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
 
     if (inventoryFile.is_open())
     {
