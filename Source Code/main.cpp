@@ -1,9 +1,4 @@
-#include "Item.h"
-#include "Inventory.h"
-#include <iostream>
-#include <cctype>
-#include <fstream>
-
+#include "Headers.h"
 
 int menu(int choice);
 void getItemInfo(Inventory &inventory, string &name, int quantity, double price);
@@ -256,6 +251,7 @@ void save_loadInventory(Inventory &inventory, string &name, int quantity, double
         else if (choice == 'l' && !inventory.isEmpty())
         {
             int option;
+
             std::cout << "Inventory is not empty. Do you want to overwrite it? (y/n): ";
             std::cin >> option;
             option = tolower(option);
@@ -267,10 +263,12 @@ void save_loadInventory(Inventory &inventory, string &name, int quantity, double
                 std::vector<Item> newItems;
                 while (inventoryFile >> name >> quantity >> price)
                 {
-                    Item newItem(name, quantity, price);
-                    newItems.push_back(newItem);
+                    Item loadedItem(name, quantity, price);
+                    newItems.push_back(loadedItem);
                     inventory.overwriteInventory(newItems);
+                    
                 }
+                valid = true;
             }
             else
             {

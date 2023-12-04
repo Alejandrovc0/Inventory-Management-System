@@ -1,2 +1,2 @@
-Apple 200 5
-Orange 200 10
+Apple 100 100
+Cheese 300 2
