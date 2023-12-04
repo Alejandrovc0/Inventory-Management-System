@@ -222,17 +222,17 @@ void save_loadInventory(Inventory &inventory, string &name, int quantity, double
 
     while (!valid)
     {    
-        if (choice == 's' && !is_empty(inventory))
+        if (choice == 's' && (!inventory.isEmpty()))
         {
             inventory.saveInventoryInfo();
             valid = true;
         }
-        else if (choice == 's' && is_empty(inventory))
+        else if (choice == 's' && (inventory.isEmpty()))
         {
             std::cout << "Inventory is empty. Nothing to save." << endl;
             valid = true;            
         }
-        else if (choice == 'l' && is_empty(inventory))        
+        else if (choice == 'l' && inventory.isEmpty())        
         {
             ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
 
@@ -253,18 +253,23 @@ void save_loadInventory(Inventory &inventory, string &name, int quantity, double
                 std::cout << "Unable to open file." << endl;
             }
         }
-        else if (choice == 'l' && !is_empty(inventory))
+        else if (choice == 'l' && !inventory.isEmpty())
         {
+            int option;
             std::cout << "Inventory is not empty. Do you want to overwrite it? (y/n): ";
-            std::cin >> choice;
-            choice = tolower(choice);
-
-            if (choice == 'y')
+            std::cin >> option;
+            option = tolower(option);
+            
+            if (option == 'y')
             {
+                ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
+
+                std::vector<Item> newItems;
                 while (inventoryFile >> name >> quantity >> price)
                 {
                     Item newItem(name, quantity, price);
-                    inventory.addItem(newItem);
+                    newItems.push_back(newItem);
+                    inventory.overwriteInventory(newItems);
                 }
             }
             else
