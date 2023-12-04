@@ -224,15 +224,20 @@ void save_loadInventory()
     std::cin >> choice;
     choice = tolower(choice);
     inventory.displayInventory();
+
     while (!valid)
     {    
-        if (choice == 's')
+        if (choice == 's' && !is_empty(inventory))
         {
             inventory.saveInventoryInfo();
             valid = true;
         }
-
-        else if (choice == 'l')
+        else if (choice == 's' && is_empty(inventory))
+        {
+            std::cout << "Inventory is empty. Nothing to save." << endl;
+            valid = true;            
+        }
+        else if (choice == 'l' && is_empty(inventory))        
         {
             ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
 
@@ -255,6 +260,25 @@ void save_loadInventory()
             else
             {
                 std::cout << "Unable to open file." << endl;
+            }
+        }
+        else if (choice == 'l' && !is_empty(inventory))
+        {
+            std::cout << "Inventory is not empty. Do you want to overwrite it? (y/n): ";
+            std::cin >> choice;
+            choice = tolower(choice);
+
+            if (choice == 'y')
+            {
+                while (inventoryFile >> name >> quantity >> price)
+                {
+                    Item newItem(name, quantity, price);
+                    inventory.addItem(newItem);
+                }
+            }
+            else
+            {
+                valid = true;
             }
         }
         else if (choice != 's' || choice != 'l')
