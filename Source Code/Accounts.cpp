@@ -52,7 +52,7 @@ void Accounts::changePassword(const User &password, const User verificationCode,
 
 }
 
-bool Accounts::isEmpty() const
+bool Accounts::userExist() const
 {
-
+    return users.empty();
 }

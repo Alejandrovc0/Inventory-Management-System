@@ -18,7 +18,7 @@ class Accounts
         void retrieveUsername(const User verificationCode) const;
         void retrievePassword(const User verificationCode) const;
         void changePassword(const User &password, const User verificationCode, const User &updatedPassword);
-        bool isEmpty() const;
+        bool userExist() const;
 };
 
 
