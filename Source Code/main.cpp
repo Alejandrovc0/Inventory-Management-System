@@ -6,12 +6,12 @@
 
 
 int menu(int choice);
-void getItemInfo(string &name, int &quantity, double &price);
-void removeItem(string &name);
-void updateItem(string &name, int &quantity, double &price);
-void searchItem(string &name);
-void save_loadInventory();
-void returnOption();
+void getItemInfo(Inventory &inventory, string &name, int quantity, double price);
+void removeItem(Inventory &inventory, string &name);
+void updateItem(Inventory &inventory, string &name, int quantity, double price);
+void searchItem(Inventory &inventory, string &name);
+void save_loadInventory(Inventory &inventory, string &name, int quantity, double price);
+bool returnOption();
 
 int main()
 {
@@ -19,51 +19,52 @@ int main()
     string name;
     int quantity;
     double price;
-    int choice = menu(choice);
-    bool valid = false;
 
-    switch (choice)
+    while(true)
     {
-        case 1:
-        {
-            getItemInfo(name, quantity, price);
-            returnOption();
-            break;
-        }
-        case 2:
-        {
-            removeItem(name);
-            returnOption();
-            break;
-        }
-        case 3:
-        {
-            updateItem(name, quantity, price); 
-            returnOption();
-            break;
-        }
-        case 4:
-        {
-            inventory.displayInventory();
-            returnOption();
-            break;
+        int choice = menu(choice);
 
-        }
-        case 5:
+        switch (choice)
         {
-            searchItem(name);
-            returnOption();
-            break;
+            case 1:
+            {
+                getItemInfo(inventory, name, quantity, price);
+                break;
+            }
+            case 2:
+            {
+                removeItem(inventory, name);
+                break;
+            }
+            case 3:
+            {
+                updateItem(inventory, name, quantity, price); 
+                break;
+            }
+            case 4:
+            {
+                inventory.displayInventory();
+                break;
+            }
+            case 5:
+            {
+                searchItem(inventory, name);
+                break;
+            }
+            case 6:
+            {
+                save_loadInventory(inventory, name, quantity, price);
+                break;
+            }
+            case 7:
+            {
+                cout << "Exiting...";
+                exit(0);
+                break;
+            }
         }
-        case 6:
+        if (!returnOption())
         {
-            save_loadInventory();
-            returnOption();
-            break;
-        }
-        case 7:
-        {
-            exit(0);
             break;
         }
     }
@@ -93,9 +94,8 @@ int menu(int choice)
     return choice;
 }
 
-void getItemInfo(string &name, int &quantity, double &price)
+void getItemInfo(Inventory &inventory, string &name, int quantity, double price)
 {
-    Inventory inventory;
     bool valid = false;
     char choice;
 
@@ -124,9 +124,8 @@ void getItemInfo(string &name, int &quantity, double &price)
     }
 }
 
-void removeItem(string &name)
+void removeItem(Inventory &inventory, string &name)
 {
-    Inventory inventory;
     bool valid = false;
     int choice;
 
@@ -149,9 +148,8 @@ void removeItem(string &name)
     }
 }
 
-void updateItem(string &name, int &quantity, double &price)
+void updateItem(Inventory &inventory, string &name, int quantity, double price)
 {
-    Inventory inventory;
     bool valid = false;
     int choice;
 
@@ -180,9 +178,8 @@ void updateItem(string &name, int &quantity, double &price)
     }
 }
 
-void searchItem(string &name)
+void searchItem(Inventory &inventory, string &name)
 {
-    Inventory inventory;
     bool valid = false;
     int choice;
 
@@ -214,16 +211,14 @@ void searchItem(string &name)
     }
 }
 
-void save_loadInventory()
+void save_loadInventory(Inventory &inventory, string &name, int quantity, double price)
 {
-    Inventory inventory;
     bool valid = false;
     char choice;
-
+    
     std::cout << "Do you want to save or load the inventory? (s/l): ";
     std::cin >> choice;
     choice = tolower(choice);
-    inventory.displayInventory();
 
     while (!valid)
     {    
@@ -243,18 +238,14 @@ void save_loadInventory()
 
             if (inventoryFile.is_open())
             {
-                string name;
-                int quantity;
-                double price;
-
                 while (inventoryFile >> name >> quantity >> price)
                 {
-                    Item newItem(name, quantity, price);
-                    inventory.addItem(newItem);
+                    Item loadedItem(name, quantity, price);
+                    inventory.addItem(loadedItem);
+                    cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << endl;
                 }
 
                 inventoryFile.close();
-                inventory.displayInventory();
                 valid = true;
             }
             else
@@ -288,7 +279,7 @@ void save_loadInventory()
     }
 }
 
-void returnOption()
+bool returnOption()
 {
     char option;
 
@@ -298,10 +289,11 @@ void returnOption()
 
     if (option == 'y')
     {
-        main();
+        return true;
     }
     else
     {
-        exit(0);
+        cout << "Exiting...";
+        return false;
     }
 }
