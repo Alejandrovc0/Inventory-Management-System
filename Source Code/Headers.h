@@ -5,6 +5,7 @@
 #include "Inventory.h"
 #include "User.h"
 #include "Accounts.h"
+#include "user_declaration.h"
 #include <iostream>
 #include <cctype>
 #include <fstream>
