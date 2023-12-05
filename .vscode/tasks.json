@@ -21,7 +21,8 @@
                 "Inventory.o",
                 "Item.o",
                 "User.o",
-                "Accounts.o"
+                "Accounts.o",
+                "user_system.o"
             ],
             "options": {
                 "cwd": "${fileDirname}"
