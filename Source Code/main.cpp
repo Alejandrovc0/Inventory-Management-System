@@ -10,6 +10,7 @@ bool returnOption();
 
 int main()
 {
+    userMenu();
     Inventory inventory;
     string name;
     int quantity;
