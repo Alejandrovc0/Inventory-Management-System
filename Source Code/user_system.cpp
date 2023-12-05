@@ -3,9 +3,8 @@
 
 using namespace std;
 
-int userMenu()
+int userMenu(bool &login)
 {
-    bool login = false;
     int choice;
     string username, password;
     int verificationCode;
@@ -14,6 +13,7 @@ int userMenu()
 
     while (login == false)
     {
+        cout << endl;
         cout << "1. Login" << endl;
         cout << "2. Register" << endl;
         cout << "3. Exit" << endl;
@@ -31,7 +31,7 @@ int userMenu()
                 break;
             case 3:
                 cout << "Exiting..." << endl;
-                login = true;
+                exit(-1);
                 break;
             default:
                 cout << "Invalid choice!" << endl;

@@ -10,58 +10,64 @@ bool returnOption();
 
 int main()
 {
-    userMenu();
+    bool login = false;
+    userMenu(login);
     Inventory inventory;
     string name;
     int quantity;
     double price;
 
-    while(true)
+    if (login == true)
     {
-        int choice = menu(choice);
+        cout << "Welcome to the Inventory Management System!" << endl;
+    
+        while(true)
+        {
+            int choice = menu(choice);
 
-        switch (choice)
-        {
-            case 1:
+            switch (choice)
             {
-                getItemInfo(inventory, name, quantity, price);
+                case 1:
+                {
+                    getItemInfo(inventory, name, quantity, price);
+                    break;
+                }
+                case 2:
+                {
+                    removeItem(inventory, name);
+                    break;
+                }
+                case 3:
+                {
+                    updateItem(inventory, name, quantity, price); 
+                    break;
+                }
+                case 4:
+                {
+                    inventory.displayInventory();
+                    break;
+                }
+                case 5:
+                {
+                    searchItem(inventory, name);
+                    break;
+                }
+                case 6:
+                {
+                    save_loadInventory(inventory, name, quantity, price);
+                    break;
+                }
+                case 7:
+                {
+                    cout << "Exiting...";
+                    exit(0);
+                    break;
+                }
+            }
+            if (!returnOption())
+            {
                 break;
             }
-            case 2:
-            {
-                removeItem(inventory, name);
-                break;
-            }
-            case 3:
-            {
-                updateItem(inventory, name, quantity, price); 
-                break;
-            }
-            case 4:
-            {
-                inventory.displayInventory();
-                break;
-            }
-            case 5:
-            {
-                searchItem(inventory, name);
-                break;
-            }
-            case 6:
-            {
-                save_loadInventory(inventory, name, quantity, price);
-                break;
-            }
-            case 7:
-            {
-                cout << "Exiting...";
-                exit(0);
-                break;
-            }
-        }
-        if (!returnOption())
-        {
-            break;
         }
     }
 

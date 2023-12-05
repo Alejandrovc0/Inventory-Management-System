@@ -6,7 +6,7 @@
 
 using namespace std;
  
-int userMenu();
+int userMenu(bool &login);
 void userLogin(User user, Accounts accounts, string &username, string &password, int verificationCode);
 void userRegister();
 void changePassword();
