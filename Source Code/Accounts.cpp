@@ -8,51 +8,88 @@ void Accounts::addUser(const User &user)
     users.push_back(user);
 }
 
-
-void Accounts::encryptPassword(User &user)
+bool isValidPassword(const string &password)
 {
-    string password = user.getPassword();
-    string encryptedPassword;
-
-    for (char &c : password)
+    bool hasUppercase = false, hasLowercase = false, hasNumber = false, hasSpecialChar = false;
+    for (auto c : password)
     {
-        encryptedPassword += char(int(c) + 3);
+        if (isupper(c))
+        {
+            hasUppercase = true;
+        }
+        else if (islower(c))
+        {
+            hasLowercase = true;
+        }
+        else if (isdigit(c))
+        {
+            hasNumber = true;
+        }
+        else if (c == '!' || c == '@' || c == '#' || c == '$' || c == '%' || c == '*' || c == '/')
+        {
+            hasSpecialChar = true;
+        }
     }
-
-    user.setPassword(encryptedPassword);
+    return password.length() >= 8 && hasUppercase && hasLowercase && hasNumber && hasSpecialChar;
 }
 
-void Accounts::login(const User &username, const User &password, const User verificationCode)
-{
+void Accounts::encryptPassword(User user, string &password)
+{   
+    for (auto &character : password)
+    {
+        character += 3;
+    }
+}
 
+void Accounts::login(User user, const string& enteredUsername, const string& enteredPassword, const int& enteredVerificationCode)
+{
+    
+    
+    if (enteredUsername == user.getUsername()  && enteredPassword == user.getPassword() && enteredVerificationCode == user.getVerification())
+    {
+        cout << "Login successful!" << endl;
+    }
+    else
+    {
+        cout << "Login failed!" << endl;
+    }
 }
 
 void Accounts::logout() const
 {
-
+    cout << "Logout successful!" << endl;
+    exit(0);
 }
 
-void Accounts::updateAccount(const User &user, const User &updatedUser)
+void Accounts::updateAccount(const string &user, const User &updatedUser)
 {
 
 }
 
-void Accounts::retrieveUsername(const User verificationCode) const
+void Accounts::retrieveUsername(const int verificationCode)
 {
 
 }
 
-void Accounts::retrievePassword(const User verificationCode) const
+void Accounts::retrievePassword(const int verificationCode)
 {
 
 }
 
-void Accounts::changePassword(const User &password, const User verificationCode, const User &updatedPassword)
+void Accounts::changePassword(const string &password, const int verificationCode, const User &updatedPassword)
 {
 
 }
 
-bool Accounts::userExist() const
+bool Accounts::userExist(const string &username)
 {
-    return users.empty();
+    for (auto &user : users)
+    {
+        if (user.getUsername() == username)
+        {
+            return true;
+        }
+
+    }
+    return false;
 }

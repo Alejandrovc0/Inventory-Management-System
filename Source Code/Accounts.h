@@ -11,14 +11,15 @@ class Accounts
 
     public:
         void addUser(const User &newUser);
-        void encryptPassword(User &user);
-        void login(const User &username, const User &password, const User verificationCode);
+        bool isValidPassword(const string &password);
+        void encryptPassword(User user, string &password);
+        void login(User user, const string& enteredUsername, const string& enteredPassword, const int& enteredVerificationCode);
         void logout() const;
-        void updateAccount(const User &user, const User &updatedUser);
-        void retrieveUsername(const User verificationCode) const;
-        void retrievePassword(const User verificationCode) const;
-        void changePassword(const User &password, const User verificationCode, const User &updatedPassword);
-        bool userExist() const;
+        void updateAccount(const string &user, const User &updatedUser);
+        void retrieveUsername(const int verificationCode);
+        void retrievePassword(const int verificationCode);
+        void changePassword(const string &password, const int verificationCode, const User &updatedPassword);
+        bool userExist(const string &username);
 };
 
 
