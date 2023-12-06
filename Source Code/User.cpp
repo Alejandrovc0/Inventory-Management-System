@@ -5,6 +5,9 @@ using namespace std;
 
 User::User()
 {
+    name = "";
+    username = "";
+    password = "";
     verificationCode = 0;
 }
 

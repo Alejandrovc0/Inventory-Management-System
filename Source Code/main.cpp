@@ -12,6 +12,7 @@ int main()
 {
     bool login = false;
     userMenu(login);
+    User user;
     Inventory inventory;
     string name;
     int quantity;
@@ -19,7 +20,7 @@ int main()
 
     if (login == true)
     {
-        cout << "Welcome to the Inventory Management System!" << endl;
+        cout << "Welcome to the Inventory Management System!" << user.getName() << endl;
     
         while(true)
         {

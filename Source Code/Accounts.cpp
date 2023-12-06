@@ -3,12 +3,12 @@
 
 using namespace std;
 
-void Accounts::addUser(const User &user)
+void Accounts::registerUser(const User &user)
 {
     users.push_back(user);
 }
 
-bool isValidPassword(const string &password)
+bool Accounts::isValidPassword(const string &password)
 {
     bool hasUppercase = false, hasLowercase = false, hasNumber = false, hasSpecialChar = false;
     for (auto c : password)
@@ -41,11 +41,9 @@ void Accounts::encryptPassword(User user, string &password)
     }
 }
 
-void Accounts::login(User user, const string& enteredUsername, const string& enteredPassword, const int& enteredVerificationCode)
+void Accounts::login(User user, const string& enteredUsername, const string& enteredPassword)
 {
-    
-    
-    if (enteredUsername == user.getUsername()  && enteredPassword == user.getPassword() && enteredVerificationCode == user.getVerification())
+    if (enteredUsername == user.getUsername()  && enteredPassword == user.getPassword())
     {
         cout << "Login successful!" << endl;
     }
