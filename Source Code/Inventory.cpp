@@ -1,4 +1,5 @@
 #include "Inventory.h"
+#include "User.h"
 #include <algorithm>
 #include <iostream>
 #include <fstream>
@@ -52,10 +53,10 @@ const Item *Inventory::searchItem(const string &itemName) const
     return nullptr;
 }
 
-void Inventory::saveInventoryInfo() const
+void Inventory::saveInventoryInfo(const User &user)
 {
     ofstream inventoryFile;
-    inventoryFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
+    inventoryFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\" + user.getUsername() + "_inventory_data.txt");
 
     if (inventoryFile.is_open())
     {

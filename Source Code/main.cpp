@@ -5,7 +5,7 @@ void getItemInfo(Inventory &inventory, string &name, int quantity, double price)
 void removeItem(Inventory &inventory, string &name);
 void updateItem(Inventory &inventory, string &name, int quantity, double price);
 void searchItem(Inventory &inventory, string &name);
-void save_loadInventory(Inventory &inventory, string &name, int quantity, double price);
+void save_loadInventory(User &user, Inventory &inventory, string &name, int quantity, double price);
 bool returnOption();
 
 int main()
@@ -55,7 +55,7 @@ int main()
                 }
                 case 6:
                 {
-                    save_loadInventory(inventory, name, quantity, price);
+                    save_loadInventory(user, inventory, name, quantity, price);
                     break;
                 }
                 case 7:
@@ -214,7 +214,7 @@ void searchItem(Inventory &inventory, string &name)
     }
 }
 
-void save_loadInventory(Inventory &inventory, string &name, int quantity, double price)
+void save_loadInventory(User &user, Inventory &inventory, string &name, int quantity, double price)
 {
     bool valid = false;
     char choice;
@@ -227,7 +227,7 @@ void save_loadInventory(Inventory &inventory, string &name, int quantity, double
     {    
         if (choice == 's' && (!inventory.isEmpty()))
         {
-            inventory.saveInventoryInfo();
+            inventory.saveInventoryInfo(user);
             valid = true;
         }
         else if (choice == 's' && (inventory.isEmpty()))
@@ -237,7 +237,7 @@ void save_loadInventory(Inventory &inventory, string &name, int quantity, double
         }
         else if (choice == 'l' && inventory.isEmpty())        
         {
-            ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
+            ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\" + user.getUsername() + "_inventory_data.txt");
 
             if (inventoryFile.is_open())
             {

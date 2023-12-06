@@ -2,6 +2,7 @@
 #define INVENTORY_H
 
 #include "Item.h"
+#include "User.h"
 #include <vector>
 
 class Inventory
@@ -15,7 +16,7 @@ class Inventory
         void updateItem(const string &itemName, const Item &updatedItem);
         void displayInventory() const;
         const Item *searchItem(const string &itemName) const;
-        void saveInventoryInfo() const;
+        void saveInventoryInfo(const User &user);
         void overwriteInventory(const std::vector<Item>& newItems);
         bool isEmpty() const;
 };

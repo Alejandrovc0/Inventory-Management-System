@@ -46,7 +46,7 @@ void userRegister(User &user, Accounts &accounts, string &name, string &username
 {
     cout << "\t\tSign up" << endl;
     cout << "Name: " << endl;
-    cin >> name;
+    getline(cin, name);
     cout << "Username: " << endl;
     cin >> username;
     cout << "Password: " << endl;
