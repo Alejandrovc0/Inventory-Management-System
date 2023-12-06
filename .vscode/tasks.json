@@ -11,15 +11,8 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
-                "-I",
-                "C:\\Program Files\\SFML-2.6.1\\include", 
-                "-L",
-                "C:\\Program Files\\SFML-2.6.1\\lib", 
-                "-lsfml-graphics",
-                "-lsfml-window",
-                "-lsfml-system",
-                "Inventory.o",
                 "Item.o",
+                "Inventory.o",
                 "User.o",
                 "Accounts.o",
                 "user_system.o"
@@ -46,13 +39,12 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
-                "-I",
-                "C:\\Program Files\\SFML-2.6.1\\include",
-                "-L",
-                "C:\\Program Files\\SFML-2.6.1\\lib",
-                "-lsfml-graphics",
-                "-lsfml-window",
-                "-lsfml-system"
+                "Inventory.o",
+                "Item.o",
+                "User.o",
+                "Accounts.o",
+                "user_system.o"
+                
             ],
             "options": {
                 "cwd": "${fileDirname}"
