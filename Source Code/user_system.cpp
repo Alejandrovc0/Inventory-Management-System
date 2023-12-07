@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
+void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
 {
     int choice;
     std::string name, username, password;
@@ -35,7 +35,6 @@ int userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
                 break;
         }
     }
-    return 0;
 }
 
 void userRegister(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode)
