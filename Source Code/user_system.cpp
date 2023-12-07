@@ -52,8 +52,8 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
     std::cin >> password;
     std::cout << std::endl;
 
-    User newUser(name, username, password, verificationCode);
-    accounts.registerUser(newUser);
+    user = User(name, username, password, verificationCode);
+    accounts.addUser(user);
 }
 
 void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password)
@@ -64,7 +64,7 @@ void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string
     std::cin >> password;
     std::cout << std::endl;
     accounts.login(user, username, password);
-    Inventory &inventory = user.getInventory();
+    inventory = user.getInventory();
 }
 
 void changePassword()

@@ -2,10 +2,10 @@
 #define INVENTORY_H
 
 #include "Item.h"
-#include "User.h"
 #include <vector>
 
 
+class User;
 class Inventory
 {
     private:

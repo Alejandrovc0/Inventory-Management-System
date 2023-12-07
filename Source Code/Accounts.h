@@ -10,7 +10,7 @@ class Accounts
         std::vector<User> users;
     
     public:
-        void registerUser(const User &newUser);
+        void addUser(const User &newUser);
         bool isValidPassword(const std::string &password);
         void encryptPassword(User user, std::string &password);
         void login(User user, const std::string& enteredUsername, const std::string& enteredPassword);

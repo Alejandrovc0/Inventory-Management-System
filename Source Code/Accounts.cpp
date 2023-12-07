@@ -1,7 +1,7 @@
 #include "Accounts.h"
 #include <iostream>
 
-void Accounts::registerUser(const User &user)
+void Accounts::addUser(const User &user)
 {
     users.push_back(user);
 }
