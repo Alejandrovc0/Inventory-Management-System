@@ -10,10 +10,10 @@ void Inventory::addItem(const Item &item)
     items.push_back(item);
 }
 
-void Inventory::removeItem(const std::string &itemName)
+void Inventory::removeItem(const int &serialNumber)
 {
-    auto item = remove_if(items.begin(), items.end(), [itemName](const Item &item)
-                          { return item.getName() == itemName; });
+    auto item = remove_if(items.begin(), items.end(), [serialNumber](const Item &item)
+                          { return item.getSerialNumber() == serialNumber; });
 
     items.erase(item, items.end());
 }
@@ -38,10 +38,10 @@ void Inventory::displayInventory() const
     }
 }
 
-const Item *Inventory::searchItem(const std::string &itemName) const
+const Item *Inventory::searchItem(const int &serialNumber) const
 {
-    auto item = find_if(items.begin(), items.end(), [itemName](const Item &item)
-                        { return item.getName() == itemName; });
+    auto item = find_if(items.begin(), items.end(), [serialNumber](const Item &item)
+                        { return item.getSerialNumber() == serialNumber; });
 
     if (item != items.end())
     {
@@ -60,7 +60,7 @@ void Inventory::saveInventoryInfo(const User &user)
     {
         for (const auto &item : items)
         {
-            inventoryFile << item.getName() << " " << item.getQuantity() << " " << item.getPrice() << std::endl;
+            inventoryFile << item.getSerialNumber() << " " << item.getName() << " " << item.getQuantity() << " " << item.getPrice() << std::endl;
         }
         inventoryFile.close();
     }

@@ -7,8 +7,13 @@ Item::Item()
     price = 0.0;
 }
 
-Item::Item(const std::string &name, int quantity, double price)
-    : name(name), quantity(quantity), price(price) {}
+Item::Item(int serialNumber, const std::string &name, int quantity, double price)
+    : serialNumber(serialNumber), name(name), quantity(quantity), price(price) {}
+
+int Item::getSerialNumber() const
+{
+    return serialNumber;
+}
 
 std::string Item::getName() const
 {
@@ -23,6 +28,11 @@ int Item::getQuantity() const
 double Item::getPrice() const
 {
     return price;
+}
+
+void Item::setSerialNumber(int newSerialNumber)
+{
+    serialNumber = newSerialNumber;
 }
 
 void Item::setName(const std::string &newName)
@@ -42,5 +52,5 @@ void Item::setPrice(double newPrice)
 
 void Item::displayItem() const
 {
-    std::cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
+    std::cout << "Serial number: " << serialNumber << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
 }

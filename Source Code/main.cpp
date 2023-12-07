@@ -1,11 +1,11 @@
 #include "Headers.h"
 
 int menu(int choice);
-void getItemInfo(User& user, Inventory &inventory, std::string &name, int quantity, double price);
-void removeItem(Inventory &inventory, std::string &name);
-void updateItem(Inventory &inventory, std::string &name, int quantity, double price);
-void searchItem(Inventory &inventory, std::string &name);
-void save_loadInventory(User &user, Inventory &inventory, std::string &name, int quantity, double price);
+void getItemInfo(User& user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
+void removeItem(Inventory &inventory);
+void updateItem(Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
+void searchItem(Inventory &inventory);
+void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
 bool returnOption();
 
 int main()
@@ -15,7 +15,7 @@ int main()
     Accounts accounts;
     Inventory inventory;
     std::string name;
-    int quantity;
+    int serialNum, quantity;
     double price;
     userMenu(user, accounts, inventory, login);
 
@@ -31,17 +31,17 @@ int main()
             {
                 case 1:
                 {
-                    getItemInfo(user, inventory, name, quantity, price);
+                    getItemInfo(user, inventory, serialNum, name, quantity, price);
                     break;
                 }
                 case 2:
                 {
-                    removeItem(inventory, name);
+                    removeItem(inventory);
                     break;
                 }
                 case 3:
                 {
-                    updateItem(inventory, name, quantity, price); 
+                    updateItem(inventory, serialNum, name, quantity, price); 
                     break;
                 }
                 case 4:
@@ -51,12 +51,12 @@ int main()
                 }
                 case 5:
                 {
-                    searchItem(inventory, name);
+                    searchItem(inventory);
                     break;
                 }
                 case 6:
                 {
-                    save_loadInventory(user, inventory, name, quantity, price);
+                    save_loadInventory(user, inventory, serialNum, name, quantity, price);
                     break;
                 }
                 case 7:
@@ -98,13 +98,15 @@ int menu(int choice)
     return choice;
 }
 
-void getItemInfo(User& user, Inventory &inventory, std::string &name, int quantity, double price)
+void getItemInfo(User& user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     char choice;
 
     while (!valid)
     {
+        std::cout << "Enter the serial number of the item: ";
+        std::cin >> serialNumber;
         std::cout << "Enter the name of the item: ";
         std::cin >> name;
         std::cout << "Enter the quantity of the item: ";
@@ -112,7 +114,7 @@ void getItemInfo(User& user, Inventory &inventory, std::string &name, int quanti
         std::cout << "Enter the price of the item: ";
         std::cin >> price;
 
-        Item newItem(name, quantity, price);
+        Item newItem(serialNumber, name, quantity, price);
 
         user.addItemToInventory(newItem);
         inventory.displayInventory();
@@ -128,17 +130,18 @@ void getItemInfo(User& user, Inventory &inventory, std::string &name, int quanti
     }
 }
 
-void removeItem(Inventory &inventory, std::string &name)
+void removeItem(Inventory &inventory)
 {
     bool valid = false;
     int choice;
+    int serialNumber;
 
     while (!valid)
     {
-        std::cout << "Enter the name of the item you want to remove: ";
-        std::cin >> name;
+        std::cout << "Enter the serial number of the item you want to remove: ";
+        std::cin >> serialNumber;
 
-        inventory.removeItem(name);
+        inventory.removeItem(serialNumber);
         inventory.displayInventory();
 
         std::cout << "Do you want to remove another item? (y/n): ";
@@ -152,7 +155,7 @@ void removeItem(Inventory &inventory, std::string &name)
     }
 }
 
-void updateItem(Inventory &inventory, std::string &name, int quantity, double price)
+void updateItem(Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     int choice;
@@ -166,7 +169,7 @@ void updateItem(Inventory &inventory, std::string &name, int quantity, double pr
         std::cout << "Enter the new price of the item: ";
         std::cin >> price;
 
-        Item updatedItem(name, quantity, price);
+        Item updatedItem(serialNumber, name, quantity, price);
 
         inventory.updateItem(name, updatedItem);
         inventory.displayInventory();
@@ -182,17 +185,18 @@ void updateItem(Inventory &inventory, std::string &name, int quantity, double pr
     }
 }
 
-void searchItem(Inventory &inventory, std::string &name)
+void searchItem(Inventory &inventory)
 {
     bool valid = false;
     int choice;
+    int serialNumber;
 
     while (!valid)
     {
         std::cout << "Enter the name of the item you want to search for: ";
-        std::cin >> name;
+        std::cin >> serialNumber;
 
-        const Item *item = inventory.searchItem(name);
+        const Item *item = inventory.searchItem(serialNumber);
 
         if (item != nullptr)
         {
@@ -215,7 +219,7 @@ void searchItem(Inventory &inventory, std::string &name)
     }
 }
 
-void save_loadInventory(User &user, Inventory &inventory, std::string &name, int quantity, double price)
+void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     char choice;
@@ -242,9 +246,9 @@ void save_loadInventory(User &user, Inventory &inventory, std::string &name, int
 
             if (inventoryFile.is_open())
             {
-                while (inventoryFile >> name >> quantity >> price)
+                while (inventoryFile >> serialNumber >> name >> quantity >> price)
                 {
-                    Item loadedItem(name, quantity, price);
+                    Item loadedItem(serialNumber, name, quantity, price);
                     inventory.addItem(loadedItem);
                     std::cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
                 }
@@ -270,9 +274,9 @@ void save_loadInventory(User &user, Inventory &inventory, std::string &name, int
                 std::ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
 
                 std::vector<Item> newItems;
-                while (inventoryFile >> name >> quantity >> price)
+                while (inventoryFile >> serialNumber >> name >> quantity >> price)
                 {
-                    Item loadedItem(name, quantity, price);
+                    Item loadedItem(serialNumber, name, quantity, price);
                     newItems.push_back(loadedItem);
                     inventory.overwriteInventory(newItems);
                     

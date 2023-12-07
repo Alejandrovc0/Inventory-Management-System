@@ -49,6 +49,8 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
     std::cout << "Password: " << std::endl;
     std::cin >> password;
     std::cout << std::endl;
+    std::cout << "Verification code: " << std::endl;
+    std::cin >> verificationCode;
 
     user = User(name, username, password, verificationCode);
     accounts.addUser(user);
