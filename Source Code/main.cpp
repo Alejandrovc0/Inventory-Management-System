@@ -11,16 +11,17 @@ bool returnOption();
 int main()
 {
     bool login = false;
-    userMenu(login);
     User user;
+    Accounts accounts;
     Inventory inventory;
     std::string name;
     int quantity;
     double price;
+    userMenu(user, accounts, inventory, login);
 
     if (login == true)
     {
-        std::cout << "Welcome to the Inventory Management System!" << user.getName() << std::endl;
+        std::cout << std::endl << "Welcome to the Inventory Management System " << user.getName() << "!" << std::endl;
     
         while(true)
         {

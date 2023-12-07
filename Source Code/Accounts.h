@@ -13,7 +13,7 @@ class Accounts
         void addUser(const User &newUser);
         bool isValidPassword(const std::string &password);
         void encryptPassword(User user, std::string &password);
-        void login(User user, const std::string& enteredUsername, const std::string& enteredPassword);
+        void login(User user, const std::string& enteredUsername, const std::string& enteredPassword, bool &login);
         void logout() const;
         void updateAccount(const std::string &user, const User &updatedUser);
         void retrieveUsername(const int verificationCode);

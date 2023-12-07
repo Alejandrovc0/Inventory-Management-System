@@ -2,14 +2,11 @@
 #include <iostream>
 #include <string>
 
-int userMenu(bool &login)
+int userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
 {
     int choice;
     std::string name, username, password;
     int verificationCode;
-    User user;
-    Accounts accounts;
-    Inventory inventory;
 
     while (login == false)
     {
@@ -27,7 +24,7 @@ int userMenu(bool &login)
                 userRegister(user, accounts, name, username, password, verificationCode);
                 break;
             case 2:
-                userLogin(user, accounts, inventory, username, password);
+                userLogin(user, accounts, inventory, username, password, login);
                 break;
             case 3:
                 std::cout << "Exiting..." << std::endl;
@@ -45,6 +42,7 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
 {
     std::cout << "\t\tSign up" << std::endl;
     std::cout << "Name: " << std::endl;
+    std::cin.ignore();
     getline(std::cin, name);
     std::cout << "Username: " << std::endl;
     std::cin >> username;
@@ -56,14 +54,14 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
     accounts.addUser(user);
 }
 
-void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password)
+void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password, bool &login)
 {
     std::cout << "Enter your username: ";
     std::cin >> username;
     std::cout << "Enter your password: ";
     std::cin >> password;
     std::cout << std::endl;
-    accounts.login(user, username, password);
+    accounts.login(user, username, password, login);
     inventory = user.getInventory();
 }
 

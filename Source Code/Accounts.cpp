@@ -39,15 +39,17 @@ void Accounts::encryptPassword(User user, std::string &password)
     }
 }
 
-void Accounts::login(User user, const std::string& enteredUsername, const std::string& enteredPassword)
+void Accounts::login(User user, const std::string& enteredUsername, const std::string& enteredPassword, bool &login)
 {
     if (enteredUsername == user.getUsername()  && enteredPassword == user.getPassword())
     {
         std::cout << "Login successful!" << std::endl;
+        login = true;
     }
     else
     {
         std::cout << "Login failed!" << std::endl;
+        login = false;
     }
 }
 
