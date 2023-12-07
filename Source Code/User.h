@@ -1,33 +1,37 @@
 #ifndef USER_H
 #define USER_H
 
+#include "Inventory.h"
+#include "Item.h"
 #include <string>
 #include <vector>
 
-using namespace std;
 
 class User
 {
     private:
-        string name;
-        string username;
-        string password;
-        string encryptedPasword;
+        std::string name;
+        std::string username;
+        std::string password;
+        std::string encryptedPasword;
         int verificationCode;
+        Inventory userInventory;
 
     public:
         User();
-        User(const string &name, const string &username, const string &password, int verificationCode);
+        User(const std::string &name, const std::string &username, const std::string &password, int verificationCode);
 
-        string getName() const;
-        string getUsername() const;
-        string getPassword() const;
+        std::string getName() const;
+        std::string getUsername() const;
+        std::string getPassword() const;
         int getVerification() const;
+        Inventory& getInventory();
 
-        void setName(const string &name);
-        void setUsername(const string &username);
-        void setPassword(const string &password);
+        void setName(const std::string &name);
+        void setUsername(const std::string &username);
+        void setPassword(const std::string &password);
         void setVerification(int verificationCode);
+        void addItemToInventory(const Item &item);
 };
 
 

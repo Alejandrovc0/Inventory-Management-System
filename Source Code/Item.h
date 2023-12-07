@@ -3,24 +3,22 @@
 
 #include <string>
 
-using namespace std;
-
 class Item
 {
     private:
-        string name;
+        std::string name;
         int quantity;
         double price;
 
     public:
         Item();
-        Item(const string &name, int quantity, double price);
+        Item(const std::string &name, int quantity, double price);
 
-        string getName() const;
+        std::string getName() const;
         int getQuantity() const;
         double getPrice() const;
 
-        void setName(const string &name);
+        void setName(const std::string &name);
         void setQuantity(int quantity);
         void setPrice(double price);
 

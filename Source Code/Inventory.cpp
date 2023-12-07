@@ -5,14 +5,12 @@
 #include <fstream>
 #include <array>
 
-using namespace std;
-
 void Inventory::addItem(const Item &item)
 {
     items.push_back(item);
 }
 
-void Inventory::removeItem(const string &itemName)
+void Inventory::removeItem(const std::string &itemName)
 {
     auto item = remove_if(items.begin(), items.end(), [itemName](const Item &item)
                           { return item.getName() == itemName; });
@@ -20,7 +18,7 @@ void Inventory::removeItem(const string &itemName)
     items.erase(item, items.end());
 }
 
-void Inventory::updateItem(const string &itemName, const Item &updatedItem)
+void Inventory::updateItem(const std::string &itemName, const Item &updatedItem)
 {
     auto item = find_if(items.begin(), items.end(), [itemName](const Item &item)
                         { return item.getName() == itemName; });
@@ -33,14 +31,14 @@ void Inventory::updateItem(const string &itemName, const Item &updatedItem)
 
 void Inventory::displayInventory() const
 {
-    cout << "Inventory: " << endl;
+    std::cout << "Inventory: " << std::endl;
     for (const auto &item : items)
     {
         item.displayItem();
     }
 }
 
-const Item *Inventory::searchItem(const string &itemName) const
+const Item *Inventory::searchItem(const std::string &itemName) const
 {
     auto item = find_if(items.begin(), items.end(), [itemName](const Item &item)
                         { return item.getName() == itemName; });
@@ -55,20 +53,20 @@ const Item *Inventory::searchItem(const string &itemName) const
 
 void Inventory::saveInventoryInfo(const User &user)
 {
-    ofstream inventoryFile;
+    std::ofstream inventoryFile;
     inventoryFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\" + user.getUsername() + "_inventory_data.txt");
 
     if (inventoryFile.is_open())
     {
         for (const auto &item : items)
         {
-            inventoryFile << item.getName() << " " << item.getQuantity() << " " << item.getPrice() << endl;
+            inventoryFile << item.getName() << " " << item.getQuantity() << " " << item.getPrice() << std::endl;
         }
         inventoryFile.close();
     }
     else
     {
-        cout << "Unable to open file." << endl;
+        std::cout << "Unable to open file." << std::endl;
     }
 }
 

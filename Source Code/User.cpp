@@ -1,8 +1,6 @@
 #include "User.h"
 #include <iostream>
 
-using namespace std;
-
 User::User()
 {
     name = "";
@@ -11,20 +9,20 @@ User::User()
     verificationCode = 0;
 }
 
-User::User(const string &name, const string &username, const string &password, int verificationCode)
+User::User(const std::string &name, const std::string &username, const std::string &password, int verificationCode)
     : name(name), username(username), password(password), verificationCode(verificationCode) {}
 
-string User::getName() const
+std::string User::getName() const
 {
     return name;
 }
 
-string User::getUsername() const
+std::string User::getUsername() const
 {
     return username;
 }
 
-string User::getPassword() const
+std::string User::getPassword() const
 {
     return password;
 }
@@ -34,17 +32,22 @@ int User::getVerification() const
     return verificationCode;
 }
 
-void User::setName(const string &newName)
+Inventory& User::getInventory()
+{
+    return userInventory;
+}
+
+void User::setName(const std::string &newName)
 {
     name = newName;
 }
 
-void User::setUsername(const string &newUsername)
+void User::setUsername(const std::string &newUsername)
 {
     username = newUsername;
 }
 
-void User::setPassword(const string &newPassword)
+void User::setPassword(const std::string &newPassword)
 {
     password = newPassword;
 }
@@ -52,4 +55,9 @@ void User::setPassword(const string &newPassword)
 void User::setVerification(int newVerificationCode)
 {
     verificationCode = newVerificationCode;
+}
+
+void User::addItemToInventory(const Item &item)
+{
+    userInventory.addItem(item);
 }

@@ -4,11 +4,9 @@
 #include "User.h"
 #include "Accounts.h"
 
-using namespace std;
-
 int userMenu(bool &login);
-void userRegister(User &user, Accounts &accounts, string &name, string &username, string &password, int verificationCode);
-void userLogin(User &user, Accounts &accounts, string &username, string &password);
+void userRegister(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode);
+void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password);
 void changePassword();
 void recoverPassword();
 void recoverUsername();

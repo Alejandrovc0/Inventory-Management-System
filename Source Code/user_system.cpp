@@ -2,25 +2,24 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int userMenu(bool &login)
 {
     int choice;
-    string name, username, password;
+    std::string name, username, password;
     int verificationCode;
-    Accounts accounts;
     User user;
+    Accounts accounts;
+    Inventory inventory;
 
     while (login == false)
     {
-        cout << endl;
-        cout << "1. Register" << endl;
-        cout << "2. Login" << endl;
-        cout << "3. Exit" << endl;
-        cout << "Enter your choice: ";
-        cin >> choice;
-        cout << endl;
+        std::cout << std::endl;
+        std::cout << "1. Register" << std::endl;
+        std::cout << "2. Login" << std::endl;
+        std::cout << "3. Exit" << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        std::cout << std::endl;
 
         switch (choice)
         {
@@ -28,43 +27,44 @@ int userMenu(bool &login)
                 userRegister(user, accounts, name, username, password, verificationCode);
                 break;
             case 2:
-                userLogin(user, accounts, username, password);
+                userLogin(user, accounts, inventory, username, password);
                 break;
             case 3:
-                cout << "Exiting..." << endl;
+                std::cout << "Exiting..." << std::endl;
                 exit(-1);
                 break;
             default:
-                cout << "Invalid choice!" << endl;
+                std::cout << "Invalid choice!" << std::endl;
                 break;
         }
     }
     return 0;
 }
 
-void userRegister(User &user, Accounts &accounts, string &name, string &username, string &password, int verificationCode)
+void userRegister(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode)
 {
-    cout << "\t\tSign up" << endl;
-    cout << "Name: " << endl;
-    getline(cin, name);
-    cout << "Username: " << endl;
-    cin >> username;
-    cout << "Password: " << endl;
-    cin >> password;
-    cout << endl;
+    std::cout << "\t\tSign up" << std::endl;
+    std::cout << "Name: " << std::endl;
+    getline(std::cin, name);
+    std::cout << "Username: " << std::endl;
+    std::cin >> username;
+    std::cout << "Password: " << std::endl;
+    std::cin >> password;
+    std::cout << std::endl;
 
     User newUser(name, username, password, verificationCode);
     accounts.registerUser(newUser);
 }
 
-void userLogin(User &user, Accounts &accounts, string &username, string &password)
+void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password)
 {
-    cout << "Enter your username: ";
-    cin >> username;
-    cout << "Enter your password: ";
-    cin >> password;
-    cout << endl;
+    std::cout << "Enter your username: ";
+    std::cin >> username;
+    std::cout << "Enter your password: ";
+    std::cin >> password;
+    std::cout << std::endl;
     accounts.login(user, username, password);
+    Inventory &inventory = user.getInventory();
 }
 
 void changePassword()

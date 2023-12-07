@@ -7,19 +7,19 @@
 class Accounts
 {
     private:
-        vector<User> users;
-
+        std::vector<User> users;
+    
     public:
         void registerUser(const User &newUser);
-        bool isValidPassword(const string &password);
-        void encryptPassword(User user, string &password);
-        void login(User user, const string& enteredUsername, const string& enteredPassword);
+        bool isValidPassword(const std::string &password);
+        void encryptPassword(User user, std::string &password);
+        void login(User user, const std::string& enteredUsername, const std::string& enteredPassword);
         void logout() const;
-        void updateAccount(const string &user, const User &updatedUser);
+        void updateAccount(const std::string &user, const User &updatedUser);
         void retrieveUsername(const int verificationCode);
         void retrievePassword(const int verificationCode);
-        void changePassword(const string &password, const int verificationCode, const User &updatedPassword);
-        bool userExist(const string &username);
+        void changePassword(const std::string &password, const int verificationCode, const User &updatedPassword);
+        bool userExist(const std::string &username);
 };
 
 

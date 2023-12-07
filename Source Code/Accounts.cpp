@@ -1,14 +1,12 @@
 #include "Accounts.h"
 #include <iostream>
 
-using namespace std;
-
 void Accounts::registerUser(const User &user)
 {
     users.push_back(user);
 }
 
-bool Accounts::isValidPassword(const string &password)
+bool Accounts::isValidPassword(const std::string &password)
 {
     bool hasUppercase = false, hasLowercase = false, hasNumber = false, hasSpecialChar = false;
     for (auto c : password)
@@ -33,7 +31,7 @@ bool Accounts::isValidPassword(const string &password)
     return password.length() >= 8 && hasUppercase && hasLowercase && hasNumber && hasSpecialChar;
 }
 
-void Accounts::encryptPassword(User user, string &password)
+void Accounts::encryptPassword(User user, std::string &password)
 {   
     for (auto &character : password)
     {
@@ -41,25 +39,25 @@ void Accounts::encryptPassword(User user, string &password)
     }
 }
 
-void Accounts::login(User user, const string& enteredUsername, const string& enteredPassword)
+void Accounts::login(User user, const std::string& enteredUsername, const std::string& enteredPassword)
 {
     if (enteredUsername == user.getUsername()  && enteredPassword == user.getPassword())
     {
-        cout << "Login successful!" << endl;
+        std::cout << "Login successful!" << std::endl;
     }
     else
     {
-        cout << "Login failed!" << endl;
+        std::cout << "Login failed!" << std::endl;
     }
 }
 
 void Accounts::logout() const
 {
-    cout << "Logout successful!" << endl;
+    std::cout << "Logout successful!" << std::endl;
     exit(0);
 }
 
-void Accounts::updateAccount(const string &user, const User &updatedUser)
+void Accounts::updateAccount(const std::string &user, const User &updatedUser)
 {
 
 }
@@ -74,12 +72,12 @@ void Accounts::retrievePassword(const int verificationCode)
 
 }
 
-void Accounts::changePassword(const string &password, const int verificationCode, const User &updatedPassword)
+void Accounts::changePassword(const std::string &password, const int verificationCode, const User &updatedPassword)
 {
 
 }
 
-bool Accounts::userExist(const string &username)
+bool Accounts::userExist(const std::string &username)
 {
     for (auto &user : users)
     {

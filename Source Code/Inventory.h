@@ -5,17 +5,18 @@
 #include "User.h"
 #include <vector>
 
+
 class Inventory
 {
     private:
-        vector<Item> items;
+        std::vector<Item> items;
 
     public:
         void addItem(const Item &newItem);
-        void removeItem(const string &itemName);
-        void updateItem(const string &itemName, const Item &updatedItem);
+        void removeItem(const std::string &itemName);
+        void updateItem(const std::string &itemName, const Item &updatedItem);
         void displayInventory() const;
-        const Item *searchItem(const string &itemName) const;
+        const Item *searchItem(const std::string &itemName) const;
         void saveInventoryInfo(const User &user);
         void overwriteInventory(const std::vector<Item>& newItems);
         bool isEmpty() const;
