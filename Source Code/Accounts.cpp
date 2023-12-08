@@ -1,5 +1,20 @@
 #include "Accounts.h"
 #include <iostream>
+#include <fstream>
+
+void Accounts::loadAccounts()
+{
+    std::ifstream accountFile("users.txt");
+    std::string name, username, password;
+    int verificationCode;
+
+    while (accountFile >> name >> username >> password >> verificationCode)
+    {
+        User user(name, username, password, verificationCode);
+        addUser(user);
+    }
+    accountFile.close();
+}
 
 void Accounts::addUser(const User &user)
 {
@@ -64,9 +79,9 @@ void Accounts::logout() const
     exit(0);
 }
 
-void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string username, const int verificationCode)
+void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string password, const int verificationCode)
 {
-    if(!accounts.userExist(username, verificationCode))
+    if(!(user.getPassword() == password && user.getVerification() == verificationCode))
     {
         std::cout << "Invalid information!" << std::endl;
     }
@@ -76,7 +91,7 @@ void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::strin
     }
 }
 
-void Accounts::changePassword(User& user, Accounts& accounts, const int verificationCode, std::string& updatedPassword)
+void Accounts::changePassword(User& user, Accounts& accounts, std::string& updatedPassword)
 {
     updatedPassword = accounts.encryptPassword(updatedPassword);
     user.setPassword(updatedPassword);
@@ -92,4 +107,30 @@ bool Accounts::userExist(const std::string& username, const int verificationCode
         }
     }
     return false;
+}
+
+void Accounts::deleteUser(User &user, Accounts &accounts, const std::string &username, const int verificationCode)
+{
+    int choice;
+    std::cout << "Are you sure you want to delete your account? (y/n)" << std::endl;
+    std::cin >> choice;
+    choice = tolower(choice);
+
+    if (choice == 'y')
+    {
+        for (auto &user : users)
+        {
+            if (user.getUsername() == username && user.getVerification() == verificationCode)
+            {
+                users.erase(users.begin());
+            }
+        }
+        std::cout << "Account deleted!" << std::endl;
+        accounts.logout();
+    }
+    else
+    {
+        std::cout << "Account not deleted!" << std::endl;
+    }
+    
 }

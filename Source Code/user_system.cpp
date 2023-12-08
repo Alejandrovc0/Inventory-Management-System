@@ -1,6 +1,7 @@
 #include "user_declaration.h"
 #include <iostream>
 #include <string>
+#include <fstream>
 
 void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
 {
@@ -11,17 +12,14 @@ void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
     while (login == false)
     {
         std::cout << std::endl;
-        std::cout << "1. Sign up" << std::endl;
-        std::cout << "Already have an account?" << std::endl;
-        std::cout << "2. Log in" << std::endl;
-<<<<<<< HEAD
-        std::cout << "3. Change password" << std::endl;
-        std::cout << "4. Recover username" << std::endl;
-        std::cout << "5. Exit" << std::endl;
-=======
-        std::cout << "3. Exit" << std::endl;
->>>>>>> bfb3218692035bc6047ef8ae06bc8653052c6215
-        std::cout << "Enter your choice: ";
+        std::cout << "\t\t1. Sign up" << std::endl;
+        std::cout << "\t Already have an account?" << std::endl;
+        std::cout << "\t\t2. Log in \n" << std::endl;
+        std::cout << "3. Change password";
+        std::cout << "\t4. Recover username" << std::endl;
+        std::cout << "5. Delete account";
+        std::cout << "\t6. Exit" << std::endl;
+        std::cout << "\nEnter your choice: ";
         std::cin >> choice;
         std::cout << std::endl;
 
@@ -40,6 +38,9 @@ void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
                 recoverUsername(user, accounts);
                 break;
             case 5:
+                deleteAccount(user, accounts, username, verificationCode);
+                break;
+            case 6:
                 std::cout << "Exiting..." << std::endl;
                 exit(-1);
                 break;
@@ -60,25 +61,34 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
     std::cin >> username;
     std::cout << "Password: " << std::endl;
     std::cin >> password;
+
     while (!accounts.isValidPassword(password))
     {
         std::cout << "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit." << std::endl;
         std::cout << "Password: " << std::endl;
         std::cin >> password;
     }
-    std::cout << std::endl;
+
     std::cout << "Verification code: " << std::endl;
     std::cin >> verificationCode;
+    std::cout << std::endl;
 
     std::string encryptedPasword;
     encryptedPasword = accounts.encryptPassword(password);
 
     user = User(name, username, encryptedPasword, verificationCode);
+
+    std::ofstream accountFile("users.txt", ios::app);
+    accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
+    accountFile.close();
+
     accounts.addUser(user);
+    std::cout << "Account created successfully!" << std::endl;
 }
 
 void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password, bool &login)
 {
+    std::cout << "\t\tLog in" << std::endl;
     std::cout << "Enter your username: ";
     std::cin >> username;
     std::cout << "Enter your password: ";
@@ -93,6 +103,7 @@ void changePassword(User &user, Accounts &accounts)
     std::string username;
     int verificationCode;
 
+    std::cout << "\t\tChange password" << std::endl;
     std::cout << "Enter your username: " << std::endl;
     std::cin >> username;
     std::cout << "Enter your verification code: " << std::endl;
@@ -119,28 +130,40 @@ void changePassword(User &user, Accounts &accounts)
             }
         }
 
-        accounts.changePassword(user, accounts, verificationCode, newPassword);
+        accounts.changePassword(user, accounts, newPassword);
     }
-
 }
 
 void recoverUsername(User &user, Accounts &accounts)
 {
-    std::string username;
+    std::string password;
     int verificationCode;
     
-    std::cout << "Enter your username: ";
-    std::cin >> username;    
+    std::cout << "\t\tRecover username" << std::endl;
+    std::cout << "Enter your password: ";
+    std::cin >> password;    
     std::cout << "Enter your verification code: ";
     std::cin >> verificationCode;
 
-    accounts.retrieveUsername(user, accounts, username, verificationCode);
-
+    accounts.retrieveUsername(user, accounts, password, verificationCode);
 }
 
-void deleteUser(User &user, Accounts &accounts, std::string &username, int verificationCode)
+void deleteAccount(User &user, Accounts &accounts, std::string &username, int verificationCode)
 {
+    std::cout << "\t\tDelete account" << std::endl;
     std::cout << "Enter your username: ";
+    std::cin >> username;
+    std::cout << "Enter your verification code: ";
+    std::cin >> verificationCode;
+
+    if(!accounts.userExist(username, verificationCode))
+    {
+        std::cout << "Invalid information!" << std::endl;
+    }
+    else
+    {
+        accounts.deleteUser(user, accounts, username, verificationCode);
+    }
 }
 
 
