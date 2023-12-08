@@ -11,8 +11,9 @@ void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
     while (login == false)
     {
         std::cout << std::endl;
-        std::cout << "1. Register" << std::endl;
-        std::cout << "2. Login" << std::endl;
+        std::cout << "1. Sign up" << std::endl;
+        std::cout << "Already have an account?" << std::endl;
+        std::cout << "2. Log in" << std::endl;
         std::cout << "3. Exit" << std::endl;
         std::cout << "Enter your choice: ";
         std::cin >> choice;
