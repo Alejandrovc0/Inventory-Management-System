@@ -12,14 +12,13 @@ class Accounts
     public:
         void addUser(const User &newUser);
         bool isValidPassword(const std::string &password);
-        void encryptPassword(User user, std::string &password);
-        void login(User user, const std::string& enteredUsername, const std::string& enteredPassword, bool &login);
+        std::string encryptPassword(std::string &password);
+        void login(User user, const std::string& enteredUsername, std::string& enteredPassword, bool& login);
         void logout() const;
         void updateAccount(const std::string &user, const User &updatedUser);
-        void retrieveUsername(const int verificationCode);
-        void retrievePassword(const int verificationCode);
-        void changePassword(const std::string &password, const int verificationCode, const User &updatedPassword);
-        bool userExist(const std::string &username);
+        void retrieveUsername(User& user, Accounts& accounts, const const std::string username, int verificationCode);
+        void changePassword(User& user, Accounts& accounts, const int verificationCode, std::string& updatedPassword);
+        bool userExist(const std::string& username, const int verificationCode);
 };
 
 

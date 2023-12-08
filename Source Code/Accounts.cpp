@@ -31,17 +31,22 @@ bool Accounts::isValidPassword(const std::string &password)
     return password.length() >= 8 && hasUppercase && hasLowercase && hasNumber && hasSpecialChar;
 }
 
-void Accounts::encryptPassword(User user, std::string &password)
+std::string Accounts::encryptPassword(std::string &password)
 {   
+    std::string encryptedPassword;
+
     for (auto &character : password)
     {
-        character += 3;
+        encryptedPassword = character += 3;
     }
+
+    return encryptedPassword;
 }
 
-void Accounts::login(User user, const std::string& enteredUsername, const std::string& enteredPassword, bool &login)
+void Accounts::login(User user, const std::string& enteredUsername, std::string& enteredPassword, bool& login)
 {
-    if (enteredUsername == user.getUsername()  && enteredPassword == user.getPassword())
+    std::string encryptedPassword = encryptPassword(enteredPassword);
+    if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
     {
         std::cout << "Login successful!" << std::endl;
         login = true;
@@ -59,35 +64,32 @@ void Accounts::logout() const
     exit(0);
 }
 
-void Accounts::updateAccount(const std::string &user, const User &updatedUser)
+void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string username, const int verificationCode)
 {
-
+    if(!accounts.userExist(username, verificationCode))
+    {
+        std::cout << "Invalid information!" << std::endl;
+    }
+    else
+    {
+        std::cout << user.getUsername() << std::endl;
+    }
 }
 
-void Accounts::retrieveUsername(const int verificationCode)
+void Accounts::changePassword(User& user, Accounts& accounts, const int verificationCode, std::string& updatedPassword)
 {
-
+    updatedPassword = accounts.encryptPassword(updatedPassword);
+    user.setPassword(updatedPassword);
 }
 
-void Accounts::retrievePassword(const int verificationCode)
-{
-
-}
-
-void Accounts::changePassword(const std::string &password, const int verificationCode, const User &updatedPassword)
-{
-
-}
-
-bool Accounts::userExist(const std::string &username)
+bool Accounts::userExist(const std::string& username, const int verificationCode)
 {
     for (auto &user : users)
     {
-        if (user.getUsername() == username)
+        if (user.getUsername() == username && user.getVerification() == verificationCode)
         {
             return true;
         }
-
     }
     return false;
 }
