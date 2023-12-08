@@ -14,9 +14,13 @@ void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
         std::cout << "1. Sign up" << std::endl;
         std::cout << "Already have an account?" << std::endl;
         std::cout << "2. Log in" << std::endl;
+<<<<<<< HEAD
         std::cout << "3. Change password" << std::endl;
         std::cout << "4. Recover username" << std::endl;
         std::cout << "5. Exit" << std::endl;
+=======
+        std::cout << "3. Exit" << std::endl;
+>>>>>>> bfb3218692035bc6047ef8ae06bc8653052c6215
         std::cout << "Enter your choice: ";
         std::cin >> choice;
         std::cout << std::endl;
