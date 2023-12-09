@@ -9,7 +9,7 @@ void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
     std::string name, username, password;
     int verificationCode;
 
-    while (login == false)
+    while (!login)
     {
         std::cout << std::endl;
         std::cout << "\t\t1. Sign up" << std::endl;
@@ -26,7 +26,7 @@ void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
         switch (choice)
         {
             case 1:
-                userRegister(user, accounts, name, username, password, verificationCode);
+                userSignup(user, accounts, name, username, password, verificationCode);
                 break;
             case 2:
                 userLogin(user, accounts, inventory, username, password, login);
@@ -51,7 +51,7 @@ void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
     }
 }
 
-void userRegister(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode)
+void userSignup(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode)
 {
     std::cout << "\t\tSign up" << std::endl;
     std::cout << "Name: " << std::endl;
@@ -94,7 +94,7 @@ void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string
     std::cout << "Enter your password: ";
     std::cin >> password;
     std::cout << std::endl;
-    accounts.login(user, username, password, login);
+    login = accounts.login(username, password);
     inventory = user.getInventory();
 }
 
@@ -144,7 +144,7 @@ void recoverUsername(User &user, Accounts &accounts)
     std::cout << "Enter your verification code: ";
     std::cin >> verificationCode;
 
-    accounts.retrieveUsername(user, accounts, password, verificationCode);
+    accounts.retrieveUsername(user, accounts, verificationCode);
 }
 
 void deleteAccount(User &user, Accounts &accounts, std::string &username, int verificationCode)
