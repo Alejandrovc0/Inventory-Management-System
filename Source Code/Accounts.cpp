@@ -2,15 +2,16 @@
 #include <iostream>
 #include <fstream>
 
-void Accounts::loadAccounts()
+void Accounts::loadAccounts(User& user)
 {
-    std::ifstream accountFile("users.txt");
+    std::ifstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
     std::string name, username, password;
     int verificationCode;
 
     while (accountFile >> name >> username >> password >> verificationCode)
     {
-        User user(name, username, password, verificationCode);
+        password = decryptPassword(password);
+        user = User(name, username, password, verificationCode);
         addUser(user);
     }
     accountFile.close();
@@ -52,10 +53,22 @@ std::string Accounts::encryptPassword(std::string &password)
 
     for (auto &character : password)
     {
-        encryptedPassword = character += 3;
+        encryptedPassword += char(int(character) + 3);
     }
 
     return encryptedPassword;
+}
+
+std::string Accounts::decryptPassword(std::string &password)
+{   
+    std::string decryptedPassword;
+
+    for (auto &character : password)
+    {
+        decryptedPassword += char(int(character) - 3);
+    }
+
+    return decryptedPassword;
 }
 
 void Accounts::login(User user, const std::string& enteredUsername, std::string& enteredPassword, bool& login)
