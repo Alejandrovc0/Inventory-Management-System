@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 
-void userMenu(User &user, Accounts &accounts, Inventory &inventory, bool &login)
+void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
 {
     int choice;
     std::string name, username, password;
@@ -78,7 +78,7 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
 
     user = User(name, username, encryptedPasword, verificationCode);
 
-    std::ofstream accountFile("users.txt", ios::app);
+    std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
     accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
     accountFile.close();
 
@@ -129,7 +129,6 @@ void changePassword(User &user, Accounts &accounts)
                 break;
             }
         }
-
         accounts.changePassword(user, accounts, newPassword);
     }
 }

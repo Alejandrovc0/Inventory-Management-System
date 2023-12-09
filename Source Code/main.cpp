@@ -17,6 +17,8 @@ int main()
     std::string name;
     int serialNum, quantity;
     double price;
+
+    accounts.loadAccounts(user);
     userMenu(user, accounts, inventory, login);
 
     if (login == true)
@@ -65,6 +67,9 @@ int main()
                     exit(0);
                     break;
                 }
+                default:
+                    std::cout << "Invalid choice!" << std::endl;
+                    break;
             }
             if (!returnOption())
             {
@@ -88,12 +93,6 @@ int menu(int choice)
     std::cout << "7. Exit" << std::endl;
     std::cout << "Enter your choice: ";
     std::cin >> choice;
-
-    while (choice < 1 || choice > 7)
-    {
-        std::cout << "Invalid choice. Please enter a number between 1 and 7: ";
-        std::cin >> choice;
-    }
 
     return choice;
 }
