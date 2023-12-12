@@ -10,12 +10,13 @@ class Accounts
         std::vector<User> users;
     
     public:
-        void loadAccounts(User& user);
+        void loadAccounts();
         void addUser(const User &newUser);
         bool isValidPassword(const std::string &password);
         std::string encryptPassword(std::string &password);
         std::string decryptPassword(std::string &password);
-        void login(User user, const std::string& enteredUsername, std::string& enteredPassword, bool& login);
+        void registerUser(User &user, const std::string& name, const std::string& username, std::string& password, int verificationCode);
+        void login(User &user, const std::string& enteredUsername, std::string& enteredPassword, bool& login);
         void logout() const;
         void retrieveUsername(User& user, Accounts& accounts, const std::string username, const int verificationCode);
         void changePassword(User& user, Accounts& accounts, std::string& updatedPassword);

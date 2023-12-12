@@ -73,17 +73,7 @@ void userRegister(User &user, Accounts &accounts, std::string &name, std::string
     std::cin >> verificationCode;
     std::cout << std::endl;
 
-    std::string encryptedPasword;
-    encryptedPasword = accounts.encryptPassword(password);
-
-    user = User(name, username, encryptedPasword, verificationCode);
-
-    std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
-    accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
-    accountFile.close();
-
-    accounts.addUser(user);
-    std::cout << "Account created successfully!" << std::endl;
+    accounts.registerUser(user, name, username, password, verificationCode);
 }
 
 void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password, bool &login)
@@ -95,7 +85,7 @@ void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string
     std::cin >> password;
     std::cout << std::endl;
     accounts.login(user, username, password, login);
-    inventory = user.getInventory();
+    inventory = user.getInventory(inventory);
 }
 
 void changePassword(User &user, Accounts &accounts)

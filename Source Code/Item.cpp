@@ -3,6 +3,7 @@
 
 Item::Item()
 {
+    serialNumber = 0;
     quantity = 0;
     price = 0.0;
 }

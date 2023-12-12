@@ -2,17 +2,24 @@
 #include <iostream>
 #include <fstream>
 
-void Accounts::loadAccounts(User& user)
+void Accounts::loadAccounts()
 {
-    std::ifstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
+    std::ifstream accountFile;
+    accountFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
     std::string name, username, password;
     int verificationCode;
+
+    if (!accountFile.is_open())
+    {
+        std::cout << "Error opening file." << std::endl;
+        exit(1);
+    }
 
     while (accountFile >> name >> username >> password >> verificationCode)
     {
         password = decryptPassword(password);
-        user = User(name, username, password, verificationCode);
-        addUser(user);
+        User existingUser(name, username, password, verificationCode);
+        addUser(existingUser);
     }
     accountFile.close();
 }
@@ -71,19 +78,44 @@ std::string Accounts::decryptPassword(std::string &password)
     return decryptedPassword;
 }
 
-void Accounts::login(User user, const std::string& enteredUsername, std::string& enteredPassword, bool& login)
+void Accounts::registerUser(User& user, const std::string& name, const std::string& username, std::string& password, int verificationCode)
+{
+    std::string encryptedPasword;
+    encryptedPasword = encryptPassword(password);
+    user = User(name, username, encryptedPasword, verificationCode);
+
+    std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
+
+    if(!accountFile.is_open())
+    {
+        std::cout << "Error opening file." << std::endl;
+        exit(1);
+    }
+
+    accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
+    accountFile.close();
+
+    addUser(user);
+    std::cout << "Account created successfully!" << std::endl;
+}
+void Accounts::login(User& user, const std::string& enteredUsername, std::string& enteredPassword, bool& login)
 {
     std::string encryptedPassword = encryptPassword(enteredPassword);
-    if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
+
+    for(auto &user : users)
     {
-        std::cout << "Login successful!" << std::endl;
-        login = true;
+        if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
+        {
+            std::cout << "Login successful!" << std::endl;
+            login = true;
+        }
+        else
+        {
+            std::cout << "Login failed!" << std::endl;
+            login = false;
+        }
     }
-    else
-    {
-        std::cout << "Login failed!" << std::endl;
-        login = false;
-    }
+    
 }
 
 void Accounts::logout() const
@@ -94,13 +126,15 @@ void Accounts::logout() const
 
 void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string password, const int verificationCode)
 {
-    if(!(user.getPassword() == password && user.getVerification() == verificationCode))
-    {
-        std::cout << "Invalid information!" << std::endl;
-    }
-    else
-    {
-        std::cout << user.getUsername() << std::endl;
+    for(auto &user : users)
+    {    if(!(user.getPassword() == password && user.getVerification() == verificationCode))
+        {
+            std::cout << "Invalid information!" << std::endl;
+        }
+        else
+        {
+            std::cout << user.getUsername() << std::endl;
+        }
     }
 }
 
@@ -145,5 +179,4 @@ void Accounts::deleteUser(User &user, Accounts &accounts, const std::string &use
     {
         std::cout << "Account not deleted!" << std::endl;
     }
-    
 }

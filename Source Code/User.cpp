@@ -33,9 +33,9 @@ int User::getVerification() const
     return verificationCode;
 }
 
-Inventory& User::getInventory()
+Inventory& User::getInventory(Inventory &inventory)
 {
-    return userInventory;
+    return inventory;
 }
 
 void User::setName(const std::string &newName)
@@ -58,7 +58,7 @@ void User::setVerification(int newVerificationCode)
     verificationCode = newVerificationCode;
 }
 
-void User::addItemToInventory(const Item &item)
+void User::addItemToInventory(Inventory &inventory, const Item &item)
 {
-    userInventory.addItem(item);
+    inventory.addItem(item);
 }

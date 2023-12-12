@@ -18,7 +18,7 @@ int main()
     int serialNum, quantity;
     double price;
 
-    accounts.loadAccounts(user);
+    accounts.loadAccounts();
     userMenu(user, accounts, inventory, login);
 
     if (login == true)
@@ -115,7 +115,7 @@ void getItemInfo(User& user, Inventory &inventory, int serialNumber, std::string
 
         Item newItem(serialNumber, name, quantity, price);
 
-        user.addItemToInventory(newItem);
+        user.addItemToInventory(inventory, newItem);
         inventory.displayInventory();
 
         std::cout << "Do you want to add another item? (y/n): ";
