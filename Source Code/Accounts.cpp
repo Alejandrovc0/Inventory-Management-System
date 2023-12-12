@@ -116,7 +116,6 @@ bool Accounts::login(const std::string& enteredUsername, std::string& enteredPas
         if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
         {
             std::cout << "Login successful!" << std::endl;
-<<<<<<< HEAD
             login = true;
         }
         else
@@ -126,15 +125,6 @@ bool Accounts::login(const std::string& enteredUsername, std::string& enteredPas
         }
     }
     
-=======
-            return true;
-        }
-    }
-
-    std::cout << "Login failed!" << std::endl;
-    return false;
-
->>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
 }
 
 void Accounts::logout() const
