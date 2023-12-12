@@ -8,6 +8,12 @@ void Accounts::loadAccounts()
     accountFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
     std::string name, username, password;
     int verificationCode;
+    
+    if (!accountFile.is_open())
+    {
+        std::cout << "Error opening file." << std::endl;
+        exit(1);
+    }
 
     if (!accountFile.is_open())
     {
@@ -56,28 +62,25 @@ bool Accounts::isValidPassword(const std::string &password)
 
 std::string Accounts::encryptPassword(std::string &password)
 {   
-    std::string encryptedPassword;
-
-    for (auto &character : password)
+    for (char &character : password)
     {
-        encryptedPassword += char(int(character) + 3);
+        character += 3;
     }
 
-    return encryptedPassword;
+    return password;
 }
 
 std::string Accounts::decryptPassword(std::string &password)
 {   
-    std::string decryptedPassword;
-
-    for (auto &character : password)
+    for (char &character : password)
     {
-        decryptedPassword += char(int(character) - 3);
+        character -= 3;
     }
 
-    return decryptedPassword;
+    return password;
 }
 
+<<<<<<< HEAD
 void Accounts::registerUser(User& user, const std::string& name, const std::string& username, std::string& password, int verificationCode)
 {
     std::string encryptedPasword;
@@ -103,10 +106,17 @@ void Accounts::login(User& user, const std::string& enteredUsername, std::string
     std::string encryptedPassword = encryptPassword(enteredPassword);
 
     for(auto &user : users)
+=======
+bool Accounts::login(const std::string& enteredUsername, std::string& enteredPassword)
+{
+    std::string encryptedPassword = encryptPassword(enteredPassword);
+    for(const auto &user : users)
+>>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
     {
         if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
         {
             std::cout << "Login successful!" << std::endl;
+<<<<<<< HEAD
             login = true;
         }
         else
@@ -116,6 +126,15 @@ void Accounts::login(User& user, const std::string& enteredUsername, std::string
         }
     }
     
+=======
+            return true;
+        }
+    }
+
+    std::cout << "Login failed!" << std::endl;
+    return false;
+
+>>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
 }
 
 void Accounts::logout() const
@@ -124,8 +143,9 @@ void Accounts::logout() const
     exit(0);
 }
 
-void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string password, const int verificationCode)
+void Accounts::retrieveUsername(User& user, Accounts& accounts, const int verificationCode)
 {
+<<<<<<< HEAD
     for(auto &user : users)
     {    if(!(user.getPassword() == password && user.getVerification() == verificationCode))
         {
@@ -134,8 +154,17 @@ void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::strin
         else
         {
             std::cout << user.getUsername() << std::endl;
+=======
+    for (auto &user : users)
+    {
+        if (user.getVerification() == verificationCode)
+        {
+            std::cout << "Your username is: " << user.getUsername() << std::endl;
+            return;
+>>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
         }
     }
+    std::cout << "No user found with the provided verification code." << std::endl;
 }
 
 void Accounts::changePassword(User& user, Accounts& accounts, std::string& updatedPassword)

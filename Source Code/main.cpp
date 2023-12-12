@@ -21,7 +21,7 @@ int main()
     accounts.loadAccounts();
     userMenu(user, accounts, inventory, login);
 
-    if (login == true)
+    if (login)
     {
         std::cout << std::endl << "Welcome to the Inventory Management System " << user.getName() << "!" << std::endl;
     
