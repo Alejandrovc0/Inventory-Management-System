@@ -15,12 +15,6 @@ void Accounts::loadAccounts()
         exit(1);
     }
 
-    if (!accountFile.is_open())
-    {
-        std::cout << "Error opening file." << std::endl;
-        exit(1);
-    }
-
     while (accountFile >> name >> username >> password >> verificationCode)
     {
         password = decryptPassword(password);
