@@ -11,5 +11,4 @@ void changePassword(User &user, Accounts &accounts);
 void recoverUsername(User &user, Accounts &accounts);
 void deleteAccount(User &user, Accounts &accounts, std::string &username, int verificationCode);
 
-
 #endif

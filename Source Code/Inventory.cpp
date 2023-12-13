@@ -70,12 +70,52 @@ void Inventory::saveInventoryInfo(const User &user)
     }
 }
 
-void Inventory::overwriteInventory(const std::vector<Item>& newItems) 
+void Inventory::loadInventoryInfo(const User &user, int serialNumber, std::string &name, int quantity, double price)
 {
+    std::ifstream inventoryFile;
+    inventoryFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\" + user.getUsername() + "_inventory_data.txt");
+
+    if (inventoryFile.is_open())
+    {
+        while (inventoryFile >> serialNumber >> name >> quantity >> price)
+        {
+            Item loadedItem(serialNumber, name, quantity, price);
+            addItem(loadedItem);
+            std::cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
+        }
+        inventoryFile.close();
+    }
+    else
+    {
+        std::cout << "Unable to open file." << std::endl;
+    }
+}
+
+void Inventory::overwriteInventory()
+{
+    std::ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
+
+    if (!inventoryFile.is_open())
+    {
+        std::cout << "Error opening file." << std::endl;
+        exit(1);
+    }
+
+    std::vector<Item> newItems;
+    int serialNumber;
+    std::string name;
+    int quantity;
+    double price;
+
+    while (inventoryFile >> serialNumber >> name >> quantity >> price)
+    {
+        Item loadedItem(serialNumber, name, quantity, price);
+        newItems.push_back(loadedItem);
+    }
     items = newItems;
 }
 
-bool Inventory::isEmpty() const 
+bool Inventory::isEmpty() const
 {
     return items.empty();
 }

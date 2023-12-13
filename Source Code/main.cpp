@@ -1,7 +1,7 @@
 #include "Headers.h"
 
 int menu(int choice);
-void getItemInfo(User& user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
+void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
 void removeItem(Inventory &inventory);
 void updateItem(Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
 void searchItem(Inventory &inventory);
@@ -23,53 +23,54 @@ int main()
 
     if (login)
     {
-        std::cout << std::endl << "Welcome to the Inventory Management System " << user.getName() << "!" << std::endl;
-    
-        while(true)
+        std::cout << std::endl
+                  << "Welcome to the Inventory Management System " << user.getName() << "!" << std::endl;
+
+        while (true)
         {
             int choice = menu(choice);
 
             switch (choice)
             {
-                case 1:
-                {
-                    getItemInfo(user, inventory, serialNum, name, quantity, price);
-                    break;
-                }
-                case 2:
-                {
-                    removeItem(inventory);
-                    break;
-                }
-                case 3:
-                {
-                    updateItem(inventory, serialNum, name, quantity, price); 
-                    break;
-                }
-                case 4:
-                {
-                    inventory.displayInventory();
-                    break;
-                }
-                case 5:
-                {
-                    searchItem(inventory);
-                    break;
-                }
-                case 6:
-                {
-                    save_loadInventory(user, inventory, serialNum, name, quantity, price);
-                    break;
-                }
-                case 7:
-                {
-                    std::cout << "Exiting...";
-                    exit(0);
-                    break;
-                }
-                default:
-                    std::cout << "Invalid choice!" << std::endl;
-                    break;
+            case 1:
+            {
+                getItemInfo(user, inventory, serialNum, name, quantity, price);
+                break;
+            }
+            case 2:
+            {
+                removeItem(inventory);
+                break;
+            }
+            case 3:
+            {
+                updateItem(inventory, serialNum, name, quantity, price);
+                break;
+            }
+            case 4:
+            {
+                inventory.displayInventory();
+                break;
+            }
+            case 5:
+            {
+                searchItem(inventory);
+                break;
+            }
+            case 6:
+            {
+                save_loadInventory(user, inventory, serialNum, name, quantity, price);
+                break;
+            }
+            case 7:
+            {
+                std::cout << "Exiting...";
+                accounts.logout();
+                break;
+            }
+            default:
+                std::cout << "Invalid choice!" << std::endl;
+                break;
             }
             if (!returnOption())
             {
@@ -90,14 +91,14 @@ int menu(int choice)
     std::cout << "4. Display the inventory" << std::endl;
     std::cout << "5. Search for an item in the inventory" << std::endl;
     std::cout << "6. Save/Load inventory from file" << std::endl;
-    std::cout << "7. Exit" << std::endl;
+    std::cout << "7. Log out" << std::endl;
     std::cout << "Enter your choice: ";
     std::cin >> choice;
 
     return choice;
 }
 
-void getItemInfo(User& user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
+void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     char choice;
@@ -123,7 +124,7 @@ void getItemInfo(User& user, Inventory &inventory, int serialNumber, std::string
         choice = tolower(choice);
 
         if (choice == 'n')
-        {  
+        {
             valid = true;
         }
     }
@@ -222,13 +223,13 @@ void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std:
 {
     bool valid = false;
     char choice;
-    
+
     std::cout << "Do you want to save or load the inventory? (s/l): ";
     std::cin >> choice;
     choice = tolower(choice);
 
     while (!valid)
-    {    
+    {
         if (choice == 's' && (!inventory.isEmpty()))
         {
             inventory.saveInventoryInfo(user);
@@ -237,28 +238,12 @@ void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std:
         else if (choice == 's' && (inventory.isEmpty()))
         {
             std::cout << "Inventory is empty. Nothing to save." << std::endl;
-            valid = true;            
+            valid = true;
         }
-        else if (choice == 'l' && inventory.isEmpty())        
+        else if (choice == 'l' && inventory.isEmpty())
         {
-            std::ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\" + user.getUsername() + "_inventory_data.txt");
-
-            if (inventoryFile.is_open())
-            {
-                while (inventoryFile >> serialNumber >> name >> quantity >> price)
-                {
-                    Item loadedItem(serialNumber, name, quantity, price);
-                    inventory.addItem(loadedItem);
-                    std::cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
-                }
-
-                inventoryFile.close();
-                valid = true;
-            }
-            else
-            {
-                std::cout << "Unable to open file." << std::endl;
-            }
+            inventory.loadInventoryInfo(user, serialNumber, name, quantity, price);
+            valid = true;
         }
         else if (choice == 'l' && !inventory.isEmpty())
         {
@@ -267,19 +252,10 @@ void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std:
             std::cout << "Inventory is not empty. Do you want to overwrite it? (y/n): ";
             std::cin >> option;
             option = tolower(option);
-            
+
             if (option == 'y')
             {
-                std::ifstream inventoryFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\inventory_data.txt");
-
-                std::vector<Item> newItems;
-                while (inventoryFile >> serialNumber >> name >> quantity >> price)
-                {
-                    Item loadedItem(serialNumber, name, quantity, price);
-                    newItems.push_back(loadedItem);
-                    inventory.overwriteInventory(newItems);
-                    
-                }
+                inventory.overwriteInventory();
                 valid = true;
             }
             else

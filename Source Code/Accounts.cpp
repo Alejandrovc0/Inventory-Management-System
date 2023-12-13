@@ -80,7 +80,6 @@ std::string Accounts::decryptPassword(std::string &password)
     return password;
 }
 
-<<<<<<< HEAD
 void Accounts::registerUser(User& user, const std::string& name, const std::string& username, std::string& password, int verificationCode)
 {
     std::string encryptedPasword;
@@ -101,66 +100,56 @@ void Accounts::registerUser(User& user, const std::string& name, const std::stri
     addUser(user);
     std::cout << "Account created successfully!" << std::endl;
 }
-void Accounts::login(User& user, const std::string& enteredUsername, std::string& enteredPassword, bool& login)
-{
-    std::string encryptedPassword = encryptPassword(enteredPassword);
 
-    for(auto &user : users)
-=======
-bool Accounts::login(const std::string& enteredUsername, std::string& enteredPassword)
+bool Accounts::login(User& user, const std::string& enteredUsername, std::string& enteredPassword)
 {
     std::string encryptedPassword = encryptPassword(enteredPassword);
-    for(const auto &user : users)
->>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
+    for(const auto &currentUser : users)
     {
         if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
         {
+            user = currentUser;
             std::cout << "Login successful!" << std::endl;
-            login = true;
+            return true;
         }
-        else
-        {
-            std::cout << "Login failed!" << std::endl;
-            login = false;
-        }
+        
     }
-    
+    std::cout << "Login failed!" << std::endl;
+    return false;
+
 }
 
 void Accounts::logout() const
 {
     std::cout << "Logout successful!" << std::endl;
-    exit(0);
+    return;
 }
 
-void Accounts::retrieveUsername(User& user, Accounts& accounts, const int verificationCode)
+void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string name, const int verificationCode)
 {
-<<<<<<< HEAD
-    for(auto &user : users)
-    {    if(!(user.getPassword() == password && user.getVerification() == verificationCode))
-        {
-            std::cout << "Invalid information!" << std::endl;
-        }
-        else
-        {
-            std::cout << user.getUsername() << std::endl;
-=======
     for (auto &user : users)
     {
-        if (user.getVerification() == verificationCode)
+        if (user.getName() == name && user.getVerification() == verificationCode)
         {
             std::cout << "Your username is: " << user.getUsername() << std::endl;
             return;
->>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
         }
     }
     std::cout << "No user found with the provided verification code." << std::endl;
 }
 
-void Accounts::changePassword(User& user, Accounts& accounts, std::string& updatedPassword)
+void Accounts::changePassword(User& user, Accounts& accounts, const std::string& username, const int verificationCode, std::string& updatedPassword)
 {
-    updatedPassword = accounts.encryptPassword(updatedPassword);
-    user.setPassword(updatedPassword);
+    
+    for (auto& user : users)
+    {
+        if (user.getUsername() == username && user.getVerification() == verificationCode)
+        {
+            user.setPassword(encryptPassword(updatedPassword));
+            return;
+        }
+    }
+    std::cout << "User not found!" << std::endl;
 }
 
 bool Accounts::userExist(const std::string& username, const int verificationCode)

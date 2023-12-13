@@ -84,13 +84,8 @@ void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string
     std::cout << "Enter your password: ";
     std::cin >> password;
     std::cout << std::endl;
-<<<<<<< HEAD
-    accounts.login(user, username, password, login);
+    login = accounts.login(user, username, password);
     inventory = user.getInventory(inventory);
-=======
-    login = accounts.login(username, password);
-    inventory = user.getInventory();
->>>>>>> 09a9ecd616a633f2e29869da537625ff9aae24a4
 }
 
 void changePassword(User &user, Accounts &accounts)
@@ -111,7 +106,7 @@ void changePassword(User &user, Accounts &accounts)
     else
     {
         std::string newPassword;
-        while(false)
+        while(true)
         {
             std::cout << "Enter your new password: " << std::endl;
             std::cin >> newPassword;
@@ -124,22 +119,22 @@ void changePassword(User &user, Accounts &accounts)
                 break;
             }
         }
-        accounts.changePassword(user, accounts, newPassword);
+        accounts.changePassword(user, accounts, username, verificationCode, newPassword);
     }
 }
 
 void recoverUsername(User &user, Accounts &accounts)
 {
-    std::string password;
+    std::string name;
     int verificationCode;
     
     std::cout << "\t\tRecover username" << std::endl;
-    std::cout << "Enter your password: ";
-    std::cin >> password;    
+    std::cout << "Enter your name: ";
+    std::cin >> name;    
     std::cout << "Enter your verification code: ";
     std::cin >> verificationCode;
 
-    accounts.retrieveUsername(user, accounts, verificationCode);
+    accounts.retrieveUsername(user, accounts, name, verificationCode);
 }
 
 void deleteAccount(User &user, Accounts &accounts, std::string &username, int verificationCode)

@@ -33,7 +33,7 @@ int User::getVerification() const
     return verificationCode;
 }
 
-Inventory& User::getInventory(Inventory &inventory)
+Inventory &User::getInventory(Inventory &inventory)
 {
     return inventory;
 }
