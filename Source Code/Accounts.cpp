@@ -6,8 +6,6 @@ void Accounts::loadAccounts()
 {
     std::ifstream accountFile;
     accountFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
-    std::string name, username, password;
-    int verificationCode;
     
     if (!accountFile.is_open())
     {
@@ -15,12 +13,16 @@ void Accounts::loadAccounts()
         exit(1);
     }
 
+    std::string name, username, password;
+    int verificationCode;
+    std::vector<User> loadedUsers;
+
     while (accountFile >> name >> username >> password >> verificationCode)
     {
-        password = decryptPassword(password);
         User existingUser(name, username, password, verificationCode);
-        addUser(existingUser);
+        loadedUsers.push_back(existingUser);
     }
+    users = loadedUsers;
     accountFile.close();
 }
 

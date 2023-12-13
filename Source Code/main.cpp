@@ -64,7 +64,7 @@ int main()
             }
             case 7:
             {
-                std::cout << "Exiting...";
+                std::cout << "Exiting..." << std::endl;
                 accounts.logout();
                 break;
             }
