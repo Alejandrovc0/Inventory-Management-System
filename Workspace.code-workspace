@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../../../../SDL2/x86_64-w64-mingw32/include"
-		},
-		{
-			"path": "../../../../SDL2/x86_64-w64-mingw32/lib"
 		}
 	],
 	"settings": {

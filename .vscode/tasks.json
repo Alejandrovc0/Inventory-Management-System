@@ -16,11 +16,10 @@
                 "User.o",
                 "Accounts.o",
                 "user_system.o",
-                "C:\\SDL2\\x86_64-w64-mingw32\\include",
-                "C:\\SDL2\\x86_64-w64-mingw32\\lib",
+                "-I/C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Src\\include",
+                "-L/C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Src\\lib",
                 "-lSDL2",
-                "-lSDL2main"
-                
+                "-lSDL2main" 
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -48,8 +47,11 @@
                 "Item.o",
                 "User.o",
                 "Accounts.o",
-                "user_system.o"
-                
+                "user_system.o",
+                "-I/C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Src\\include",
+                "-L/C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Src\\lib",
+                "-lSDL2",
+                "-lSDL2main"                
             ],
             "options": {
                 "cwd": "${fileDirname}"

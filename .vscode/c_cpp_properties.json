@@ -4,7 +4,7 @@
             "name": "GCC",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:\\Users\\alejo\\Downloads\\SDL2-2.28.5\\SDL2-2.28.5\\include"
+                "C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Src\\include"
             ],
             "defines": [
                 "_DEBUG",
