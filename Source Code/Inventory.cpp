@@ -70,8 +70,13 @@ void Inventory::saveInventoryInfo(const User &user)
     }
 }
 
-void Inventory::loadInventoryInfo(const User &user, int serialNumber, std::string &name, int quantity, double price)
-{
+void Inventory::loadInventoryInfo(const User &user)
+{   
+    int serialNumber;
+    std::string name;
+    int quantity;
+    double price;
+
     std::ifstream inventoryFile;
     inventoryFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\" + user.getUsername() + "_inventory_data.txt");
 
@@ -81,7 +86,6 @@ void Inventory::loadInventoryInfo(const User &user, int serialNumber, std::strin
         {
             Item loadedItem(serialNumber, name, quantity, price);
             addItem(loadedItem);
-            std::cout << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
         }
         inventoryFile.close();
     }

@@ -53,5 +53,5 @@ void Item::setPrice(double newPrice)
 
 void Item::displayItem() const
 {
-    std::cout << "Serial number: " << serialNumber << "Name: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
+    std::cout << "Serial number: " << serialNumber << "\tName: " << name << "\tQuantity: " << quantity << "\tPrice: " << price << std::endl;
 }

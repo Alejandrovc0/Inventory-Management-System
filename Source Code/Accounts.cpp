@@ -6,7 +6,7 @@ void Accounts::loadAccounts()
 {
     std::ifstream accountFile;
     accountFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
-    
+
     if (!accountFile.is_open())
     {
         std::cout << "Error opening file." << std::endl;
@@ -17,7 +17,7 @@ void Accounts::loadAccounts()
     int verificationCode;
     std::vector<User> loadedUsers;
     Inventory inventory;
-
+    
     while (accountFile >> name >> username >> password >> verificationCode)
     {
         User existingUser(name, username, password, verificationCode, inventory);
@@ -32,15 +32,15 @@ void Accounts::addUser(const User &user)
     users.push_back(user);
 }
 
-void Accounts::registerUser(User& user, const std::string& name, const std::string& username, std::string& password, int verificationCode)
+void Accounts::registerUser(User &user, const std::string &name, const std::string &username, std::string &password, int verificationCode, Inventory &inventory)
 {
     std::string encryptedPasword;
     encryptedPasword = encryptPassword(password);
-    user = User(name, username, encryptedPasword, verificationCode);
+    user = User(name, username, encryptedPasword, verificationCode, inventory);
 
     std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
 
-    if(!accountFile.is_open())
+    if (!accountFile.is_open())
     {
         std::cout << "Error opening file." << std::endl;
         exit(1);
@@ -79,7 +79,7 @@ bool Accounts::isValidPassword(const std::string &password)
 }
 
 std::string Accounts::encryptPassword(std::string &password)
-{   
+{
     for (char &character : password)
     {
         character += 3;
@@ -89,7 +89,7 @@ std::string Accounts::encryptPassword(std::string &password)
 }
 
 std::string Accounts::decryptPassword(std::string &password)
-{   
+{
     for (char &character : password)
     {
         character -= 3;
@@ -98,12 +98,12 @@ std::string Accounts::decryptPassword(std::string &password)
     return password;
 }
 
-bool Accounts::login(User& user, Accounts& accounts, const std::string& enteredUsername, std::string& enteredPassword)
+bool Accounts::login(User &user, Accounts &accounts, const std::string &enteredUsername, std::string &enteredPassword)
 {
     std::string encryptedPassword = encryptPassword(enteredPassword);
     for (const auto &currentUser : users)
     {
-        if (enteredUsername == currentUser.getUsername()  && encryptedPassword == currentUser.getPassword())
+        if (enteredUsername == currentUser.getUsername() && encryptedPassword == currentUser.getPassword())
         {
             user = currentUser;
             std::cout << "Login successful!" << std::endl;
@@ -120,7 +120,7 @@ void Accounts::logout() const
     return;
 }
 
-void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::string name, const int verificationCode)
+void Accounts::retrieveUsername(User &user, Accounts &accounts, const std::string name, const int verificationCode)
 {
     for (auto &user : users)
     {
@@ -133,10 +133,10 @@ void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::strin
     std::cout << "No user found with the provided verification code." << std::endl;
 }
 
-void Accounts::changePassword(User& user, Accounts& accounts, const std::string& username, const int verificationCode, std::string& updatedPassword)
+void Accounts::changePassword(User &user, Accounts &accounts, const std::string &username, const int verificationCode, std::string &updatedPassword)
 {
-    
-    for (auto& user : users)
+
+    for (auto &user : users)
     {
         if (user.getUsername() == username && user.getVerification() == verificationCode)
         {
@@ -147,7 +147,7 @@ void Accounts::changePassword(User& user, Accounts& accounts, const std::string&
     std::cout << "User not found!" << std::endl;
 }
 
-bool Accounts::userExist(const std::string& username, const int verificationCode)
+bool Accounts::userExist(const std::string &username, const int verificationCode)
 {
     for (auto &user : users)
     {

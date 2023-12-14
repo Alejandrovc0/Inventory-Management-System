@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 
-void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
+void userMenu(User& user, Accounts& accounts, bool& login)
 {
     int choice;
     std::string name, username, password;
@@ -29,7 +29,7 @@ void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
                 userSignup(user, accounts, name, username, password, verificationCode);
                 break;
             case 2:
-                userLogin(user, accounts, inventory, username, password, login);
+                userLogin(user, accounts, username, password, login);
                 break;
             case 3:
                 changePassword(user, accounts);
@@ -53,6 +53,7 @@ void userMenu(User& user, Accounts& accounts, Inventory& inventory, bool& login)
 
 void userSignup(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode)
 {
+    Inventory inventory;
     std::cout << "\t\tSign up" << std::endl;
     std::cout << "Name: " << std::endl;
     std::cin.ignore();
@@ -73,10 +74,10 @@ void userSignup(User &user, Accounts &accounts, std::string &name, std::string &
     std::cin >> verificationCode;
     std::cout << std::endl;
 
-    accounts.registerUser(user, name, username, password, verificationCode);
+    accounts.registerUser(user, name, username, password, verificationCode, inventory);
 }
 
-void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string &username, std::string &password, bool &login)
+void userLogin(User &user, Accounts &accounts, std::string &username, std::string &password, bool &login)
 {
     std::cout << "\t\tLog in" << std::endl;
     std::cout << "Enter your username: ";
@@ -85,7 +86,6 @@ void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string
     std::cin >> password;
     std::cout << std::endl;
     login = accounts.login(user, accounts, username, password);
-    inventory = user.getInventory();
 }
 
 void changePassword(User &user, Accounts &accounts)

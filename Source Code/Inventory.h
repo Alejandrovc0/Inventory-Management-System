@@ -17,7 +17,7 @@ public:
     void displayInventory() const;
     const Item *searchItem(const int &serialNumber) const;
     void saveInventoryInfo(const User &user);
-    void loadInventoryInfo(const User &user, int serialNumber, std::string &name, int quantity, double price);
+    void loadInventoryInfo(const User &user);
     void overwriteInventory();
     bool isEmpty() const;
 };

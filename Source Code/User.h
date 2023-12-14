@@ -23,13 +23,21 @@ public:
     std::string getUsername() const;
     std::string getPassword() const;
     int getVerification() const;
-    Inventory &getInventory();
+    Inventory &getInventory(User &user);
 
     void setName(const std::string &name);
     void setUsername(const std::string &username);
     void setPassword(const std::string &password);
     void setVerification(int verificationCode);
     void addItemToInventory(const Item &item);
+    void removeItemFromInventory(const int &serialNumber);
+    void updatedItemFromInventory(const std::string &itemName, const Item &updatedItem);
+    void displayInventoryFromInventory() const;
+    const Item *searchItemfromInventory(const int &serialNumber) const;
+    void saveUserInventoryInfo(const User &user);
+    void loadUserInventoryInfo(const User &user);
+    void overwriteUserInventory();
+    bool userInventoryisEmpty() const;
 };
 
 #endif

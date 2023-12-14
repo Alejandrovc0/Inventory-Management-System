@@ -1,11 +1,11 @@
 #include "Headers.h"
 
 int menu(int choice);
-void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
-void removeItem(Inventory &inventory);
-void updateItem(Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
-void searchItem(Inventory &inventory);
-void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price);
+void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, double price);
+void removeItem(User &user);
+void updateItem(User &user, int serialNumber, std::string &name, int quantity, double price);
+void searchItem(User &user);
+void save_loadInventory(User &user);
 bool returnOption();
 
 int main()
@@ -13,17 +13,18 @@ int main()
     bool login = false;
     User user;
     Accounts accounts;
-    Inventory inventory;
     std::string name;
-    int serialNum, quantity;
-    double price;
+    int serialNum = 0;
+    int quantity = 0;
+    double price = 0.0;
 
     accounts.loadAccounts();
-    userMenu(user, accounts, inventory, login);
+    userMenu(user, accounts, login);
 
     if (login)
     {
-        inventory = user.getInventory();
+        Inventory inventory;
+        inventory = user.getInventory(user);
         std::cout << std::endl
                   << "Welcome to the Inventory Management System " << user.getName() << "!" << std::endl;
 
@@ -35,17 +36,17 @@ int main()
             {
             case 1:
             {
-                getItemInfo(user, inventory, serialNum, name, quantity, price);
+                getItemInfo(user, serialNum, name, quantity, price);
                 break;
             }
             case 2:
             {
-                removeItem(inventory);
+                removeItem(user);
                 break;
             }
             case 3:
             {
-                updateItem(inventory, serialNum, name, quantity, price);
+                updateItem(user, serialNum, name, quantity, price);
                 break;
             }
             case 4:
@@ -55,12 +56,12 @@ int main()
             }
             case 5:
             {
-                searchItem(inventory);
+                searchItem(user);
                 break;
             }
             case 6:
             {
-                save_loadInventory(user, inventory, serialNum, name, quantity, price);
+                save_loadInventory(user);
                 break;
             }
             case 7:
@@ -99,7 +100,7 @@ int menu(int choice)
     return choice;
 }
 
-void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
+void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     char choice;
@@ -118,7 +119,7 @@ void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string
         Item newItem(serialNumber, name, quantity, price);
 
         user.addItemToInventory(newItem);
-        inventory.displayInventory();
+        user.displayInventoryFromInventory();
 
         std::cout << "Do you want to add another item? (y/n): ";
         std::cin >> choice;
@@ -128,10 +129,14 @@ void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string
         {
             valid = true;
         }
+        else
+        {
+            std::cout << "Invalid choice." << std::endl;
+        }
     }
 }
 
-void removeItem(Inventory &inventory)
+void removeItem(User& user)
 {
     bool valid = false;
     int choice;
@@ -142,8 +147,8 @@ void removeItem(Inventory &inventory)
         std::cout << "Enter the serial number of the item you want to remove: ";
         std::cin >> serialNumber;
 
-        inventory.removeItem(serialNumber);
-        inventory.displayInventory();
+        user.removeItemFromInventory(serialNumber);
+        user.displayInventoryFromInventory();
 
         std::cout << "Do you want to remove another item? (y/n): ";
         std::cin >> choice;
@@ -156,7 +161,7 @@ void removeItem(Inventory &inventory)
     }
 }
 
-void updateItem(Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
+void updateItem(User& user, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     int choice;
@@ -172,8 +177,8 @@ void updateItem(Inventory &inventory, int serialNumber, std::string &name, int q
 
         Item updatedItem(serialNumber, name, quantity, price);
 
-        inventory.updateItem(name, updatedItem);
-        inventory.displayInventory();
+        user.updatedItemFromInventory(name, updatedItem);
+        user.displayInventoryFromInventory();
 
         std::cout << "Do you want to update another item? (y/n): ";
         std::cin >> choice;
@@ -186,7 +191,7 @@ void updateItem(Inventory &inventory, int serialNumber, std::string &name, int q
     }
 }
 
-void searchItem(Inventory &inventory)
+void searchItem(User& user)
 {
     bool valid = false;
     int choice;
@@ -197,7 +202,7 @@ void searchItem(Inventory &inventory)
         std::cout << "Enter the name of the item you want to search for: ";
         std::cin >> serialNumber;
 
-        const Item *item = inventory.searchItem(serialNumber);
+        const Item *item = user.searchItemfromInventory(serialNumber);
 
         if (item != nullptr)
         {
@@ -220,7 +225,7 @@ void searchItem(Inventory &inventory)
     }
 }
 
-void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std::string &name, int quantity, double price)
+void save_loadInventory(User &user)
 {
     bool valid = false;
     char choice;
@@ -231,22 +236,22 @@ void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std:
 
     while (!valid)
     {
-        if (choice == 's' && (!inventory.isEmpty()))
+        if (choice == 's' && (!user.userInventoryisEmpty()))
         {
-            inventory.saveInventoryInfo(user);
+            user.saveUserInventoryInfo(user);
             valid = true;
         }
-        else if (choice == 's' && (inventory.isEmpty()))
+        else if (choice == 's' && (user.userInventoryisEmpty()))
         {
             std::cout << "Inventory is empty. Nothing to save." << std::endl;
             valid = true;
         }
-        else if (choice == 'l' && inventory.isEmpty())
+        else if (choice == 'l' && user.userInventoryisEmpty())
         {
-            inventory.loadInventoryInfo(user, serialNumber, name, quantity, price);
+            user.loadUserInventoryInfo(user);
             valid = true;
         }
-        else if (choice == 'l' && !inventory.isEmpty())
+        else if (choice == 'l' && !user.userInventoryisEmpty())
         {
             int option;
 
@@ -256,7 +261,7 @@ void save_loadInventory(User &user, Inventory &inventory, int serialNumber, std:
 
             if (option == 'y')
             {
-                inventory.overwriteInventory();
+                user.overwriteUserInventory();
                 valid = true;
             }
             else

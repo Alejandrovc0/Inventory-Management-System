@@ -8,7 +8,7 @@ User::User()
     username = "";
     password = "";
     verificationCode = 0;
-    inventory = getInventory();
+    inventory;
 }
 
 User::User(const std::string &name, const std::string &username, const std::string &password, int verificationCode, Inventory &inventory)
@@ -34,8 +34,9 @@ int User::getVerification() const
     return verificationCode;
 }
 
-Inventory &User::getInventory()
+Inventory &User::getInventory(User &user)
 {
+    inventory.loadInventoryInfo(user);
     return inventory;
 }
 
@@ -62,4 +63,44 @@ void User::setVerification(int newVerificationCode)
 void User::addItemToInventory(const Item &item)
 {
     inventory.addItem(item);
+}
+
+void User::removeItemFromInventory(const int &serialNumber)
+{
+    inventory.removeItem(serialNumber);
+}
+
+void User::updatedItemFromInventory(const std::string &itemName, const Item &updatedItem)
+{
+    inventory.updateItem(itemName, updatedItem);
+}
+
+void User::displayInventoryFromInventory() const
+{
+    inventory.displayInventory();
+}
+
+const Item *User::searchItemfromInventory(const int &serialNumber) const
+{
+    return inventory.searchItem(serialNumber);
+}
+
+void User::saveUserInventoryInfo(const User &user)
+{
+    inventory.saveInventoryInfo(user);
+}
+
+void User::loadUserInventoryInfo(const User &user)
+{
+    inventory.loadInventoryInfo(user);
+}
+
+void User::overwriteUserInventory()
+{
+    inventory.overwriteInventory();
+}
+
+bool User::userInventoryisEmpty() const
+{
+    return inventory.isEmpty();
 }
