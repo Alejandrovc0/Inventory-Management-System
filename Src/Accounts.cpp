@@ -17,7 +17,7 @@ void Accounts::loadAccounts()
     int verificationCode;
     std::vector<User> loadedUsers;
     Inventory inventory;
-    
+
     while (accountFile >> name >> username >> password >> verificationCode)
     {
         User existingUser(name, username, password, verificationCode, inventory);

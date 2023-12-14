@@ -8,7 +8,7 @@ void searchItem(User &user);
 void save_loadInventory(User &user);
 bool returnOption();
 
-int main()
+int main(int argc, char *argv[])
 {
     bool login = false;
     User user;
