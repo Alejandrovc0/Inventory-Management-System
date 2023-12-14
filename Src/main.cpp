@@ -8,6 +8,8 @@ void searchItem(User &user);
 void save_loadInventory(User &user);
 bool returnOption();
 
+const int WIDTH = 800, HEIGHT = 600;
+
 int main(int argc, char *argv[])
 {
     bool login = false;
@@ -20,6 +22,16 @@ int main(int argc, char *argv[])
 
     accounts.loadAccounts();
     userMenu(user, accounts, login);
+
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window *window = SDL_CreateWindow("Inventory Management System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
+
+    if (window == NULL)
+    {
+        std::cout << "Error: " << SDL_GetError() << std::endl;
+        return -1;
+    }
 
     if (login)
     {
@@ -136,7 +148,7 @@ void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, 
     }
 }
 
-void removeItem(User& user)
+void removeItem(User &user)
 {
     bool valid = false;
     int choice;
@@ -161,7 +173,7 @@ void removeItem(User& user)
     }
 }
 
-void updateItem(User& user, int serialNumber, std::string &name, int quantity, double price)
+void updateItem(User &user, int serialNumber, std::string &name, int quantity, double price)
 {
     bool valid = false;
     int choice;
@@ -191,7 +203,7 @@ void updateItem(User& user, int serialNumber, std::string &name, int quantity, d
     }
 }
 
-void searchItem(User& user)
+void searchItem(User &user)
 {
     bool valid = false;
     int choice;
