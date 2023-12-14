@@ -23,6 +23,7 @@ int main()
 
     if (login)
     {
+        inventory = user.getInventory();
         std::cout << std::endl
                   << "Welcome to the Inventory Management System " << user.getName() << "!" << std::endl;
 
@@ -116,7 +117,7 @@ void getItemInfo(User &user, Inventory &inventory, int serialNumber, std::string
 
         Item newItem(serialNumber, name, quantity, price);
 
-        user.addItemToInventory(inventory, newItem);
+        user.addItemToInventory(newItem);
         inventory.displayInventory();
 
         std::cout << "Do you want to add another item? (y/n): ";

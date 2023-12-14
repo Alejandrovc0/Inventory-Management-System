@@ -16,10 +16,11 @@ void Accounts::loadAccounts()
     std::string name, username, password;
     int verificationCode;
     std::vector<User> loadedUsers;
+    Inventory inventory;
 
     while (accountFile >> name >> username >> password >> verificationCode)
     {
-        User existingUser(name, username, password, verificationCode);
+        User existingUser(name, username, password, verificationCode, inventory);
         loadedUsers.push_back(existingUser);
     }
     users = loadedUsers;
@@ -29,6 +30,27 @@ void Accounts::loadAccounts()
 void Accounts::addUser(const User &user)
 {
     users.push_back(user);
+}
+
+void Accounts::registerUser(User& user, const std::string& name, const std::string& username, std::string& password, int verificationCode)
+{
+    std::string encryptedPasword;
+    encryptedPasword = encryptPassword(password);
+    user = User(name, username, encryptedPasword, verificationCode);
+
+    std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
+
+    if(!accountFile.is_open())
+    {
+        std::cout << "Error opening file." << std::endl;
+        exit(1);
+    }
+
+    accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
+    accountFile.close();
+
+    addUser(user);
+    std::cout << "Account created successfully!" << std::endl;
 }
 
 bool Accounts::isValidPassword(const std::string &password)
@@ -76,43 +98,20 @@ std::string Accounts::decryptPassword(std::string &password)
     return password;
 }
 
-void Accounts::registerUser(User& user, const std::string& name, const std::string& username, std::string& password, int verificationCode)
-{
-    std::string encryptedPasword;
-    encryptedPasword = encryptPassword(password);
-    user = User(name, username, encryptedPasword, verificationCode);
-
-    std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
-
-    if(!accountFile.is_open())
-    {
-        std::cout << "Error opening file." << std::endl;
-        exit(1);
-    }
-
-    accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
-    accountFile.close();
-
-    addUser(user);
-    std::cout << "Account created successfully!" << std::endl;
-}
-
-bool Accounts::login(User& user, const std::string& enteredUsername, std::string& enteredPassword)
+bool Accounts::login(User& user, Accounts& accounts, const std::string& enteredUsername, std::string& enteredPassword)
 {
     std::string encryptedPassword = encryptPassword(enteredPassword);
-    for(const auto &currentUser : users)
+    for (const auto &currentUser : users)
     {
-        if (enteredUsername == user.getUsername()  && encryptedPassword == user.getPassword())
+        if (enteredUsername == currentUser.getUsername()  && encryptedPassword == currentUser.getPassword())
         {
             user = currentUser;
             std::cout << "Login successful!" << std::endl;
             return true;
         }
-        
     }
     std::cout << "Login failed!" << std::endl;
     return false;
-
 }
 
 void Accounts::logout() const

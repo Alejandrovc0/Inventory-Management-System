@@ -8,10 +8,11 @@ User::User()
     username = "";
     password = "";
     verificationCode = 0;
+    inventory = getInventory();
 }
 
-User::User(const std::string &name, const std::string &username, const std::string &password, int verificationCode)
-    : name(name), username(username), password(password), verificationCode(verificationCode) {}
+User::User(const std::string &name, const std::string &username, const std::string &password, int verificationCode, Inventory &inventory)
+    : name(name), username(username), password(password), verificationCode(verificationCode), inventory(inventory) {}
 
 std::string User::getName() const
 {
@@ -33,7 +34,7 @@ int User::getVerification() const
     return verificationCode;
 }
 
-Inventory &User::getInventory(Inventory &inventory)
+Inventory &User::getInventory()
 {
     return inventory;
 }
@@ -58,7 +59,7 @@ void User::setVerification(int newVerificationCode)
     verificationCode = newVerificationCode;
 }
 
-void User::addItemToInventory(Inventory &inventory, const Item &item)
+void User::addItemToInventory(const Item &item)
 {
     inventory.addItem(item);
 }

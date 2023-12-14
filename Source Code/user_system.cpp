@@ -84,8 +84,8 @@ void userLogin(User &user, Accounts &accounts, Inventory &inventory, std::string
     std::cout << "Enter your password: ";
     std::cin >> password;
     std::cout << std::endl;
-    login = accounts.login(user, username, password);
-    inventory = user.getInventory(inventory);
+    login = accounts.login(user, accounts, username, password);
+    inventory = user.getInventory();
 }
 
 void changePassword(User &user, Accounts &accounts)
