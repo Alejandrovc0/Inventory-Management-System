@@ -9,12 +9,12 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
-                "${fileDirname}\\inventory_system.exe",
-                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include",
-                "-LC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib",
-                "-lSDL2",
-                "-lSDL2main",
                 "-o",
+                "${fileDirname}\\inventory_system.exe",
+                "-I${workspaceFolder}/include",
+                /*"-L${workspaceFolder}/lib",
+                "-lSDL2",
+                "-lSDL2main",*/
                 "Item.o",
                 "Inventory.o",
                 "User.o",
@@ -44,14 +44,14 @@
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
                 "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include",
-                "-LC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib",
+                /*"-LC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib",
                 "-lSDL2",
-                "-lSDL2main",                
-                "Inventory.o",
+                "-lSDL2main", */               
                 "Item.o",
+                "Inventory.o",
                 "User.o",
                 "Accounts.o",
-                "user_system.o"
+                "user_system.o"               
             ],
             "options": {
                 "cwd": "${fileDirname}"

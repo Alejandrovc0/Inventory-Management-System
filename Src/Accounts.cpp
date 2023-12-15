@@ -117,7 +117,7 @@ bool Accounts::login(User &user, Accounts &accounts, const std::string &enteredU
 void Accounts::logout() const
 {
     std::cout << "Logout successful!" << std::endl;
-    return;
+    exit(0);
 }
 
 void Accounts::retrieveUsername(User &user, Accounts &accounts, const std::string name, const int verificationCode)
