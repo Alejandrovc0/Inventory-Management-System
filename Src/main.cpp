@@ -33,6 +33,20 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    SDL_Event windowEvent;
+    while (true)
+    {
+        if (SDL_PollEvent(&windowEvent))
+        {
+            if (SDL_QUIT == windowEvent.type)
+            {
+                break;
+            }
+        }
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+    }
+
     if (login)
     {
         Inventory inventory;
