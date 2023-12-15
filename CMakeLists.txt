@@ -1,21 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(Inventory Managment System)
+project(Inventory_Managment_System)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 11)
 
 # Include headers
-include_directories(include ${SDL2_INCLUDE_DIRS})
+include_directories(include)
 
 # Add source files
-file(GLOB SOURCES "Src/*.cpp")
+file(GLOB SOURCES "src/*.cpp")
 
-# Add the object files
-set(OBJECTS "Item.o" "Inventory.o" "User.o" "Accounts.o" "user_system.o")
+# Create executable
+add_executable(inventory_system ${SOURCES})
 
-# Add the executable
-add_executable(inventory_system ${SOURCES} ${OBJECTS})
+# Link against SDL2 using sdl2-config.cmake
+include(${CMAKE_SOURCE_DIR}/lib/cmake/SDL2/sdl2-config.cmake)
 
 # Link against SDL2
-target_link_libraries(inventory_system ${SDL2_LIBRARIES})
+target_link_libraries(inventory_system SDL2::SDL2)

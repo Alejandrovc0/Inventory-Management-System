@@ -12,9 +12,9 @@
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
                 "-I${workspaceFolder}/include",
-                /*"-L${workspaceFolder}/lib",
+                "-L${workspaceFolder}/lib",
                 "-lSDL2",
-                "-lSDL2main",*/
+                "-lSDL2main",
                 "Item.o",
                 "Inventory.o",
                 "User.o",

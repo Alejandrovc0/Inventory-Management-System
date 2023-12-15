@@ -1,4 +1,5 @@
 #include "Headers.h"
+#undef main
 
 int menu(int choice);
 void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, double price);
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
     accounts.loadAccounts();
     userMenu(user, accounts, login);
 
-    /*SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window *window = SDL_CreateWindow("Inventory Management System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
 
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
         }
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
-    }*/
+    }
 
     if (login)
     {
