@@ -136,12 +136,37 @@ void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, 
     {
         std::cout << "Enter the serial number of the item: ";
         std::cin >> serialNumber;
+        if (serialNumber < 1000)
+        {
+            std::cout << "Invalid serial number." << std::endl;
+            continue;
+        }
         std::cout << "Enter the name of the item: ";
         std::cin >> name;
+        try
+        {
+            std::stod(name);
+            std::cout << "Invalid name." << std::endl;
+            continue;
+        }
+        catch (std::invalid_argument)
+        {
+            // Do nothing
+        }
         std::cout << "Enter the quantity of the item: ";
         std::cin >> quantity;
+        if (quantity <= 0)
+        {
+            std::cout << "Invalid quantity." << std::endl;
+            continue;
+        }
         std::cout << "Enter the price of the item: ";
         std::cin >> price;
+        if (price <= 0)
+        {
+            std::cout << "Invalid price." << std::endl;
+            continue;
+        }
 
         Item newItem(serialNumber, name, quantity, price);
 
@@ -173,8 +198,16 @@ void removeItem(User &user)
     {
         std::cout << "Enter the serial number of the item you want to remove: ";
         std::cin >> serialNumber;
+        try 
+        {
+            user.removeItemFromInventory(serialNumber);
+        }
+        catch (std::invalid_argument)
+        {
+            std::cout << "Invalid serial number. Item not found" << std::endl;
+            continue;
+        }
 
-        user.removeItemFromInventory(serialNumber);
         user.displayInventoryFromInventory();
 
         std::cout << "Do you want to remove another item? (y/n): ";
@@ -197,10 +230,30 @@ void updateItem(User &user, int serialNumber, std::string &name, int quantity, d
     {
         std::cout << "Enter the name of the item you want to update: ";
         std::cin >> name;
+        try
+        {
+            std::stod(name);
+            std::cout << "Invalid name." << std::endl;
+            continue;
+        }
+        catch (std::invalid_argument)
+        {
+            // Do nothing
+        }
         std::cout << "Enter the new quantity of the item: ";
         std::cin >> quantity;
+        if (quantity <= 0)
+        {
+            std::cout << "Invalid quantity." << std::endl;
+            continue;
+        }
         std::cout << "Enter the new price of the item: ";
         std::cin >> price;
+        if (price <= 0)
+        {
+            std::cout << "Invalid price." << std::endl;
+            continue;
+        }
 
         Item updatedItem(serialNumber, name, quantity, price);
 
@@ -226,8 +279,13 @@ void searchItem(User &user)
 
     while (!valid)
     {
-        std::cout << "Enter the name of the item you want to search for: ";
+        std::cout << "Enter the the serial number of the item you want to search for: ";
         std::cin >> serialNumber;
+        if (serialNumber < 1000)
+        {
+            std::cout << "Invalid serial number." << std::endl;
+            continue;
+        }
 
         const Item *item = user.searchItemfromInventory(serialNumber);
 
