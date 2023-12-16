@@ -15,11 +15,14 @@
 		[
 			"add_executable",
 			"target_link_libraries",
+			"set_target_properties",
+			"include",
 			"include_directories"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"CMakeLists.txt",
+			"lib/cmake/SDL2/sdl2-config.cmake"
 		],
 		"nodes" : 
 		[
@@ -35,11 +38,27 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
 				"line" : 18,
 				"parent" : 0
 			},
 			{
+				"file" : 1,
+				"parent" : 3
+			},
+			{
 				"command" : 2,
+				"file" : 1,
+				"line" : 119,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
 				"file" : 0,
 				"line" : 9,
 				"parent" : 0
@@ -58,8 +77,13 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 6,
 					"path" : "C:/Users/alejo/Desktop/Inventory-Managment-System/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/alejo/Desktop/Inventory-Managment-System/include/SDL2"
 				}
 			],
 			"language" : "CXX",
@@ -97,7 +121,17 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib\\libSDL2.a",
+				"fragment" : "-LC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib\\libSDL2.dll.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-mwindows",
 				"role" : "libraries"
 			},
 			{
