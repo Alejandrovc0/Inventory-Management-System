@@ -1,7 +1,6 @@
 #include "Headers.h"
-#undef main
 
-int menu(int choice);
+int menu();
 void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, double price);
 void removeItem(User &user);
 void updateItem(User &user, int serialNumber, std::string &name, int quantity, double price);
@@ -11,7 +10,7 @@ bool returnOption();
 
 const int WIDTH = 800, HEIGHT = 600;
 
-int main(int argc, char *argv[])
+int main()
 {
     bool login = false;
     User user;
@@ -24,30 +23,6 @@ int main(int argc, char *argv[])
     accounts.loadAccounts();
     userMenu(user, accounts, login);
 
-    SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window *window = SDL_CreateWindow("Inventory Management System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-
-    if (window == NULL)
-    {
-        std::cout << "Error: " << SDL_GetError() << std::endl;
-        return -1;
-    }
-
-    SDL_Event windowEvent;
-    while (true)
-    {
-        if (SDL_PollEvent(&windowEvent))
-        {
-            if (SDL_QUIT == windowEvent.type)
-            {
-                break;
-            }
-        }
-        SDL_RenderClear(renderer);
-        SDL_RenderPresent(renderer);
-    }
-
     if (login)
     {
         Inventory inventory;
@@ -57,7 +32,7 @@ int main(int argc, char *argv[])
 
         while (true)
         {
-            int choice = menu(choice);
+            int choice = menu();
 
             switch (choice)
             {
@@ -110,9 +85,43 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
-int menu(int choice)
+/*
+int SDL_main(int argc, char *argv[])
 {
+    SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Window *window = SDL_CreateWindow("Inventory Management System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
+
+    if (window == NULL)
+    {
+        std::cout << "Error: " << SDL_GetError() << std::endl;
+        return -1;
+    }
+
+    SDL_Event windowEvent;
+    while (true)
+    {
+        if (SDL_PollEvent(&windowEvent))
+        {
+            if (SDL_QUIT == windowEvent.type)
+            {
+                break;
+            }
+        }
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
+    return 0;
+}
+*/
+int menu()
+{
+    int option;
     std::cout << "Menu" << std::endl;
     std::cout << "1. Add an item to the inventory" << std::endl;
     std::cout << "2. Remove an item from the inventory" << std::endl;
@@ -122,9 +131,9 @@ int menu(int choice)
     std::cout << "6. Save/Load inventory from file" << std::endl;
     std::cout << "7. Log out" << std::endl;
     std::cout << "Enter your choice: ";
-    std::cin >> choice;
+    std::cin >> option;
 
-    return choice;
+    return option;
 }
 
 void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, double price)

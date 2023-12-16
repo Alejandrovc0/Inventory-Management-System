@@ -18,4 +18,4 @@ add_executable(inventory_system ${SOURCES})
 include(${CMAKE_SOURCE_DIR}/lib/cmake/SDL2/sdl2-config.cmake)
 
 # Link against SDL2
-target_link_libraries(inventory_system SDL2::SDL2)
+target_link_libraries(inventory_system SDL2main SDL2::SDL2)
