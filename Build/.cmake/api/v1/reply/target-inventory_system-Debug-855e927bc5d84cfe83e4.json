@@ -126,6 +126,11 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "-lSDL2main",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib\\libSDL2.dll.a",
 				"role" : "libraries"
 			},
