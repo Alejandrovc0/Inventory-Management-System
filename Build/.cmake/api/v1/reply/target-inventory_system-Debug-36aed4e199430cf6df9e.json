@@ -32,19 +32,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 15,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 21,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 18,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -60,7 +60,7 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 9,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -123,11 +123,6 @@
 				"backtrace" : 2,
 				"fragment" : "-LC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\lib",
 				"role" : "libraryPath"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-lSDL2main",
-				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
