@@ -60,6 +60,12 @@ void userSignup(User &user, Accounts &accounts, std::string &name, std::string &
     getline(std::cin, name);
     std::cout << "Username: " << std::endl;
     std::cin >> username;
+    while (user.getUsername() == username)
+    {
+        std::cout << "Username already exists!" << std::endl;
+        std::cout << "Username: " << std::endl;
+        std::cin >> username;
+    }
     std::cout << "Password: " << std::endl;
     std::cin >> password;
 
