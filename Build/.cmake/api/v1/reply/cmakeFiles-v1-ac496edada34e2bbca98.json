@@ -151,6 +151,9 @@
 			"path" : "C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
+			"path" : "lib/cmake/SDL2/sdl2-config-version.cmake"
+		},
+		{
 			"path" : "lib/cmake/SDL2/sdl2-config.cmake"
 		},
 		{

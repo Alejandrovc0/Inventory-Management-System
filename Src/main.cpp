@@ -85,7 +85,7 @@ int main()
 
     return 0;
 }
-/*
+
 int SDL_main(int argc, char *argv[])
 {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -118,7 +118,7 @@ int SDL_main(int argc, char *argv[])
 
     return 0;
 }
-*/
+
 int menu()
 {
     int option;

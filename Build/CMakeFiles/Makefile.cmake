@@ -35,6 +35,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.1/CMakeRCCompiler.cmake"
   "CMakeFiles/3.28.1/CMakeSystem.cmake"
   "C:/Users/alejo/Desktop/Inventory-Managment-System/CMakeLists.txt"
+  "C:/Users/alejo/Desktop/Inventory-Managment-System/lib/cmake/SDL2/sdl2-config-version.cmake"
   "C:/Users/alejo/Desktop/Inventory-Managment-System/lib/cmake/SDL2/sdl2-config.cmake"
   )
 
