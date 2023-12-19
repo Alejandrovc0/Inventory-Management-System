@@ -11,6 +11,8 @@ include_directories(include)
 # Add precompiled object files
 file(GLOB SOURCES "src/*.cpp")
 
+set(CMAKE_BUILD_TYPE Debug)
+
 # Create executable
 add_executable(inventory_system src/main.cpp ${SOURCES})
 
