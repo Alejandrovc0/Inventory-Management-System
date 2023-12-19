@@ -18,6 +18,10 @@ set(SDL2_DIR "lib\\cmake\\SDL2")
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+# Get the path to the SDL2 DLL file
+set(SDL2_DLL_PATH "Src\\SDL2.dll")
+
+
 # Link against SDL2
 target_link_libraries(inventory_system ${SDL2_LIBRARIES})
 
