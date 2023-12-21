@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
 
     accounts.loadAccounts();
 
+    Window window ("Inventory Management System", WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    /*
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window *window = SDL_CreateWindow("Inventory Management System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
@@ -79,7 +81,7 @@ int main(int argc, char *argv[])
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-    SDL_Quit();
+    SDL_Quit();*/
 
     userMenu(user, accounts, login);
 
