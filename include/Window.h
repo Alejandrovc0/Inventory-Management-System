@@ -10,7 +10,7 @@ class Window
         SDL_Renderer* renderer;
 
     public:
-        Window(const char* title, int width, int height, bool fullscreen);
+        Window(const char* title, int width, int height);
         ~Window();
 
         SDL_Window* getWindow() const;

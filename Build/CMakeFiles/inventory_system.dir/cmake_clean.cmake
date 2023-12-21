@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/inventory_system.dir/Src/Item.cpp.obj.d"
   "CMakeFiles/inventory_system.dir/Src/User.cpp.obj"
   "CMakeFiles/inventory_system.dir/Src/User.cpp.obj.d"
+  "CMakeFiles/inventory_system.dir/Src/Window.cpp.obj"
+  "CMakeFiles/inventory_system.dir/Src/Window.cpp.obj.d"
   "CMakeFiles/inventory_system.dir/Src/main.cpp.obj"
   "CMakeFiles/inventory_system.dir/Src/main.cpp.obj.d"
   "CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj"

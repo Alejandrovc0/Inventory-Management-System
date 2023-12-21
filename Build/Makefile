@@ -224,6 +224,30 @@ Src/User.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/User.cpp.s
 .PHONY : Src/User.cpp.s
 
+Src/Window.obj: Src/Window.cpp.obj
+.PHONY : Src/Window.obj
+
+# target to build an object file
+Src/Window.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Window.cpp.obj
+.PHONY : Src/Window.cpp.obj
+
+Src/Window.i: Src/Window.cpp.i
+.PHONY : Src/Window.i
+
+# target to preprocess a source file
+Src/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Window.cpp.i
+.PHONY : Src/Window.cpp.i
+
+Src/Window.s: Src/Window.cpp.s
+.PHONY : Src/Window.s
+
+# target to generate assembly for a file
+Src/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Window.cpp.s
+.PHONY : Src/Window.cpp.s
+
 Src/main.obj: Src/main.cpp.obj
 .PHONY : Src/main.obj
 
@@ -293,6 +317,9 @@ help:
 	@echo ... Src/User.obj
 	@echo ... Src/User.i
 	@echo ... Src/User.s
+	@echo ... Src/Window.obj
+	@echo ... Src/Window.i
+	@echo ... Src/Window.s
 	@echo ... Src/main.obj
 	@echo ... Src/main.i
 	@echo ... Src/main.s

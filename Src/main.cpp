@@ -22,66 +22,9 @@ int main(int argc, char *argv[])
 
     accounts.loadAccounts();
 
-    Window window ("Inventory Management System", WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-    /*
-    SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window *window = SDL_CreateWindow("Inventory Management System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-
-    if (window == NULL)
-    {
-        std::cout << "Error: " << SDL_GetError() << std::endl;
-        return -1;
-    }
-
-    SDL_Rect square;
-    square.x = 320;
-    square.y = 240;
-    square.w = 50;
-    square.h = 50;
-
-    SDL_Event windowEvent;
-
-    while (true)
-    {
-        if (SDL_PollEvent(&windowEvent))
-        {
-            if (SDL_QUIT == windowEvent.type)
-            {
-                break;
-            }
-            else if (SDL_KEYDOWN == windowEvent.type)
-            {
-                switch (windowEvent.key.keysym.sym)
-                {
-                    case SDLK_UP:
-                        square.y -= 10;
-                        break;
-                    case SDLK_DOWN:
-                        square.y += 10;
-                        break;
-                    case SDLK_LEFT:
-                        square.x -= 10;
-                        break;
-                    case SDLK_RIGHT:
-                        square.x += 10;
-                        break;
-                }
-            }
-        }
-
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_RenderClear(renderer);
-
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderFillRect(renderer, &square);
-
-        SDL_RenderPresent(renderer);
-    }
-
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();*/
+    Window window ("Inventory Management System", WIDTH, HEIGHT);
+    
+    window.~Window();
 
     userMenu(user, accounts, login);
 

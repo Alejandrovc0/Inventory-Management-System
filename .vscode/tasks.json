@@ -11,6 +11,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
+                "Window.o",
                 "-I${workspaceFolder}/include",
                 "-L${workspaceFolder}/lib",
                 "-lmingw32",
