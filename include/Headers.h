@@ -6,6 +6,7 @@
 #include "User.h"
 #include "Accounts.h"
 #include "user_declaration.h"
+#include "Window.h"
 
 #include <iostream>
 #include <iomanip>
