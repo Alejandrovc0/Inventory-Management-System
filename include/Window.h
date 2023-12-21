@@ -10,6 +10,7 @@ class Window
         SDL_Renderer* renderer;
 
     public:
+        Window();
         Window(const char* title, int width, int height);
         ~Window();
 

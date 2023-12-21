@@ -1,6 +1,13 @@
 #include "Window.h"
 #include <iostream>
 
+Window::Window()
+{
+    window = nullptr;
+    renderer = nullptr;
+
+}
+    
 Window::Window(const char* title, int width, int height)
 {
     SDL_Init(SDL_INIT_EVERYTHING);
