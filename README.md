@@ -44,10 +44,6 @@ A simple login system to restrict access to authorized users.
 
 Implement validation for user inputs to ensure data integrity.
 
-### 4. Graphical User Interface (GUI)
-
-For an enhanced user experience, a basic GUI using an SDL library.
-
 ## Skills Practiced
 
 - File handling
