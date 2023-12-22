@@ -1,14 +1,5 @@
 #include "Headers.h"
 
-int menu();
-void getItemInfo(User &user, int serialNumber, std::string &name, int quantity, double price);
-void removeItem(User &user);
-void updateItem(User &user, int serialNumber, std::string &name, int quantity, double price);
-void searchItem(User &user);
-void save_loadInventory(User &user);
-bool returnOption();
-
-const int WIDTH = 800, HEIGHT = 600;
 
 int main(int argc, char *argv[])
 {
@@ -21,10 +12,6 @@ int main(int argc, char *argv[])
     double price = 0.0;
 
     accounts.loadAccounts();
-
-    Window window ("Inventory Management System", WIDTH, HEIGHT);
-    
-    window.~Window();
 
     userMenu(user, accounts, login);
 
