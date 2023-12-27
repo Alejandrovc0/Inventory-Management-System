@@ -6,7 +6,6 @@
 #include "User.h"
 #include "Accounts.h"
 #include "user_declaration.h"
-#include "Window.h"
 #include "mainfunctions.h"
 
 #include <iostream>
@@ -15,7 +14,5 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <SDL2/SDL.h>
-
 
 #endif

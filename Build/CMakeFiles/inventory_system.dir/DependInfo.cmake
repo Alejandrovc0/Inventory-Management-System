@@ -12,7 +12,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/alejo/Desktop/Inventory-Managment-System/Src/Inventory.cpp" "CMakeFiles/inventory_system.dir/Src/Inventory.cpp.obj" "gcc" "CMakeFiles/inventory_system.dir/Src/Inventory.cpp.obj.d"
   "C:/Users/alejo/Desktop/Inventory-Managment-System/Src/Item.cpp" "CMakeFiles/inventory_system.dir/Src/Item.cpp.obj" "gcc" "CMakeFiles/inventory_system.dir/Src/Item.cpp.obj.d"
   "C:/Users/alejo/Desktop/Inventory-Managment-System/Src/User.cpp" "CMakeFiles/inventory_system.dir/Src/User.cpp.obj" "gcc" "CMakeFiles/inventory_system.dir/Src/User.cpp.obj.d"
-  "C:/Users/alejo/Desktop/Inventory-Managment-System/Src/Window.cpp" "CMakeFiles/inventory_system.dir/Src/Window.cpp.obj" "gcc" "CMakeFiles/inventory_system.dir/Src/Window.cpp.obj.d"
   "C:/Users/alejo/Desktop/Inventory-Managment-System/Src/main.cpp" "CMakeFiles/inventory_system.dir/Src/main.cpp.obj" "gcc" "CMakeFiles/inventory_system.dir/Src/main.cpp.obj.d"
   "C:/Users/alejo/Desktop/Inventory-Managment-System/Src/user_system.cpp" "CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj" "gcc" "CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj.d"
   )

@@ -143,26 +143,11 @@ CMakeFiles/inventory_system.dir/Src/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inventory_system.dir/Src/User.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alejo\Desktop\Inventory-Managment-System\Src\User.cpp -o CMakeFiles\inventory_system.dir\Src\User.cpp.s
 
-CMakeFiles/inventory_system.dir/Src/Window.cpp.obj: CMakeFiles/inventory_system.dir/flags.make
-CMakeFiles/inventory_system.dir/Src/Window.cpp.obj: CMakeFiles/inventory_system.dir/includes_CXX.rsp
-CMakeFiles/inventory_system.dir/Src/Window.cpp.obj: C:/Users/alejo/Desktop/Inventory-Managment-System/Src/Window.cpp
-CMakeFiles/inventory_system.dir/Src/Window.cpp.obj: CMakeFiles/inventory_system.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/inventory_system.dir/Src/Window.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inventory_system.dir/Src/Window.cpp.obj -MF CMakeFiles\inventory_system.dir\Src\Window.cpp.obj.d -o CMakeFiles\inventory_system.dir\Src\Window.cpp.obj -c C:\Users\alejo\Desktop\Inventory-Managment-System\Src\Window.cpp
-
-CMakeFiles/inventory_system.dir/Src/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/inventory_system.dir/Src/Window.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\alejo\Desktop\Inventory-Managment-System\Src\Window.cpp > CMakeFiles\inventory_system.dir\Src\Window.cpp.i
-
-CMakeFiles/inventory_system.dir/Src/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/inventory_system.dir/Src/Window.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\alejo\Desktop\Inventory-Managment-System\Src\Window.cpp -o CMakeFiles\inventory_system.dir\Src\Window.cpp.s
-
 CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj: CMakeFiles/inventory_system.dir/flags.make
 CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj: CMakeFiles/inventory_system.dir/includes_CXX.rsp
 CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj: C:/Users/alejo/Desktop/Inventory-Managment-System/Src/user_system.cpp
 CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj: CMakeFiles/inventory_system.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj -MF CMakeFiles\inventory_system.dir\Src\user_system.cpp.obj.d -o CMakeFiles\inventory_system.dir\Src\user_system.cpp.obj -c C:\Users\alejo\Desktop\Inventory-Managment-System\Src\user_system.cpp
 
 CMakeFiles/inventory_system.dir/Src/user_system.cpp.i: cmake_force
@@ -180,7 +165,6 @@ inventory_system_OBJECTS = \
 "CMakeFiles/inventory_system.dir/Src/Inventory.cpp.obj" \
 "CMakeFiles/inventory_system.dir/Src/Item.cpp.obj" \
 "CMakeFiles/inventory_system.dir/Src/User.cpp.obj" \
-"CMakeFiles/inventory_system.dir/Src/Window.cpp.obj" \
 "CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj"
 
 # External object files for target inventory_system
@@ -191,15 +175,12 @@ inventory_system.exe: CMakeFiles/inventory_system.dir/Src/Accounts.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/Src/Inventory.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/Src/Item.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/Src/User.cpp.obj
-inventory_system.exe: CMakeFiles/inventory_system.dir/Src/Window.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/build.make
-inventory_system.exe: C:/Users/alejo/Desktop/Inventory-Managment-System/lib/libSDL2main.a
-inventory_system.exe: C:/Users/alejo/Desktop/Inventory-Managment-System/lib/libSDL2.dll.a
 inventory_system.exe: CMakeFiles/inventory_system.dir/linkLibs.rsp
 inventory_system.exe: CMakeFiles/inventory_system.dir/objects1.rsp
 inventory_system.exe: CMakeFiles/inventory_system.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable inventory_system.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable inventory_system.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\inventory_system.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

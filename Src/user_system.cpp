@@ -1,19 +1,14 @@
 #include "user_declaration.h"
-#include "Window.h"
 
 #include <iostream>
 #include <string>
 #include <fstream>
-
-const int WIDTH = 1920, HEIGHT = 1080;
 
 void userMenu(User& user, Accounts& accounts, bool& login)
 {
     int choice;
     std::string name, username, password;
     int verificationCode;
-
-    Window window ("Inventory Management System", WIDTH, HEIGHT);
 
     while (!login)
     {

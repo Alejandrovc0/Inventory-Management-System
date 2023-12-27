@@ -1,7 +1,7 @@
 #include "Headers.h"
 
 
-int main(int argc, char *argv[])
+int main()
 {
     bool login = false;
     User user;
