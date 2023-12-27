@@ -50,26 +50,33 @@ Implement validation for user inputs to ensure data integrity.
 - Object-oriented programming (using classes for items, inventory, etc.)
 - User input and validation
 - Basic data structures and algorithms for searching and updating items.
+- CMake for project building and linking
 
-## Getting Started
-
+**Getting Started:**
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/Inventory-Management-System.git
-   ```
+    ```bash
+    git clone https://github.com/your-username/Inventory-Management-System.git
+    ```
 
-3. **Compile the program:**
+2. Navigate to the project directory:
 
-   ```bash
-   g++ main.cpp -o inventory
-   ```
-   
+    ```bash
+    cd Inventory-Management-System
+    ```
+
+3. Build the project using CMake:
+
+    ```bash
+    cmake -S . -B build
+    cmake --build build
+    ```
+
 4. Run the executable:
 
-   ```bash
-   ./inventory
-   ```
+    ```bash
+    ./build/inventory_system
+    ```
 
 ## Contributions
 
