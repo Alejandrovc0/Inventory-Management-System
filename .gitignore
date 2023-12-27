@@ -22,11 +22,6 @@ Makefile
 .vscode/
 .idea/
 
-# Compiled SDL binaries (if applicable)
-*.dll
-*.so
-*.dylib
-
 # User-specific files and directories
 *.user
 *.suo
