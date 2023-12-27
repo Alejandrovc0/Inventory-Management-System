@@ -1,2 +1,0 @@
-Apple 100 100
-Cheese 300 2
