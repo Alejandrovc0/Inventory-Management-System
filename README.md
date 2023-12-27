@@ -4,6 +4,17 @@
 
 This console-based Inventory Management System is designed to help users manage their inventory efficiently. It provides essential features such as adding, removing, updating, viewing items, and more. The system allows users to interact with their inventory through a user-friendly command-line interface.
 
+## Table of Contents
+
+- [Features](#features)
+- [Bonus Features](#bonus-features)
+- [Skills Practiced](#skills-practiced)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Test Files](#additional-Test-Files)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Features
 
 ### 1. Add Item
@@ -50,26 +61,59 @@ Implement validation for user inputs to ensure data integrity.
 - Object-oriented programming (using classes for items, inventory, etc.)
 - User input and validation
 - Basic data structures and algorithms for searching and updating items.
+- CMake for project building and linking
 
-## Getting Started
-
+**Getting Started:**
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/Inventory-Management-System.git
-   ```
+    ```bash
+    git clone https://github.com/your-username/Inventory-Management-System.git
+    ```
 
-3. **Compile the program:**
+2. Navigate to the project directory:
 
-   ```bash
-   g++ main.cpp -o inventory
-   ```
-   
+    ```bash
+    cd Inventory-Management-System
+    ```
+
+3. Build the project using CMake:
+
+    ```bash
+    cmake -S . -B build
+    cmake --build build
+    ```
+
 4. Run the executable:
 
-   ```bash
-   ./inventory
-   ```
+    ```bash
+    ./build/inventory_system
+    ```
+    
+## Project Structure
+
+Inventory-Management-System/
+|-- include/
+|   |-- headers.h            # Header file containing necessary includes
+|   |-- mainFunction.h       # Header file containing main function declarations
+|   |-- user_system.h        # Header file for user system functions
+|   |-- user.h               # Header file for user class
+|   |-- accounts.h           # Header file for account class
+|   |-- inventory.h          # Header file for inventory class
+|   |-- item.h               # Header file for item class
+|
+|-- src/
+|   |-- main.cpp             # Main program file containing the entry point and core logic
+|   |-- user_system.cpp      # Implementation file for user system functions
+|   |-- user.cpp             # Implementation file for user class
+|   |-- accounts.cpp         # Implementation file for account class
+|   |-- inventory.cpp        # Implementation file for inventory class
+|   |-- item.cpp             # Implementation file for item class
+
+## Additional Test Files
+  
+The repository includes test files to validate the functionality of the inventory system - see the [Data](Data) file:
+- `users.txt`: Contains a list to store the users created.
+- `username_inventory_data.txt`: Contains the sample inventory for a user.
 
 ## Contributions
 

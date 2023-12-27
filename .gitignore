@@ -1,0 +1,39 @@
+# .gitignore
+
+# Build artifacts
+/build/
+
+# Compiled binaries or executables
+*.exe
+*.out
+
+# Object files
+*.o
+*.obj
+
+# Generated files from build process
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled SDL binaries (if applicable)
+*.dll
+*.so
+*.dylib
+
+# User-specific files and directories
+*.user
+*.suo
+*.userprefs
+
+# Ignore the user-specific .DS_Store files on macOS
+.DS_Store
+
+# Ignore any backup files created by text editors or IDEs
+*~
