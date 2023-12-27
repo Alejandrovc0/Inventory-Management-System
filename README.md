@@ -92,6 +92,7 @@ Implement validation for user inputs to ensure data integrity.
 ## Project Structure
 
 Inventory-Management-System/
+```` bash
 |-- include/
 |   |-- headers.h            # Header file containing necessary includes
 |   |-- mainFunction.h       # Header file containing main function declarations
@@ -108,6 +109,7 @@ Inventory-Management-System/
 |   |-- accounts.cpp         # Implementation file for account class
 |   |-- inventory.cpp        # Implementation file for inventory class
 |   |-- item.cpp             # Implementation file for item class
+````
 
 ## Additional Test Files
   
