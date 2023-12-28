@@ -4,7 +4,9 @@
             "name": "GCC",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}\\include"        
+                "${workspaceFolder}\\include",
+                "C:\\Program Files\\MySQL\\MySQL Server 8.0\\include",
+                "C:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include"
             ],
             "defines": [
                 "_DEBUG",

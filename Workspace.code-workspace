@@ -54,11 +54,28 @@
 			"streambuf": "cpp",
 			"typeinfo": "cpp",
 			"ctime": "cpp",
-			"sstream": "cpp"
+			"sstream": "cpp",
+			"cstdarg": "cpp",
+			"cinttypes": "cpp"
 		},
 		"[python]": {
 			"editor.defaultFormatter": "ms-python.black-formatter"
 		},
-		"python.formatting.provider": "none"
+		"python.formatting.provider": "none",
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "Inventory System",
+				"database": "userInventory",
+				"username": "root"
+			}
+		]
 	}
 }

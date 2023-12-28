@@ -12,6 +12,8 @@
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
                 "-I${workspaceFolder}/include",
+                "-IC:\\Program Files\\MySQL\\MySQL Server 8.0\\include",
+                "-IC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include",
                 "Item.o",
                 "Inventory.o",
                 "User.o",

@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 # Include headers
 include_directories(include)
+include_directories()
+
 
 # Add precompiled object files
 file(GLOB SOURCES "src/*.cpp")
