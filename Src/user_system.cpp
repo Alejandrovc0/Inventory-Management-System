@@ -7,7 +7,8 @@
 void userMenu(User& user, Accounts& accounts, bool& login)
 {
     int choice;
-    std::string name, username, password;
+    std::string firstName, lastName, email, username, password;
+    
     int verificationCode;
 
     while (!login)
@@ -27,7 +28,7 @@ void userMenu(User& user, Accounts& accounts, bool& login)
         switch (choice)
         {
             case 1:
-                userSignup(user, accounts, name, username, password, verificationCode);
+                userSignup(user, accounts, firstName, lastName, email, username, password, verificationCode);
                 break;
             case 2:
                 userLogin(user, accounts, username, password, login);
@@ -52,13 +53,16 @@ void userMenu(User& user, Accounts& accounts, bool& login)
     }
 }
 
-void userSignup(User &user, Accounts &accounts, std::string &name, std::string &username, std::string &password, int verificationCode)
+void userSignup(User &user, Accounts &accounts, std::string &firstName, std::string &lastName, std::string &email, std::string &username, std::string &password, int verificationCode)
 {
     Inventory inventory;
     std::cout << "\t\tSign up" << std::endl;
-    std::cout << "Name: " << std::endl;
-    std::cin.ignore();
-    getline(std::cin, name);
+    std::cout << "First name: " << std::endl;
+    std::cin >> firstName;
+    std::cout << "Last name: " << std::endl;
+    std::cin >> lastName;
+    std::cout << "Email: " << std::endl;
+    std::cin >> email;
     std::cout << "Username: " << std::endl;
     std::cin >> username;
     while (user.getUsername() == username)
@@ -81,7 +85,7 @@ void userSignup(User &user, Accounts &accounts, std::string &name, std::string &
     std::cin >> verificationCode;
     std::cout << std::endl;
 
-    accounts.registerUser(user, name, username, password, verificationCode, inventory);
+    accounts.registerUser(user, firstName, lastName, email, username, password, verificationCode, inventory);
 }
 
 void userLogin(User &user, Accounts &accounts, std::string &username, std::string &password, bool &login)

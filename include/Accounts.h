@@ -12,7 +12,7 @@ private:
 public:
     void loadAccounts();
     void addUser(const User &newUser);
-    void registerUser(User &user, const std::string &name, const std::string &username, std::string &password, int verificationCode, Inventory &inventory);
+    void registerUser(User &user, const std::string &firstName, const std::string &lastName, const std::string &email, const std::string &username, std::string &password, int verificationCode, Inventory &inventory);
     bool isValidPassword(const std::string &password);
     std::string encryptPassword(std::string &password);
     std::string decryptPassword(std::string &password);

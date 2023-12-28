@@ -9,7 +9,9 @@
 class User
 {
 private:
-    std::string name;
+    std::string firstName;
+    std::string lastName;
+    std::string email;
     std::string username;
     std::string password;
     int verificationCode;
@@ -17,15 +19,17 @@ private:
 
 public:
     User();
-    User(const std::string &name, const std::string &username, const std::string &password, int verificationCode, Inventory &inventory);
+    User(const std::string &firstName, const std::string &lastName, const std::string &email, const std::string &username, const std::string &password, int verificationCode, Inventory &inventory);
 
     std::string getName() const;
+    std::string getEmail() const;
     std::string getUsername() const;
     std::string getPassword() const;
     int getVerification() const;
     Inventory &getInventory(User &user);
 
     void setName(const std::string &name);
+    void setEmail(const std::string &email);
     void setUsername(const std::string &username);
     void setPassword(const std::string &password);
     void setVerification(int verificationCode);

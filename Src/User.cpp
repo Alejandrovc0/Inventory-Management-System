@@ -4,19 +4,26 @@
 
 User::User()
 {
-    name = "";
+    firstName = "";
+    lastName = "";
+    email = "";
     username = "";
     password = "";
     verificationCode = 0;
     inventory;
 }
 
-User::User(const std::string &name, const std::string &username, const std::string &password, int verificationCode, Inventory &inventory)
-    : name(name), username(username), password(password), verificationCode(verificationCode), inventory(inventory) {}
+User::User(const std::string &firstName, const std::string &lastName, const std::string &email, const std::string &username, const std::string &password, int verificationCode, Inventory &inventory)
+    : firstName(firstName), lastName(lastName), email(email), username(username), password(password), verificationCode(verificationCode), inventory(inventory) {}
 
 std::string User::getName() const
 {
-    return name;
+    return firstName + " " + lastName;
+}
+
+std::string User::getEmail() const
+{
+    return email;
 }
 
 std::string User::getUsername() const
@@ -42,7 +49,12 @@ Inventory &User::getInventory(User &user)
 
 void User::setName(const std::string &newName)
 {
-    name = newName;
+    firstName, lastName = newName;
+}
+
+void User::setEmail(const std::string &newEmail)
+{
+    email = newEmail;
 }
 
 void User::setUsername(const std::string &newUsername)

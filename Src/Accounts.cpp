@@ -4,7 +4,12 @@
 
 void Accounts::loadAccounts()
 {
-    std::ifstream accountFile;
+    std::string sqlString;
+
+    sqlString = "SELECT * FROM Users;";
+    
+
+    /*std::ifstream accountFile;
     accountFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
 
     if (!accountFile.is_open())
@@ -13,18 +18,18 @@ void Accounts::loadAccounts()
         exit(1);
     }
 
-    std::string name, username, password;
+    std::string firstName, lastName, email, username, password;
     int verificationCode;
     std::vector<User> loadedUsers;
     Inventory inventory;
 
-    while (accountFile >> name >> username >> password >> verificationCode)
+    while (accountFile >> firstName >> lastName >> email >> username >> password >> verificationCode)
     {
-        User existingUser(name, username, password, verificationCode, inventory);
+        User existingUser(firstName, lastName, email, username, password, verificationCode, inventory);
         loadedUsers.push_back(existingUser);
     }
     users = loadedUsers;
-    accountFile.close();
+    accountFile.close();*/
 }
 
 void Accounts::addUser(const User &user)
@@ -32,13 +37,15 @@ void Accounts::addUser(const User &user)
     users.push_back(user);
 }
 
-void Accounts::registerUser(User &user, const std::string &name, const std::string &username, std::string &password, int verificationCode, Inventory &inventory)
+void Accounts::registerUser(User &user, const std::string &firstName, const std::string &lastName, const std::string &email, const std::string &username, std::string &password, int verificationCode, Inventory &inventory)
 {
     std::string encryptedPasword;
+    std::string sqlStringl;
     encryptedPasword = encryptPassword(password);
-    user = User(name, username, encryptedPasword, verificationCode, inventory);
+    user = User(firstName, lastName, email, username, encryptedPasword, verificationCode, inventory);
 
-    std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
+    sqlStringl = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
+    /*std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
 
     if (!accountFile.is_open())
     {
@@ -48,7 +55,7 @@ void Accounts::registerUser(User &user, const std::string &name, const std::stri
 
     accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
     accountFile.close();
-
+    */
     addUser(user);
     std::cout << "Account created successfully!" << std::endl;
 }
