@@ -11,9 +11,6 @@ int main(int argc, const char **argv)
     int quantity = 0;
     double price = 0.0;
 
-    
-    
-
     accounts.loadAccounts();
 
     userMenu(user, accounts, login);
@@ -77,8 +74,7 @@ int main(int argc, const char **argv)
             }
         }
     }
-
-    delete con;
+    
     return 0;
 }
 

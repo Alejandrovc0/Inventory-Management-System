@@ -46,7 +46,6 @@ void Accounts::loadAccounts()
     delete res;
     delete stmt;
     delete con;
-
 }
 
 void Accounts::addUser(const User &user)
@@ -78,20 +77,11 @@ void Accounts::registerUser(User &user, const std::string &firstName, const std:
     sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
 
     // Execute the SQL statement
-    sql::ResultSet *res;
-    res = stmt->executeQuery(sqlString);
-    
-    /*std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
+    stmt->executeQuery(sqlString);
 
-    if (!accountFile.is_open())
-    {
-        std::cout << "Error opening file." << std::endl;
-        exit(1);
-    }
+    delete stmt;
+    delete con;
 
-    accountFile << name << " " << username << " " << encryptedPasword << " " << verificationCode << std::endl;
-    accountFile.close();
-    */
     addUser(user);
     std::cout << "Account created successfully!" << std::endl;
 }

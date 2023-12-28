@@ -7,7 +7,6 @@
 #include "Accounts.h"
 #include "user_declaration.h"
 #include "mainfunctions.h"
-#include "mysql_connection.h"
 
 #include <iostream>
 #include <iomanip>
@@ -17,6 +16,7 @@
 #include <string>
 #include <mysql.h>
 #include <mysql_driver.h>
+#include <mysql_connection.h>
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
