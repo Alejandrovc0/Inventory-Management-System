@@ -1,7 +1,7 @@
 #include "Headers.h"
 
 
-int main()
+int main(int argc, const char **argv)
 {
     bool login = false;
     User user;
@@ -10,6 +10,9 @@ int main()
     int serialNum = 0;
     int quantity = 0;
     double price = 0.0;
+
+    
+    
 
     accounts.loadAccounts();
 
@@ -75,6 +78,7 @@ int main()
         }
     }
 
+    delete con;
     return 0;
 }
 

@@ -1,6 +1,10 @@
 #include "Accounts.h"
 #include <iostream>
 #include <fstream>
+#include "mysql_connection.h"
+#include <mysql_driver.h>
+#include <cppconn/statement.h>
+#include <cppconn/resultset.h>
 
 void Accounts::loadAccounts()
 {
@@ -8,28 +12,41 @@ void Accounts::loadAccounts()
 
     sqlString = "SELECT * FROM Users;";
     
+    sql::mysql::MySQL_Driver *driver;
+    sql::Connection *con;
+    
+    driver = sql::mysql::get_mysql_driver_instance();
+    con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
+    con->setSchema("Inventory System");
 
-    /*std::ifstream accountFile;
-    accountFile.open("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt");
+    sql::Statement *stmt;
+    stmt = con->createStatement();
 
-    if (!accountFile.is_open())
-    {
-        std::cout << "Error opening file." << std::endl;
-        exit(1);
-    }
+    sql::ResultSet *res;
+    res = stmt->executeQuery(sqlString);
 
     std::string firstName, lastName, email, username, password;
     int verificationCode;
     std::vector<User> loadedUsers;
     Inventory inventory;
 
-    while (accountFile >> firstName >> lastName >> email >> username >> password >> verificationCode)
+    while(res->next())
     {
+        firstName = res->getString("first_name");
+        lastName = res->getString("last_name");
+        email = res->getString("email");
+        username = res->getString("username");
+        password = res->getString("password");
+        verificationCode = res->getInt("verification_code");
+
         User existingUser(firstName, lastName, email, username, password, verificationCode, inventory);
         loadedUsers.push_back(existingUser);
     }
-    users = loadedUsers;
-    accountFile.close();*/
+    
+    delete res;
+    delete stmt;
+    delete con;
+
 }
 
 void Accounts::addUser(const User &user)
@@ -39,12 +56,31 @@ void Accounts::addUser(const User &user)
 
 void Accounts::registerUser(User &user, const std::string &firstName, const std::string &lastName, const std::string &email, const std::string &username, std::string &password, int verificationCode, Inventory &inventory)
 {
+    sql::mysql::MySQL_Driver *driver;
+    sql::Connection *con;
+    
+    // Create a connection
+    driver = sql::mysql::get_mysql_driver_instance();
+    con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
+
+    // Switch to the database
+    con->setSchema("Inventory System");
+
+    // Create a statement object
+    sql::Statement *stmt;
+    stmt = con->createStatement();
+
     std::string encryptedPasword;
-    std::string sqlStringl;
+    std::string sqlString;
     encryptedPasword = encryptPassword(password);
     user = User(firstName, lastName, email, username, encryptedPasword, verificationCode, inventory);
 
-    sqlStringl = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
+    sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
+
+    // Execute the SQL statement
+    sql::ResultSet *res;
+    res = stmt->executeQuery(sqlString);
+    
     /*std::ofstream accountFile("C:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\Data\\users.txt", std::ios::app);
 
     if (!accountFile.is_open())
