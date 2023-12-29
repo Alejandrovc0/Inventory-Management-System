@@ -2,48 +2,52 @@
 #include <iostream>
 #include <fstream>
 #include "mysql_connection.h"
-#include <mysql_driver.h>
+#include "mysql_driver.h"
+#include <cppconn/driver.h>
 #include <cppconn/statement.h>
 #include <cppconn/resultset.h>
 
 void Accounts::loadAccounts()
 {
-    std::string sqlString;
-
-    sqlString = "SELECT * FROM Users;";
-    
     sql::mysql::MySQL_Driver *driver;
     sql::Connection *con;
-    
+
     driver = sql::mysql::get_mysql_driver_instance();
     con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
+    std::cout << "Connection stablishe" << std::endl;
     con->setSchema("Inventory System");
 
     sql::Statement *stmt;
     stmt = con->createStatement();
 
-    sql::ResultSet *res;
-    res = stmt->executeQuery(sqlString);
+    sql::ResultSet *countRes;
+    countRes = stmt->executeQuery("SELECT COUNT(*) AS count FROM Users");
+    countRes->next();
+    if (countRes->getInt("count") == 0)
+    {
+        std::cout << "No users found!" << std::endl;
+        return;
+    }
 
     std::string firstName, lastName, email, username, password;
     int verificationCode;
     std::vector<User> loadedUsers;
     Inventory inventory;
 
-    while(res->next())
+    while (countRes->next())
     {
-        firstName = res->getString("first_name");
-        lastName = res->getString("last_name");
-        email = res->getString("email");
-        username = res->getString("username");
-        password = res->getString("password");
-        verificationCode = res->getInt("verification_code");
+        firstName = countRes->getString("first_name");
+        lastName = countRes->getString("last_name");
+        email = countRes->getString("email");
+        username = countRes->getString("username");
+        password = countRes->getString("password");
+        verificationCode = countRes->getInt("verification_code");
 
         User existingUser(firstName, lastName, email, username, password, verificationCode, inventory);
         loadedUsers.push_back(existingUser);
     }
-    
-    delete res;
+
+    delete countRes;
     delete stmt;
     delete con;
 }
@@ -57,7 +61,7 @@ void Accounts::registerUser(User &user, const std::string &firstName, const std:
 {
     sql::mysql::MySQL_Driver *driver;
     sql::Connection *con;
-    
+
     // Create a connection
     driver = sql::mysql::get_mysql_driver_instance();
     con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");

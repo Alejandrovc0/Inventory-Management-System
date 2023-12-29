@@ -177,7 +177,7 @@ inventory_system.exe: CMakeFiles/inventory_system.dir/Src/Item.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/Src/User.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj
 inventory_system.exe: CMakeFiles/inventory_system.dir/build.make
-inventory_system.exe: C:/Users/alejo/Desktop/Inventory-Managment-System/lib64/vs14/mysqlcppconn.lib
+inventory_system.exe: C:/Users/alejo/Desktop/Inventory-Managment-System"\\MySQL\ Connector\ C++\ 8.2\\lib64\\vs14"\\mysqlcppconn.lib
 inventory_system.exe: CMakeFiles/inventory_system.dir/linkLibs.rsp
 inventory_system.exe: CMakeFiles/inventory_system.dir/objects1.rsp
 inventory_system.exe: CMakeFiles/inventory_system.dir/link.txt

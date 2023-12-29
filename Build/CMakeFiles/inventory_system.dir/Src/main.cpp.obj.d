@@ -382,9 +382,9 @@ CMakeFiles/inventory_system.dir/Src/main.cpp.obj: \
  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_version.h \
  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_time.h \
  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/errmsg.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_driver.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/driver.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/connection.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_driver.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/driver.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/connection.h \
  C:/msys64/mingw64/include/c++/13.1.0/map \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_tree.h \
  C:/msys64/mingw64/include/c++/13.1.0/ext/aligned_buffer.h \
@@ -393,8 +393,8 @@ CMakeFiles/inventory_system.dir/Src/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.1.0/bits/uses_allocator.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_multimap.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/erase_if.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/build_config.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/warning.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/build_config.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/warning.h \
  C:/msys64/mingw64/include/c++/13.1.0/memory \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_tempbuf.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_raw_storage_iter.h \
@@ -408,29 +408,29 @@ CMakeFiles/inventory_system.dir/Src/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.1.0/bits/atomic_base.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h \
  C:/msys64/mingw64/include/c++/13.1.0/backward/auto_ptr.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/sqlstring.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/sqlstring.h \
  C:/msys64/mingw64/include/c++/13.1.0/algorithm \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_algo.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/algorithmfwd.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_heap.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/uniform_int_dist.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/variant.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/variant.h \
  C:/msys64/mingw64/include/c++/13.1.0/list \
  C:/msys64/mingw64/include/c++/13.1.0/bits/stl_list.h \
  C:/msys64/mingw64/include/c++/13.1.0/bits/list.tcc \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/exception.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/callback.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/exception.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/callback.h \
  C:/msys64/mingw64/include/c++/13.1.0/functional \
  C:/msys64/mingw64/include/c++/13.1.0/bits/std_function.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_connection.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/connection.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/driver.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/exception.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/config.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset_metadata.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/datatype.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/statement.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/prepared_statement.h \
- C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/statement.h
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_connection.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/connection.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/driver.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/exception.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/config.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset_metadata.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/datatype.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/statement.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/prepared_statement.h \
+ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/statement.h

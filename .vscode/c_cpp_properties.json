@@ -5,9 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}\\include",
-                "C:\\Program Files\\MySQL\\MySQL Server 8.0\\include",
-                "C:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include",
-                "C:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include\\jdbc"
+                "${workspaceFolder}\\MySQL Connector C++ 8.2\\include",
+                "${workspaceFolder}\\MySQL Connector C++ 8.2\\include\\jdbc"
             ],
             "defines": [
                 "_DEBUG",

@@ -5,21 +5,21 @@ CMakeFiles/inventory_system.dir/Src/Accounts.cpp.obj: C:/Users/alejo/Desktop/Inv
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/Accounts.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/Inventory.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/Item.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/build_config.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/callback.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/config.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/connection.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/datatype.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/driver.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/exception.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset_metadata.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/sqlstring.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/statement.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/variant.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/warning.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_connection.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_driver.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/build_config.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/callback.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/config.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/connection.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/datatype.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/driver.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/exception.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset_metadata.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/sqlstring.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/statement.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/variant.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/warning.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_connection.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_driver.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/User.h \
   C:/msys64/mingw64/include/_mingw.h \
   C:/msys64/mingw64/include/_mingw_mac.h \
@@ -647,22 +647,24 @@ CMakeFiles/inventory_system.dir/Src/main.cpp.obj: C:/Users/alejo/Desktop/Invento
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/Headers.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/Inventory.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/Item.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/build_config.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/callback.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/config.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/connection.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/datatype.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/driver.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/exception.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/prepared_statement.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset_metadata.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/sqlstring.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/statement.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/variant.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/warning.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/errmsg.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/field_types.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/build_config.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/callback.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/config.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/connection.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/datatype.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/driver.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/exception.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/prepared_statement.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset_metadata.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/sqlstring.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/statement.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/variant.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/warning.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_connection.h \
+  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_driver.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/my_command.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/my_compress.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/my_list.h \
@@ -671,8 +673,6 @@ CMakeFiles/inventory_system.dir/Src/main.cpp.obj: C:/Users/alejo/Desktop/Invento
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql/plugin_auth_common.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql/udf_registration_types.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_com.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_connection.h \
-  C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_driver.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_time.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_version.h \
   C:/Users/alejo/Desktop/Inventory-Managment-System/include/User.h \
@@ -1265,15 +1265,7 @@ C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql.h:
 
 C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/my_command.h:
 
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/connection.h:
-
 C:/Users/alejo/Desktop/Inventory-Managment-System/Src/Accounts.cpp:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/exception.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/callback.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/build_config.h:
 
 C:/msys64/mingw64/include/wingdi.h:
 
@@ -1285,7 +1277,17 @@ C:/msys64/mingw64/include/c++/13.1.0/bits/concept_check.h:
 
 C:/Users/alejo/Desktop/Inventory-Managment-System/include/Accounts.h:
 
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/variant.h:
+C:/msys64/mingw64/include/c++/13.1.0/debug/debug.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/list.tcc:
+
+C:/msys64/mingw64/include/rpcdcep.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/ptr_traits.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/algorithmfwd.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/connection.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/codecvt.h:
 
@@ -1293,61 +1295,67 @@ C:/msys64/mingw64/include/c++/13.1.0/bits/exception_ptr.h:
 
 C:/Users/alejo/Desktop/Inventory-Managment-System/include/Item.h:
 
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/config.h:
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/callback.h:
 
-C:/msys64/mingw64/include/c++/13.1.0/streambuf:
+C:/msys64/mingw64/include/sec_api/sys/timeb_s.h:
 
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/datatype.h:
+C:/msys64/mingw64/include/c++/13.1.0/bits/cxxabi_forced.h:
 
-C:/msys64/mingw64/include/memoryapi.h:
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/build_config.h:
 
-C:/msys64/mingw64/include/pthread_signal.h:
+C:/msys64/mingw64/include/c++/13.1.0/bits/atomic_base.h:
 
-C:/msys64/mingw64/include/c++/13.1.0/bits/erase_if.h:
+C:/msys64/mingw64/include/inaddr.h:
 
-C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxint8intrin.h:
+C:/msys64/mingw64/include/c++/13.1.0/backward/auto_ptr.h:
 
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/driver.h:
-
-C:/msys64/mingw64/include/wnnc.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/locale_facets.tcc:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/resultset_metadata.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/statement.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/prepared_statement.h:
-
-C:/msys64/mingw64/include/limits.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/sqlstring.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/functional_hash.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/basic_string.tcc:
-
-C:/msys64/mingw64/include/wchar.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/cppconn/warning.h:
-
-C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fma4intrin.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_connection.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/locale_classes.tcc:
-
-C:/msys64/mingw64/include/handleapi.h:
-
-C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/mysql_driver.h:
-
-C:/Users/alejo/Desktop/Inventory-Managment-System/include/User.h:
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/exception.h:
 
 C:/msys64/mingw64/include/_mingw.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/error_constants.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/config.h:
+
+C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fintrin.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/basic_ios.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/datatype.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/driver.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/ios_base.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/alloc_traits.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_driver.h:
+
+C:/msys64/mingw64/include/bcrypt.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/exception.h:
+
+C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/popcntintrin.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/resultset_metadata.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/sqlstring.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/statement.h:
+
+C:/msys64/mingw64/include/propidl.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/sstream.tcc:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/variant.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/warning.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/mysql_connection.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/User.h:
 
 C:/msys64/mingw64/include/mmiscapi.h:
 
@@ -1383,35 +1391,11 @@ C:/msys64/mingw64/include/c++/13.1.0/bits/new_allocator.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/algorithm:
 
-C:/msys64/mingw64/include/sec_api/sys/timeb_s.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/cxxabi_forced.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/atomic_base.h:
-
-C:/msys64/mingw64/include/inaddr.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/backward/auto_ptr.h:
-
 C:/msys64/mingw64/include/urlmon.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bit:
 
-C:/msys64/mingw64/include/c++/13.1.0/debug/debug.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/list.tcc:
-
-C:/msys64/mingw64/include/rpcdcep.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/ptr_traits.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/algorithmfwd.h:
-
 C:/msys64/mingw64/include/c++/13.1.0/bits/align.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/ios_base.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/alloc_traits.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/array:
 
@@ -1424,10 +1408,6 @@ C:/msys64/mingw64/include/c++/13.1.0/bits/allocator.h:
 C:/msys64/mingw64/include/namedpipeapi.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/atomic_lockfree_defines.h:
-
-C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512fintrin.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/basic_ios.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/invoke.h:
 
@@ -1447,6 +1427,10 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/wbnoinvdintrin.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/basic_string.h:
 
+C:/msys64/mingw64/include/c++/13.1.0/bits/functional_hash.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/basic_string.tcc:
+
 C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/errmsg.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/char_traits.h:
@@ -1459,9 +1443,11 @@ C:/msys64/mingw64/include/c++/13.1.0/bits/cpp_type_traits.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/cxxabi_init_exception.h:
 
-C:/msys64/mingw64/include/bcrypt.h:
+C:/msys64/mingw64/include/memoryapi.h:
 
-C:/msys64/mingw64/include/c++/13.1.0/bits/exception.h:
+C:/msys64/mingw64/include/pthread_signal.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/erase_if.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/exception_defines.h:
 
@@ -1485,9 +1471,15 @@ C:/msys64/mingw64/include/c++/13.1.0/typeinfo:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/istream.tcc:
 
+C:/msys64/mingw64/include/c++/13.1.0/bits/locale_classes.tcc:
+
 C:/msys64/mingw64/include/processenv.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/locale_facets.h:
+
+C:/msys64/mingw64/include/wnnc.h:
+
+C:/msys64/mingw64/include/c++/13.1.0/bits/locale_facets.tcc:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/localefwd.h:
 
@@ -1677,6 +1669,8 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx512ifmavlintrin.h
 
 C:/msys64/mingw64/include/c++/13.1.0/stdlib.h:
 
+C:/msys64/mingw64/include/c++/13.1.0/streambuf:
+
 C:/msys64/mingw64/include/c++/13.1.0/string:
 
 C:/msys64/mingw64/include/psdk_inc/_ip_types.h:
@@ -1713,8 +1707,6 @@ C:/msys64/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/ctype_base.h:
 
 C:/msys64/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/ctype_inline.h:
 
-C:/msys64/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/error_constants.h:
-
 C:/msys64/mingw64/include/c++/13.1.0/x86_64-w64-mingw32/bits/gthr-default.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/shaintrin.h:
@@ -1738,6 +1730,8 @@ C:/msys64/mingw64/include/crtdefs.h:
 C:/msys64/mingw64/include/ctype.h:
 
 C:/msys64/mingw64/include/errno.h:
+
+C:/msys64/mingw64/include/limits.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avxvnniintrin.h:
 
@@ -1801,6 +1795,8 @@ C:/msys64/mingw64/include/time.h:
 
 C:/msys64/mingw64/include/vadefs.h:
 
+C:/msys64/mingw64/include/wchar.h:
+
 C:/msys64/mingw64/include/fltwinerror.h:
 
 C:/msys64/mingw64/include/wctype.h:
@@ -1810,6 +1806,10 @@ C:/msys64/mingw64/include/virtdisk.h:
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h:
+
+C:/msys64/mingw64/include/handleapi.h:
+
+C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h:
 
@@ -1836,6 +1836,8 @@ C:/Users/alejo/Desktop/Inventory-Managment-System/include/Headers.h:
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/hresetintrin.h:
 
 C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/field_types.h:
+
+C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/jdbc/cppconn/prepared_statement.h:
 
 C:/Users/alejo/Desktop/Inventory-Managment-System/include/MySQL/my_compress.h:
 
@@ -1882,10 +1884,6 @@ C:/msys64/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.h:
 C:/msys64/mingw64/include/c++/13.1.0/bits/locale_facets_nonio.tcc:
 
 C:/msys64/mingw64/include/c++/13.1.0/bits/quoted_string.h:
-
-C:/msys64/mingw64/include/propidl.h:
-
-C:/msys64/mingw64/include/c++/13.1.0/bits/sstream.tcc:
 
 C:/msys64/mingw64/include/mmsystem.h:
 
@@ -2119,6 +2117,8 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxcomplexintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxfp16intrin.h:
 
+C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxint8intrin.h:
+
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/amxtileintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/avx2intrin.h:
@@ -2163,6 +2163,8 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/clwbintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/cmpccxaddintrin.h:
 
+C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fma4intrin.h:
+
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fmaintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/fxsrintrin.h:
@@ -2178,8 +2180,6 @@ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitxintrin.h:
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pconfigintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pkuintrin.h:
-
-C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/popcntintrin.h:
 
 C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/prfchiintrin.h:
 
