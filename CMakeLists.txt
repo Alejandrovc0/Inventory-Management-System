@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 # Include headers
 include_directories(include)
-include_directories(include\\MySQL)
-include_directories(include\\MySQL\\jdbc)
+include_directories(include/MySQL)
+include_directories(include/MySQL/jdbc)
 
 # Add precompiled object files
 file(GLOB SOURCES "src/*.cpp")
@@ -30,4 +30,4 @@ include_directories(${MYSQL_INCLUDE_DIR})
 set(MYSQL_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/MySQLConnector/lib64/vs14)
 
 # Link MySQL Connector/C++
-target_link_libraries(inventory_system ${MYSQL_LIBRARY_DIR}/mysqlcppconn.lib)
+target_link_libraries(inventory_system ${MYSQL_LIBRARY_DIR}/mysqlcppconn)
