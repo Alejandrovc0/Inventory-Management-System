@@ -19,7 +19,7 @@ set(CMAKE_BUILD_TYPE Debug)
 add_executable(inventory_system src/main.cpp ${SOURCES})
 
 # Set the path to MySQL Connector/C++ include directory
-set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}\\MySQL Connector C++ 8.2\\include)
+set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/MySQLConnector/include)
 
 set(WITH_BOOST system|C:\\Program Files\\boost_1_84_0)
 
@@ -27,7 +27,7 @@ set(WITH_BOOST system|C:\\Program Files\\boost_1_84_0)
 include_directories(${MYSQL_INCLUDE_DIR})
 
 # Set the path to MySQL Connector/C++ library directory
-set(MYSQL_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}"\\MySQL Connector C++ 8.2\\lib64\\vs14")
+set(MYSQL_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/MySQLConnector/lib64/vs14)
 
 # Link MySQL Connector/C++
-target_link_libraries(inventory_system ${MYSQL_LIBRARY_DIR}\\mysqlcppconn.lib)
+target_link_libraries(inventory_system ${MYSQL_LIBRARY_DIR}/mysqlcppconn.lib)
