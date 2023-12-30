@@ -59,7 +59,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = C:\Users\alejo\Desktop\Inventory-Managment-System
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\alejo\Desktop\Inventory-Managment-System\Build
+CMAKE_BINARY_DIR = C:\Users\alejo\Desktop\Inventory-Managment-System\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles C:\Users\alejo\Desktop\Inventory-Managment-System\Build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles C:\Users\alejo\Desktop\Inventory-Managment-System\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\Build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,102 +128,6 @@ inventory_system/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/build
 .PHONY : inventory_system/fast
 
-Src/Accounts.obj: Src/Accounts.cpp.obj
-.PHONY : Src/Accounts.obj
-
-# target to build an object file
-Src/Accounts.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Accounts.cpp.obj
-.PHONY : Src/Accounts.cpp.obj
-
-Src/Accounts.i: Src/Accounts.cpp.i
-.PHONY : Src/Accounts.i
-
-# target to preprocess a source file
-Src/Accounts.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Accounts.cpp.i
-.PHONY : Src/Accounts.cpp.i
-
-Src/Accounts.s: Src/Accounts.cpp.s
-.PHONY : Src/Accounts.s
-
-# target to generate assembly for a file
-Src/Accounts.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Accounts.cpp.s
-.PHONY : Src/Accounts.cpp.s
-
-Src/Inventory.obj: Src/Inventory.cpp.obj
-.PHONY : Src/Inventory.obj
-
-# target to build an object file
-Src/Inventory.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Inventory.cpp.obj
-.PHONY : Src/Inventory.cpp.obj
-
-Src/Inventory.i: Src/Inventory.cpp.i
-.PHONY : Src/Inventory.i
-
-# target to preprocess a source file
-Src/Inventory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Inventory.cpp.i
-.PHONY : Src/Inventory.cpp.i
-
-Src/Inventory.s: Src/Inventory.cpp.s
-.PHONY : Src/Inventory.s
-
-# target to generate assembly for a file
-Src/Inventory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Inventory.cpp.s
-.PHONY : Src/Inventory.cpp.s
-
-Src/Item.obj: Src/Item.cpp.obj
-.PHONY : Src/Item.obj
-
-# target to build an object file
-Src/Item.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Item.cpp.obj
-.PHONY : Src/Item.cpp.obj
-
-Src/Item.i: Src/Item.cpp.i
-.PHONY : Src/Item.i
-
-# target to preprocess a source file
-Src/Item.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Item.cpp.i
-.PHONY : Src/Item.cpp.i
-
-Src/Item.s: Src/Item.cpp.s
-.PHONY : Src/Item.s
-
-# target to generate assembly for a file
-Src/Item.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/Item.cpp.s
-.PHONY : Src/Item.cpp.s
-
-Src/User.obj: Src/User.cpp.obj
-.PHONY : Src/User.obj
-
-# target to build an object file
-Src/User.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/User.cpp.obj
-.PHONY : Src/User.cpp.obj
-
-Src/User.i: Src/User.cpp.i
-.PHONY : Src/User.i
-
-# target to preprocess a source file
-Src/User.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/User.cpp.i
-.PHONY : Src/User.cpp.i
-
-Src/User.s: Src/User.cpp.s
-.PHONY : Src/User.s
-
-# target to generate assembly for a file
-Src/User.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/User.cpp.s
-.PHONY : Src/User.cpp.s
-
 Src/main.obj: Src/main.cpp.obj
 .PHONY : Src/main.obj
 
@@ -248,30 +152,6 @@ Src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/main.cpp.s
 .PHONY : Src/main.cpp.s
 
-Src/user_system.obj: Src/user_system.cpp.obj
-.PHONY : Src/user_system.obj
-
-# target to build an object file
-Src/user_system.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/user_system.cpp.obj
-.PHONY : Src/user_system.cpp.obj
-
-Src/user_system.i: Src/user_system.cpp.i
-.PHONY : Src/user_system.i
-
-# target to preprocess a source file
-Src/user_system.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/user_system.cpp.i
-.PHONY : Src/user_system.cpp.i
-
-Src/user_system.s: Src/user_system.cpp.s
-.PHONY : Src/user_system.s
-
-# target to generate assembly for a file
-Src/user_system.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/Src/user_system.cpp.s
-.PHONY : Src/user_system.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -281,24 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... inventory_system
-	@echo ... Src/Accounts.obj
-	@echo ... Src/Accounts.i
-	@echo ... Src/Accounts.s
-	@echo ... Src/Inventory.obj
-	@echo ... Src/Inventory.i
-	@echo ... Src/Inventory.s
-	@echo ... Src/Item.obj
-	@echo ... Src/Item.i
-	@echo ... Src/Item.s
-	@echo ... Src/User.obj
-	@echo ... Src/User.i
-	@echo ... Src/User.s
 	@echo ... Src/main.obj
 	@echo ... Src/main.i
 	@echo ... Src/main.s
-	@echo ... Src/user_system.obj
-	@echo ... Src/user_system.i
-	@echo ... Src/user_system.s
 .PHONY : help
 
 

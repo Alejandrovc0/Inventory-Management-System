@@ -4,9 +4,9 @@
             "name": "GCC",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}\\include",
-                "${workspaceFolder}\\MySQLConnector\\include",
-                "${workspaceFolder}\\MySQLConnector\\include\\jdbc"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/MySQLConnector/include",
+                "${workspaceFolder}/MySQLConnector/include/jdbc"
             ],
             "defines": [
                 "_DEBUG",

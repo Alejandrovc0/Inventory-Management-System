@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "C:/Users/alejo/Desktop/Inventory-Managment-System")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "C:/Users/alejo/Desktop/Inventory-Managment-System/Build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "C:/Users/alejo/Desktop/Inventory-Managment-System/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)
