@@ -11,22 +11,28 @@ include_directories(include/MySQL)
 include_directories(include/MySQL/jdbc)
 
 # Add precompiled object files
-file(GLOB OBJECTS "src/*.o")
+file(GLOB SOURCES "src/*.cpp")
 
 # Set build type
 set(CMAKE_BUILD_TYPE Debug)
 
 # Create executable
-add_executable(inventory_system src/main.cpp ${OBJECTS})
+add_executable(inventory_system ${SOURCES})
 
 # Set the path to MySQL Connector/C++ include directory
-set(MYSQL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/MySQLConnector/include)
+set(MYSQL_CONNECT_INCLUDE_DIR "C:/Program Files/MySQL/MySQL Connector C++ 8.2/include")
+
+set(MYSQL_INCLUDE_DIR "C:/Program Files/MySQL/MySQL Server 8.0/include")
 
 # Include MySQL Connector/C++ headers
-include_directories(${MYSQL_INCLUDE_DIR})
+include_directories(${MYSQL_CONNECT_INCLUDE_DIR}, ${MYSQL_INCLUDE_DIR})
 
 # Set the path to MySQL Connector/C++ library directory
-set(MYSQL_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/MySQLConnector/lib64/vs14)
+set(MYSQL_CONNECT_LIBRARY_DIR "C:/Program Files/MySQL/MySQL Connector C++ 8.2/lib64/vs14")
+
+set(MYSQL_LIBRARY_DIR "C:/Program Files/MySQL/MySQL Server 8.0/lib")
+
+link_directories(${MYSQL_CONNECT_LIBRARY_DIR}, ${MYSQL_LIBRARY_DIR})
 
 # Link MySQL Connector/C++
-target_link_libraries(inventory_system "${MYSQL_LIBRARY_DIR}/mysqlcppconn.lib")
+target_link_libraries(inventory_system mysqlcppconn.lib libmysql.lib)

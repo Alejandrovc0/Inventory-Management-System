@@ -80,12 +80,12 @@ clean: CMakeFiles/inventory_system.dir/clean
 CMakeFiles/inventory_system.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\inventory_system.dir\build.make CMakeFiles/inventory_system.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles --progress-num=1,2 "Built target inventory_system"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target inventory_system"
 .PHONY : CMakeFiles/inventory_system.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/inventory_system.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/inventory_system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\alejo\Desktop\Inventory-Managment-System\build\CMakeFiles 0
 .PHONY : CMakeFiles/inventory_system.dir/rule
