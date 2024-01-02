@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++.exe build active file",
+            "label": "C\\C++: g++.exe build active file",
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
@@ -11,16 +11,18 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\inventory_system.exe",
-                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include",
-                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include\\MySQL",
-                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\MySQLConnector\\include",
-                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\MySQLConnector\\include\\jdbc",
-                "-LC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\MySQLConnector\\lib64\\vs14\\mysqlcppconn.lib",
                 "Item.o",
                 "Inventory.o",
                 "User.o",
                 "Accounts.o",
-                "user_system.o"
+                "user_system.o",
+                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include",
+                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include\\MySQL",
+                "-IC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include",
+                "-IC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include\\jdbc",
+                "-IC:\\Program Files\\MySQL\\MySQL Server 8.0\\include",
+                "-LC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\lib64\\vs14\\mysqlcppconn.lib",
+                "-LC:\\Program Files\\MySQL\\MySQL Server 8.0\\lib\\libmysql.lib"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -36,7 +38,7 @@
         },
         {
             "type": "cppbuild",
-            "label": "C/C++: cpp.exe build active file",
+            "label": "C\\C++: cpp.exe build active file",
             "command": "C:\\msys64\\ucrt64\\bin\\cpp.exe",
             "args": [
                 "-fdiagnostics-color=always",
@@ -49,7 +51,14 @@
                 "Inventory.o",
                 "User.o",
                 "Accounts.o",
-                "user_system.o"               
+                "user_system.o",
+                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include",
+                "-IC:\\Users\\alejo\\Desktop\\Inventory-Managment-System\\include\\MySQL",
+                "-IC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include",
+                "-IC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\include\\jdbc",
+                "-IC:\\Program Files\\MySQL\\MySQL Server 8.0\\include",
+                "-LC:\\Program Files\\MySQL\\MySQL Connector C++ 8.2\\lib64\\vs14\\mysqlcppconn.lib",
+                "-LC:\\Program Files\\MySQL\\MySQL Server 8.0\\lib\\libmysql.lib"         
             ],
             "options": {
                 "cwd": "${fileDirname}"

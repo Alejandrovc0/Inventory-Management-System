@@ -14,7 +14,7 @@ void Accounts::loadAccounts()
 
     driver = sql::mysql::get_mysql_driver_instance();
     con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
-    std::cout << "Connection stablishe" << std::endl;
+    std::cout << "Connection stablished" << std::endl;
     con->setSchema("Inventory System");
 
     sql::Statement *stmt;
