@@ -1,3 +1,0 @@
-C:/Users/alejo/Desktop/Inventory-Managment-System/Build/CMakeFiles/inventory_system.dir
-C:/Users/alejo/Desktop/Inventory-Managment-System/Build/CMakeFiles/edit_cache.dir
-C:/Users/alejo/Desktop/Inventory-Managment-System/Build/CMakeFiles/rebuild_cache.dir
