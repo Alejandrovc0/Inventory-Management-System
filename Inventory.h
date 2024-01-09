@@ -24,5 +24,4 @@ public:
     bool isEmpty() const;
 };
 
-
 #endif

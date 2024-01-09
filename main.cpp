@@ -10,8 +10,6 @@ int main(int argc, const char** argv)
     int quantity = 0;
     double price = 0.0;
 
-    accounts.loadAccounts();
-
     userMenu(user, accounts, login);
 
     if (login)

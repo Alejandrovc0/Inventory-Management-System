@@ -11,6 +11,8 @@ void userMenu(User& user, Accounts& accounts, bool& login)
 
     int verificationCode = 0;
 
+    accounts.loadAccounts();
+
     while (!login)
     {
         std::cout << std::endl;
