@@ -16,6 +16,7 @@ void Accounts::loadAccounts()
     con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
     std::cout << "Connection stablished" << std::endl;
     con->setSchema("userInventory");
+    std::cout << "Switched to database" << std::endl;
 
     sql::Statement* stmt;
     stmt = con->createStatement();
@@ -59,34 +60,50 @@ void Accounts::addUser(const User& user)
 
 void Accounts::registerUser(User& user, const std::string& firstName, const std::string& lastName, const std::string& email, const std::string& username, std::string& password, int verificationCode, Inventory& inventory)
 {
-    sql::mysql::MySQL_Driver* driver;
-    sql::Connection* con;
+    try
+    {
+        sql::Driver* driver;
+        sql::Connection* con;
 
-    // Create a connection
-    driver = sql::mysql::get_mysql_driver_instance();
-    con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
+        // Create a connection
+        driver = get_driver_instance();
+        con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
 
-    // Switch to the database
-    con->setSchema("Inventory System");
+        // Switch to the database
+        con->setSchema("Inventory System");
 
-    // Create a statement object
-    sql::Statement* stmt;
-    stmt = con->createStatement();
+        // Create a statement object
+        sql::Statement* stmt;
+        sql::ResultSet* res;
+        stmt = con->createStatement();
 
-    std::string encryptedPasword;
-    std::string sqlString;
-    encryptedPasword = encryptPassword(password);
-    user = User(firstName, lastName, email, username, encryptedPasword, verificationCode, inventory);
+        // Create a string for the SQL statement
+        std::string encryptedPasword;
+        std::string sqlString;
+        encryptedPasword = encryptPassword(password);
 
-    sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
+        sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
 
-    // Execute the SQL statement
-    stmt->executeQuery(sqlString);
+        // Execute the SQL statement
+        res = stmt->executeQuery(sqlString);
 
-    delete stmt;
-    delete con;
+        // Add the user to the vector
+        user = User(firstName, lastName, email, username, encryptedPasword, verificationCode, inventory);
+        addUser(user);
 
-    addUser(user);
+		// Clean up
+        delete stmt;
+        delete con;
+    }
+    catch (sql::SQLException& e)
+    {
+        std::cout << "# ERR: SQLException in " << __FILE__;
+        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
+        std::cout << "Error code: " << e.getErrorCode() << std::endl;
+        std::cout << "SQL State: " << e.getSQLState() << std::endl;
+	}
+   
     std::cout << "Account created successfully!" << std::endl;
 }
 
@@ -147,6 +164,7 @@ bool Accounts::login(User& user, Accounts& accounts, const std::string& enteredU
             return true;
         }
     }
+    
     std::cout << "Login failed!" << std::endl;
     return false;
 }
