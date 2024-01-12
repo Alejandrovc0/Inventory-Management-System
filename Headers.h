@@ -8,6 +8,7 @@
 #include "Accounts.h"
 #include "user_system.h"
 #include "main.h"
+#include "Database.h"
 
 #include <iostream>
 #include <iomanip>

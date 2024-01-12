@@ -1,4 +1,5 @@
 #include "Accounts.h"
+#include "Database.h"
 #include <iostream>
 #include <fstream>
 #include "mysql_connection.h"
@@ -9,60 +10,17 @@
 
 void Accounts::loadAccounts()
 {
-    sql::mysql::MySQL_Driver* driver;
-    sql::Connection* con;
+    Database database;
+    
+    database.connect();
 
-    try
-    {
-        driver = sql::mysql::get_mysql_driver_instance();
-        con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
-        std::cout << "Connection stablished" << std::endl;
-        con->setSchema("userInventory");
-        std::cout << "Switched to database" << std::endl;
+    std::string sqlQuery;
+    sqlQuery = "SELECT COUNT(*) AS count FROM Users";
 
-        sql::Statement* stmt;
-        stmt = con->createStatement();
+    database.selectData(sqlQuery);
 
-        sql::ResultSet* countRes;
-        countRes = stmt->executeQuery("SELECT COUNT(*) AS count FROM Users");
-        countRes->next();
-
-        if (countRes->getInt("count") == 0)
-        {
-            std::cout << "No users found!" << std::endl;
-            return;
-        }
-
-        std::string firstName, lastName, email, username, password;
-        int verificationCode;
-        std::vector<User> loadedUsers;
-        Inventory inventory;
-
-        while (countRes->next())
-        {
-            firstName = countRes->getString("first_name");
-            lastName = countRes->getString("last_name");
-            email = countRes->getString("email");
-            username = countRes->getString("username");
-            password = countRes->getString("password");
-            verificationCode = countRes->getInt("verification_code");
-
-            User existingUser(firstName, lastName, email, username, password, verificationCode, inventory);
-            loadedUsers.push_back(existingUser);
-        }
-
-        delete countRes;
-        delete stmt;
-        delete con;
-    }
-    catch (sql::SQLException& e)
-    {
-        std::cout << "# ERR: SQLException in " << __FILE__;
-        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
-        std::cout << "Error: " << e.what() << std::endl;
-        std::cout << "Error code: " << e.getErrorCode() << std::endl;
-        std::cout << "SQL State: " << e.getSQLState() << std::endl;
-    }
+    database.disconnect();
+    
 }
 
 void Accounts::addUser(const User& user)
@@ -70,51 +28,27 @@ void Accounts::addUser(const User& user)
     users.push_back(user);
 }
 
-void Accounts::registerUser(User& user, const std::string& firstName, const std::string& lastName, const std::string& email, const std::string& username, std::string& password, int verificationCode, Inventory& inventory)
+void Accounts::registerUser(Database& dataBase, User& user, const std::string& firstName, const std::string& lastName, const std::string& email, const std::string& username, std::string& password, int verificationCode, Inventory& inventory)
 {
-    try
-    {
-        sql::Driver* driver;
-        sql::Connection* con;
+    // Stablish a connection to the database
+    dataBase.connect();
+    
+    std::string encryptedPasword;
+    encryptedPasword = encryptPassword(password);
 
-        // Create a connection
-        driver = get_driver_instance();
-        con = driver->connect("tcp://127.0.0.1:3306", "root", "Summersarecold20$");
+    // Create a string for the SQL query
+    std::string sqlString;
+    sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
 
-        // Switch to the database
-        con->setSchema("userInventory");
+    // Insert the data into the database
+    dataBase.insertData(sqlString);
+ 
+    // Add the user to the vector
+    user = User(firstName, lastName, email, username, encryptedPasword, verificationCode, inventory);
+    addUser(user);
 
-        // Create a statement object
-        sql::Statement* stmt;
-        sql::ResultSet* res;
-        stmt = con->createStatement();
-
-        // Create a string for the SQL statement
-        std::string encryptedPasword;
-        std::string sqlString;
-        encryptedPasword = encryptPassword(password);
-
-        sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
-
-        // Execute the SQL statement
-        res = stmt->executeQuery(sqlString);
-
-        // Add the user to the vector
-        user = User(firstName, lastName, email, username, encryptedPasword, verificationCode, inventory);
-        addUser(user);
-
-		// Clean up
-        delete stmt;
-        delete con;
-    }
-    catch (sql::SQLException& e)
-    {
-        std::cout << "# ERR: SQLException in " << __FILE__;
-        std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
-		std::cout << "Error: " << e.what() << std::endl;
-        std::cout << "Error code: " << e.getErrorCode() << std::endl;
-        std::cout << "SQL State: " << e.getSQLState() << std::endl;
-	}
+    // Close the connection
+    dataBase.disconnect();
 
     std::cout << "Account created successfully!" << std::endl;
 }
@@ -164,7 +98,7 @@ std::string Accounts::decryptPassword(std::string& password)
     return password;
 }
 
-bool Accounts::login(User& user, Accounts& accounts, const std::string& enteredUsername, std::string& enteredPassword)
+bool Accounts::login(Database& dataBase, User& user, Accounts& accounts, const std::string& enteredUsername, std::string& enteredPassword)
 {
     std::string encryptedPassword = encryptPassword(enteredPassword);
     for (const auto& currentUser : users)
@@ -200,7 +134,7 @@ void Accounts::retrieveUsername(User& user, Accounts& accounts, const std::strin
     std::cout << "No user found with the provided verification code." << std::endl;
 }
 
-void Accounts::changePassword(User& user, Accounts& accounts, const std::string& username, const int verificationCode, std::string& updatedPassword)
+void Accounts::changePassword(Database& dataBase, User& user, Accounts& accounts, const std::string& username, const int verificationCode, std::string& updatedPassword)
 {
 
     for (auto& user : users)
@@ -226,7 +160,7 @@ bool Accounts::userExist(const std::string& username, const int verificationCode
     return false;
 }
 
-void Accounts::deleteUser(User& user, Accounts& accounts, const std::string& username, const int verificationCode)
+void Accounts::deleteUser(Database& dataBase, User& user, Accounts& accounts, const std::string& username, const int verificationCode)
 {
     int choice;
     std::cout << "Are you sure you want to delete your account? (y/n)" << std::endl;

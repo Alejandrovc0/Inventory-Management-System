@@ -5,12 +5,15 @@ int main(int argc, const char** argv)
     bool login = false;
     User user;
     Accounts accounts;
+    Database dataBase;
     std::string name;
     int serialNum = 0;
     int quantity = 0;
     double price = 0.0;
 
-    userMenu(user, accounts, login);
+    dataBase.connect();
+
+    userMenu(dataBase, user, accounts, login);
 
     if (login)
     {

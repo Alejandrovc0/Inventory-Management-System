@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Accounts.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accounts.h" />
+    <ClInclude Include="Database.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />

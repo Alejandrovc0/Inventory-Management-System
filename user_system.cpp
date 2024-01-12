@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 
-void userMenu(User& user, Accounts& accounts, bool& login)
+void userMenu(Database& dataBase, User& user, Accounts& accounts, bool& login)
 {
     int choice;
     std::string firstName, lastName, email, username, password;
@@ -30,19 +30,19 @@ void userMenu(User& user, Accounts& accounts, bool& login)
         switch (choice)
         {
         case 1:
-            userSignup(user, accounts, firstName, lastName, email, username, password, verificationCode);
+            userSignup(dataBase, user, accounts, firstName, lastName, email, username, password, verificationCode);
             break;
         case 2:
-            userLogin(user, accounts, username, password, login);
+            userLogin(dataBase, user, accounts, username, password, login);
             break;
         case 3:
-            changePassword(user, accounts);
+            changePassword(dataBase, user, accounts);
             break;
         case 4:
             recoverUsername(user, accounts);
             break;
         case 5:
-            deleteAccount(user, accounts, username, verificationCode);
+            deleteAccount(dataBase, user, accounts, username, verificationCode);
             break;
         case 6:
             std::cout << "Exiting..." << std::endl;
@@ -55,7 +55,7 @@ void userMenu(User& user, Accounts& accounts, bool& login)
     }
 }
 
-void userSignup(User& user, Accounts& accounts, std::string& firstName, std::string& lastName, std::string& email, std::string& username, std::string& password, int verificationCode)
+void userSignup(Database& dataBase, User& user, Accounts& accounts, std::string& firstName, std::string& lastName, std::string& email, std::string& username, std::string& password, int verificationCode)
 {
     Inventory inventory;
     std::cout << "\t\tSign up" << std::endl;
@@ -87,10 +87,10 @@ void userSignup(User& user, Accounts& accounts, std::string& firstName, std::str
     std::cin >> verificationCode;
     std::cout << std::endl;
 
-    accounts.registerUser(user, firstName, lastName, email, username, password, verificationCode, inventory);
+    accounts.registerUser(dataBase, user, firstName, lastName, email, username, password, verificationCode, inventory);
 }
 
-void userLogin(User& user, Accounts& accounts, std::string& username, std::string& password, bool& login)
+void userLogin(Database& dataBase, User& user, Accounts& accounts, std::string& username, std::string& password, bool& login)
 {
     std::cout << "\t\tLog in" << std::endl;
     std::cout << "Enter your username: ";
@@ -98,10 +98,10 @@ void userLogin(User& user, Accounts& accounts, std::string& username, std::strin
     std::cout << "Enter your password: ";
     std::cin >> password;
     std::cout << std::endl;
-    login = accounts.login(user, accounts, username, password);
+    login = accounts.login(dataBase, user, accounts, username, password);
 }
 
-void changePassword(User& user, Accounts& accounts)
+void changePassword(Database& dataBase, User& user, Accounts& accounts)
 {
     std::string username;
     int verificationCode;
@@ -132,7 +132,7 @@ void changePassword(User& user, Accounts& accounts)
                 break;
             }
         }
-        accounts.changePassword(user, accounts, username, verificationCode, newPassword);
+        accounts.changePassword(dataBase, user, accounts, username, verificationCode, newPassword);
     }
 }
 
@@ -150,7 +150,7 @@ void recoverUsername(User& user, Accounts& accounts)
     accounts.retrieveUsername(user, accounts, name, verificationCode);
 }
 
-void deleteAccount(User& user, Accounts& accounts, std::string& username, int verificationCode)
+void deleteAccount(Database& dataBase, User& user, Accounts& accounts, std::string& username, int verificationCode)
 {
     std::cout << "\t\tDelete account" << std::endl;
     std::cout << "Enter your username: ";
@@ -160,11 +160,11 @@ void deleteAccount(User& user, Accounts& accounts, std::string& username, int ve
 
     if (!accounts.userExist(username, verificationCode))
     {
-        std::cout << "Invalid information!" << std::endl;
+        std::cout << "Invalid information!" << std::endl; 
     }
     else
     {
-        accounts.deleteUser(user, accounts, username, verificationCode);
+        accounts.deleteUser(dataBase, user, accounts, username, verificationCode);
     }
 }
 
