@@ -1,25 +1,20 @@
-#include "Accounts.h"
-#include "Database.h"
 #include <iostream>
 #include <fstream>
+#include "Accounts.h"
 #include "mysql_connection.h"
 #include "mysql_driver.h"
 #include <cppconn/driver.h>
 #include <cppconn/statement.h>
 #include <cppconn/resultset.h>
 
-void Accounts::loadAccounts()
+void Accounts::loadAccounts(Database& dataBase, User& user, Accounts& accounts)
 {
-    Database database;
-    
-    database.connect();
-
     std::string sqlQuery;
-    sqlQuery = "SELECT COUNT(*) AS count FROM Users";
+    sqlQuery = "SELECT COUNT(*) AS count FROM users";
 
-    database.selectData(sqlQuery);
+    dataBase.selectData(sqlQuery, user, accounts);
 
-    database.disconnect();
+    dataBase.disconnect();
     
 }
 
@@ -30,15 +25,13 @@ void Accounts::addUser(const User& user)
 
 void Accounts::registerUser(Database& dataBase, User& user, const std::string& firstName, const std::string& lastName, const std::string& email, const std::string& username, std::string& password, int verificationCode, Inventory& inventory)
 {
-    // Stablish a connection to the database
-    dataBase.connect();
-    
+    // Encrypt the password
     std::string encryptedPasword;
     encryptedPasword = encryptPassword(password);
 
     // Create a string for the SQL query
     std::string sqlString;
-    sqlString = "INSERT INTO Users (first_name, last_name, email, username, password, verification_code) VALUES ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "');";
+    sqlString = "CALL add_users ('" + firstName + "', '" + lastName + "', '" + email + "', '" + username + "', '" + encryptedPasword + "', '" + std::to_string(verificationCode) + "')";
 
     // Insert the data into the database
     dataBase.insertData(sqlString);

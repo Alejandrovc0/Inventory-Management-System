@@ -322,7 +322,7 @@ void save_loadInventory(User& user)
                 valid = true;
             }
         }
-        else if (choice != 's' || choice != 'l')
+        else if (choice != 's' && choice != 'l')
         {
             std::cout << "Invalid choice." << std::endl;
         }
