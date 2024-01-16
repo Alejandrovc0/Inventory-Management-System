@@ -46,10 +46,6 @@ void Database::insertData(std::string sqlQuery)
     try
     {
         // Create a statement object
-        sql::Statement* stmt;
-        stmt = con->createStatement();
-
-        sql::ResultSet* res;
         stmt = con->createStatement();
 
         // Execute the SQL statement
@@ -63,45 +59,41 @@ void Database::insertData(std::string sqlQuery)
 		std::cout << "Error code: " << e.getErrorCode() << std::endl;
 		std::cout << "SQL State: " << e.getSQLState() << std::endl;
     }
-
 }
 
-void Database::selectData(std::string sqlQuery)
+void Database::selectData(std::string sqlQuery, std::vector<User>& loadedUsers, Accounts& accounts)
 {
     try
     {
         // Create a statement object
-        sql::Statement* stmt;
         stmt = con->createStatement();
 
-        sql::ResultSet* countRes;
         // Execute the SQL statement
-        countRes = stmt->executeQuery(sqlQuery);
-        countRes->next();
-
-        if (countRes->getInt("count") == 0)
+        res = stmt->executeQuery(sqlQuery);
+        while (res->next())
         {
-            std::cout << "No users found!" << std::endl;
-            return;
-        }
+            if (res->getInt("count") == 0)
+            {
+                std::cout << "No users found!" << std::endl;
+                return;
+            }
+        
 
-        std::string firstName, lastName, email, username, password;
-        int verificationCode;
-        std::vector<User> loadedUsers;
-        Inventory inventory;
-
-        while (countRes->next())
-        {
-            firstName = countRes->getString("first_name");
-            lastName = countRes->getString("last_name");
-            email = countRes->getString("email");
-            username = countRes->getString("username");
-            password = countRes->getString("password");
-            verificationCode = countRes->getInt("verification_code");
+            std::string firstName, lastName, email, username, password;
+            int verificationCode;
+            Inventory inventory;
+        
+            // Get the data from the database
+            firstName = res->getString("first_name");
+            lastName = res->getString("last_name");
+            email = res->getString("email");
+            password = res->getString("password");
+            username = res->getString("username");
+            verificationCode = res->getInt("verification_code");
 
             // Add the user to the vector
-            User existingUser(firstName, lastName, email, username, password, verificationCode, inventory);
-            loadedUsers.push_back(existingUser);
+            User user(firstName, lastName, email, username, password, verificationCode, inventory);
+            loadedUsers.push_back(user);
         }
     }
     catch (sql::SQLException& e)

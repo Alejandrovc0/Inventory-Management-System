@@ -3,6 +3,8 @@
 #define DATABASE_H
 
 #include <iostream>
+#include "Accounts.h"
+#include "User.h"
 #include "mysql_connection.h"
 #include "mysql_driver.h"
 #include <cppconn/driver.h>
@@ -15,7 +17,7 @@ private:
 	sql::Driver* driver;
 	sql::Connection* con;
 	sql::Statement* stmt;
-	sql::ResultSet* res;\
+	sql::ResultSet* res;
 
 public:
 	Database();
@@ -24,9 +26,10 @@ public:
 	void connect();
 	void disconnect();
 	void insertData(std::string sqlQuery);
-	void selectData(std::string sqlQuery);
+	void selectData(std::string sqlQuery, std::vector<User>& loadedUsers, Accounts& accounts);
 	void updateData();
 	void deleteData();
+
 };
 
 #endif

@@ -10,6 +10,7 @@
 #include "main.h"
 #include "Database.h"
 
+#include <stdlib.h>
 #include <iostream>
 #include <iomanip>
 #include <cctype>

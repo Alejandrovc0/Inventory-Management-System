@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <string>
-#include <fstream>
 
 void userMenu(Database& dataBase, User& user, Accounts& accounts, bool& login)
 {
@@ -11,7 +10,7 @@ void userMenu(Database& dataBase, User& user, Accounts& accounts, bool& login)
 
     int verificationCode = 0;
 
-    accounts.loadAccounts();
+    accounts.loadAccounts(dataBase, user, accounts);
 
     while (!login)
     {

@@ -3,6 +3,7 @@
 #define ACCOUNT_H
 
 #include "User.h"
+#include "Database.h"
 #include <vector>
 
 class Accounts
@@ -11,7 +12,7 @@ private:
     std::vector<User> users;
 
 public:
-    void loadAccounts();
+    void loadAccounts(Database& dataBase, User& user, Accounts& accounts);
     void addUser(const User& newUser);
     void registerUser(Database& dataBase, User& user, const std::string& firstName, const std::string& lastName, const std::string& email, const std::string& username, std::string& password, int verificationCode, Inventory& inventory);
     bool isValidPassword(const std::string& password);
