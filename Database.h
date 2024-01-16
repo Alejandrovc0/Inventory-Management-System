@@ -26,11 +26,7 @@ public:
 	void connect();
 	void disconnect();
 	void insertData(std::string sqlQuery);
-<<<<<<< HEAD
 	void selectData(std::string sqlQuery, std::vector<User>& loadedUsers, Accounts& accounts);
-=======
-	void selectData(std::string sqlQuery, User& loadedUser, Accounts& accounts);
->>>>>>> b2191dd69aa669f8dfba4bca12c85f825d828625
 	void updateData();
 	void deleteData();
 
