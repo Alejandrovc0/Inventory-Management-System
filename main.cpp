@@ -13,6 +13,9 @@ int main(int argc, const char** argv)
 
     dataBase.connect();
 
+    std::vector<User> loadedUsers;
+    accounts.loadAccounts(dataBase, loadedUsers, accounts);
+
     userMenu(dataBase, user, accounts, login);
 
     if (login)

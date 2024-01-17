@@ -77,7 +77,6 @@ void Database::selectData(std::string sqlQuery, std::vector<User>& loadedUsers, 
                 std::cout << "No users found!" << std::endl;
                 return;
             }
-        
 
             std::string firstName, lastName, email, username, password;
             int verificationCode;

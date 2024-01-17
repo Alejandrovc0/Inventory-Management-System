@@ -7,22 +7,14 @@
 #include <cppconn/statement.h>
 #include <cppconn/resultset.h>
 
-void Accounts::loadAccounts(Database& dataBase, User& user, Accounts& accounts)
+void Accounts::loadAccounts(Database& dataBase, std::vector<User>& loadedUsers, Accounts& accounts)
 {
     std::string sqlQuery;
     sqlQuery = "SELECT COUNT(*) AS count FROM users";
 
-<<<<<<< HEAD
-    std::vector<User> loadedUsers;
-
     dataBase.selectData(sqlQuery, loadedUsers, accounts);
 
-=======
-    dataBase.selectData(sqlQuery, user, accounts);
-
->>>>>>> b2191dd69aa669f8dfba4bca12c85f825d828625
     dataBase.disconnect();
-    
 }
 
 void Accounts::addUser(const User& user)

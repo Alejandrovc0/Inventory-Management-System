@@ -10,8 +10,6 @@ void userMenu(Database& dataBase, User& user, Accounts& accounts, bool& login)
 
     int verificationCode = 0;
 
-    accounts.loadAccounts(dataBase, user, accounts);
-
     while (!login)
     {
         std::cout << std::endl;
