@@ -1,4 +1,3 @@
-#pragma once
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
@@ -25,6 +24,5 @@ public:
     bool userExist(const std::string& username, const int verificationCode);
     void deleteUser(Database& dataBase, User& user, Accounts& accounts, const std::string& username, const int verificationCode);
 };
-
 
 #endif
