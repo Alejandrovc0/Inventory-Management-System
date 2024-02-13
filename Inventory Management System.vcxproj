@@ -157,7 +157,6 @@
     <ClInclude Include="Headers.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="main.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="user_system.h" />
   </ItemGroup>

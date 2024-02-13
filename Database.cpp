@@ -1,17 +1,21 @@
+#include <iostream>
+#include <fstream>
 #include "Database.h"
 #include "Inventory.h"
 #include "User.h"
+#include "Accounts.h"
 
-Database::Database()
-:driver(nullptr), con(nullptr), stmt(nullptr), res(nullptr) {}
+Database::Database() // Constructor
+:driver(nullptr), con(nullptr), stmt(nullptr), res(nullptr) {} // Initialize the pointers to nullptr
 
-Database::~Database()
+Database::~Database() // Destructor
 {
 	delete res;
 	delete stmt;
 	delete con;
 }
 
+// Connect to the database
 void Database::connect()
 {
     try
@@ -25,7 +29,7 @@ void Database::connect()
         con->setSchema("userInventory");
         std::cout << "Switched to database" << std::endl;
     }
-    catch (sql::SQLException& e)
+    catch (sql::SQLException& e) // Catch any SQL exceptions
     {
         std::cout << "# ERR: SQLException in " << __FILE__;
         std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
@@ -34,6 +38,8 @@ void Database::connect()
         std::cout << "SQL State: " << e.getSQLState() << std::endl;
 	}
 }
+
+// Disconnect from the database
 void Database::disconnect()
 {
     delete res;
@@ -41,6 +47,7 @@ void Database::disconnect()
     delete con;
 }
 
+// Insert data into the database with a SQL query
 void Database::insertData(std::string sqlQuery)
 {
     try
@@ -51,7 +58,7 @@ void Database::insertData(std::string sqlQuery)
         // Execute the SQL statement
         res = stmt->executeQuery(sqlQuery);
     }
-    catch (sql::SQLException& e)
+    catch (sql::SQLException& e) // Catch any SQL exceptions
     {
 		std::cout << "# ERR: SQLException in " << __FILE__;
 		std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
@@ -61,7 +68,8 @@ void Database::insertData(std::string sqlQuery)
     }
 }
 
-void Database::selectData(std::string sqlQuery, std::vector<User>& loadedUsers, Accounts& accounts)
+// Select data from the database with a SQL query
+void Database::selectData(std::string sqlQuery, Accounts& accounts)
 {
     try
     {
@@ -70,17 +78,18 @@ void Database::selectData(std::string sqlQuery, std::vector<User>& loadedUsers, 
 
         // Execute the SQL statement
         res = stmt->executeQuery(sqlQuery);
-        while (res->next())
+
+        while (res->next()) // Loop through the result set
         {
-            if (res->getInt("count") == 0)
+            if (res->getInt("count") == 0) // Check if there are no users in the database
             {
-                std::cout << "No users found!" << std::endl;
+                std::cout << "No users found!" << std::endl; // Print a message to the user
                 return;
             }
 
-            std::string firstName, lastName, email, username, password;
-            int verificationCode;
-            Inventory inventory;
+            std::string firstName, lastName, email, username, password; // Variables to store the user's data
+            int verificationCode; // Variable to store the user's verification code
+            Inventory inventory; // Create an inventory object
         
             // Get the data from the database
             firstName = res->getString("first_name");
@@ -92,10 +101,10 @@ void Database::selectData(std::string sqlQuery, std::vector<User>& loadedUsers, 
 
             // Add the user to the vector
             User user(firstName, lastName, email, username, password, verificationCode, inventory);
-            loadedUsers.push_back(user);
+            accounts.addUser(user);
         }
     }
-    catch (sql::SQLException& e)
+    catch (sql::SQLException& e) // Catch any SQL exceptions
     {
         std::cout << "# ERR: SQLException in " << __FILE__;
         std::cout << "(" << __FUNCTION__ << ") on line " << __LINE__ << std::endl;
@@ -105,11 +114,13 @@ void Database::selectData(std::string sqlQuery, std::vector<User>& loadedUsers, 
     }
 }
 
+// Update data in the database
 void Database::updateData()
 {
 
 }
 
+// Delete data from the database
 void Database::deleteData()
 {
 
