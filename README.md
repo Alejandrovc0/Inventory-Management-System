@@ -1,5 +1,3 @@
-Certainly! Here is the updated `README.md` to fit the new structure using Visual Studio instead of CMake:
-
 # Inventory Management System
 
 ## Overview
@@ -124,5 +122,3 @@ Contributions are welcome! If you have ideas for improvements or want to add new
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-Feel free to customize and expand upon this template based on your project's specific details and requirements.
