@@ -1,3 +1,5 @@
+Certainly! Here is the updated `README.md` to fit the new structure using Visual Studio instead of CMake:
+
 # Inventory Management System
 
 ## Overview
@@ -11,7 +13,7 @@ This console-based Inventory Management System is designed to help users manage 
 - [Skills Practiced](#skills-practiced)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
-- [Test Files](#additional-Test-Files)
+- [Test Files](#additional-test-files)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -61,38 +63,32 @@ Implement validation for user inputs to ensure data integrity.
 - Object-oriented programming (using classes for items, inventory, etc.)
 - User input and validation
 - Basic data structures and algorithms for searching and updating items.
-- CMake for project building and linking
+- Visual Studio for project building and debugging
 
-**Getting Started:**
+## Getting Started
+
 1. Clone the repository:
 
     ```bash
     git clone https://github.com/your-username/Inventory-Management-System.git
     ```
 
-2. Navigate to the project directory:
+2. Open the project in Visual Studio:
+    - Launch Visual Studio.
+    - Select "Open a project or solution".
+    - Navigate to the cloned repository directory and select the `.sln` file.
 
-    ```bash
-    cd Inventory-Management-System
-    ```
+3. Build the project:
+    - In Visual Studio, select "Build" from the top menu.
+    - Choose "Build Solution" (or press `Ctrl+Shift+B`).
 
-3. Build the project using CMake:
+4. Run the project:
+    - Press `F5` to start debugging or `Ctrl+F5` to run without debugging.
 
-    ```bash
-    cmake -S . -B build
-    cmake --build build
-    ```
-
-4. Run the executable:
-
-    ```bash
-    ./build/inventory_system
-    ```
-    
 ## Project Structure
 
 Inventory-Management-System/
-```` bash
+```
 |-- include/
 |   |-- headers.h            # Header file containing necessary includes
 |   |-- mainFunction.h       # Header file containing main function declarations
@@ -109,7 +105,9 @@ Inventory-Management-System/
 |   |-- accounts.cpp         # Implementation file for account class
 |   |-- inventory.cpp        # Implementation file for inventory class
 |   |-- item.cpp             # Implementation file for item class
-````
+|
+|-- InventoryManagementSystem.sln # Visual Studio solution file
+```
 
 ## Additional Test Files
   
