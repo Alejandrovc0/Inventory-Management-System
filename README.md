@@ -2,7 +2,7 @@
 
 ## Overview
 
-This console-based Inventory Management System is designed to help users manage their inventory efficiently. It provides essential features such as adding, removing, updating, viewing items, and more. The system allows users to interact with their inventory through a user-friendly command-line interface.
+This console-based Inventory Management System is designed to help users manage their inventory efficiently. It provides essential features such as adding, removing, updating, viewing items, and more. The system allows users to interact with their inventory through a user-friendly command-line interface. All user and inventory data is managed through a MySQL database.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ This console-based Inventory Management System is designed to help users manage 
 
 ### 1. Add Item
 
-Users can add new items to the inventory by providing details such as item name, quantity, price, and additional relevant information.
+Users can add new items to the inventory by providing details such as item name, quantity, price, and additional relevant information. 
 
 ### 2. Remove Item
 
@@ -45,15 +45,15 @@ Functionality to save the inventory data to a file and load it back when the pro
 
 ### 1. Transaction History
 
-Keep a log of transactions (additions, removals, updates) with timestamps.
+Keep a log of transactions (additions, removals, updates) with timestamps. The transaction history is stored in the MySQL database.
 
 ### 2. User Authentication
 
-A simple login system to restrict access to authorized users.
+A simple login system to restrict access to authorized users. User credentials are managed in the MySQL database.
 
 ### 3. Data Validation
 
-Implement validation for user inputs to ensure data integrity.
+Implement validation for user inputs to ensure data integrity. 
 
 ## Skills Practiced
 
@@ -61,6 +61,7 @@ Implement validation for user inputs to ensure data integrity.
 - Object-oriented programming (using classes for items, inventory, etc.)
 - User input and validation
 - Basic data structures and algorithms for searching and updating items.
+- MySQL for database management
 - Visual Studio for project building and debugging
 
 ## Getting Started
@@ -71,16 +72,28 @@ Implement validation for user inputs to ensure data integrity.
     git clone https://github.com/your-username/Inventory-Management-System.git
     ```
 
-2. Open the project in Visual Studio:
+2. Set up the MySQL database:
+    - Create a new MySQL database and run the provided [SQL script](SQL-script) to set up the necessary tables and sample data.
+    - You can use a MySQL database management tool like MySQL Workbench, or the MySQL command line interface to execute the script. Save the [script](SQL-script) to a file, e.g., setup_database.sql.
+    - Execute the script using a MySQL client:
+      
+    ```bash
+    mysql -u your_username -p < setup_database.sql
+    ```
+      
+3. Configure the database connection:
+    - Update the database connection settings in the Database.h file.
+
+4. Open the project in Visual Studio:
     - Launch Visual Studio.
     - Select "Open a project or solution".
     - Navigate to the cloned repository directory and select the `.sln` file.
 
-3. Build the project:
+5. Build the project:
     - In Visual Studio, select "Build" from the top menu.
     - Choose "Build Solution" (or press `Ctrl+Shift+B`).
 
-4. Run the project:
+6. Run the project:
     - Press `F5` to start debugging or `Ctrl+F5` to run without debugging.
 
 ## Project Structure
