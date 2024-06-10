@@ -78,7 +78,7 @@ Implement validation for user inputs to ensure data integrity.
     - Execute the script using a MySQL client:
 
         ```bash
-        mysql -u your_username -p < setup_database.sql
+        mysql -u your_username -p < script_database.sql
         ```
       
 3. Configure the database connection:
