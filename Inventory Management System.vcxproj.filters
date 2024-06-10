@@ -53,11 +53,16 @@
     <ClInclude Include="include\Inventory.h">
       <Filter>Include</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="include\Item.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="include\main.h">
       <Filter>Include</Filter>
+=======
+    <ClInclude Include="Headers.h">
+      <Filter>Header Files</Filter>
+>>>>>>> 2c0a8250a68332b30da27f90cd03ea20feb3f696
     </ClInclude>
     <ClInclude Include="include\mainfunctions.h">
       <Filter>Include</Filter>

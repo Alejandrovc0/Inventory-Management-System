@@ -153,6 +153,7 @@
     <ClCompile Include="src\user_system.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="include\Accounts.h" />
     <ClInclude Include="include\Database.h" />
     <ClInclude Include="include\Headers.h" />
@@ -163,6 +164,15 @@
     <ClInclude Include="include\User.h" />
     <ClInclude Include="include\user_declaration.h" />
     <ClInclude Include="include\user_system.h" />
+=======
+    <ClInclude Include="Accounts.h" />
+    <ClInclude Include="Database.h" />
+    <ClInclude Include="Headers.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="user_system.h" />
+>>>>>>> 2c0a8250a68332b30da27f90cd03ea20feb3f696
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
