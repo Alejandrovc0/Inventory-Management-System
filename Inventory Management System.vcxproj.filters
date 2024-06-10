@@ -5,62 +5,68 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{f2678eb4-d9c6-4410-a788-128899997706}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="User.cpp">
+    <ClCompile Include="src\Accounts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Accounts.cpp">
+    <ClCompile Include="src\Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
+    <ClCompile Include="src\Inventory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
+    <ClCompile Include="src\Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="user_system.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Database.cpp">
+    <ClCompile Include="src\user_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\user_system.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Accounts.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Accounts.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Database.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Headers.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="user_system.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Inventory.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\Item.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Headers.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\main.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\mainfunctions.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\User.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\user_declaration.h">
+      <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
