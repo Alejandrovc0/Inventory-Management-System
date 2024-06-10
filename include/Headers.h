@@ -7,7 +7,6 @@
 #include "User.h"
 #include "Accounts.h"
 #include "user_system.h"
-#include "main.h"
 #include "Database.h"
 
 #include <stdlib.h>
