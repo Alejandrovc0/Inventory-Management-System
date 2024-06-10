@@ -74,7 +74,7 @@ Implement validation for user inputs to ensure data integrity.
 
 2. Set up the MySQL database:
     - Create a new MySQL database and run the provided [SQL script](script_database.sql) to set up the necessary tables and sample data.
-    - You can use a MySQL database management tool like [MySQL Workbench](https://www.mysql.com/products/workbench/), or the MySQL command line interface to execute the script. Save the [script](script_database.sql) to a file, e.g., setup_database.sql.
+    - You can use a MySQL database management tool like [MySQL Workbench](https://www.mysql.com/products/workbench/), or the MySQL command line interface to execute the script. Save the [script](script_database.sql) to a file, e.g., script_database.sql.
     - Execute the script using a MySQL client:
 
         ```bash
