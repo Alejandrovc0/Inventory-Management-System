@@ -89,7 +89,6 @@ Inventory-Management-System/
 ```
 |-- include/
 |   |-- headers.h            # Header file containing necessary includes
-|   |-- mainFunction.h       # Header file containing main function declarations
 |   |-- user_system.h        # Header file for user system functions
 |   |-- user.h               # Header file for user class
 |   |-- accounts.h           # Header file for account class
