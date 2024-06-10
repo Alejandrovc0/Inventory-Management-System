@@ -10,7 +10,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Include">
-      <UniqueIdentifier>{f2678eb4-d9c6-4410-a788-128899997706}</UniqueIdentifier>
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
@@ -38,9 +38,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\user_system.h">
-      <Filter>Include</Filter>
-    </ClInclude>
     <ClInclude Include="include\Accounts.h">
       <Filter>Include</Filter>
     </ClInclude>
@@ -53,24 +50,13 @@
     <ClInclude Include="include\Inventory.h">
       <Filter>Include</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="include\Item.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\main.h">
-      <Filter>Include</Filter>
-=======
-    <ClInclude Include="Headers.h">
-      <Filter>Header Files</Filter>
->>>>>>> 2c0a8250a68332b30da27f90cd03ea20feb3f696
-    </ClInclude>
-    <ClInclude Include="include\mainfunctions.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="include\User.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="include\user_declaration.h">
+    <ClInclude Include="include\user_system.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
